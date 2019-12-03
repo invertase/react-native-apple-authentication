@@ -1,0 +1,43 @@
+{
+  "name": "@invertase/react-native-apple-authentication",
+  "version": "0.0.1",
+  "author": "Invertase <oss@invertase.io> (http://invertase.io)",
+  "description": "React Native Apple Authentication",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "genversion --semi lib/version.js",
+    "build:clean": "rimraf rimraf ios/build",
+    "prepare": "yarn run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/invertase/react-native-apple-authentication"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "react",
+    "react-native",
+    "apple",
+    "firebase",
+    "authentication",
+    "ios",
+    "apple-authentication"
+  ],
+  "peerDependencies": {
+
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "genversion": "^2.2.0",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.7.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "prettier": "^1.19.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
