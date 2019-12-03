@@ -26,19 +26,34 @@ import auth, {
   AppleAuthRealUserStatus,
 } from '@invertase/react-native-apple-authentication';
 
-const user = 'apple@invertase.io';
+const user = '1234567890';
 
+/**
+ * Starts the Sign In flow.
+ */
 async function onAppleButtonPress() {
-  console.warn('pressed!!');
+  console.warn('Beginning Apple Authentication');
+
   const appleAuthRequestResponse = await auth.performRequest({
+    user, // optional
     requestedOperation: AppleAuthRequestOperation.LOGIN,
     requestedScopes: [AppleAuthRequestScope.EMAIL, AppleAuthRequestScope.FULL_NAME],
   });
 
-  const { nonce } = appleAuthRequestResponse;
-// TODO
+  const { user, email, nonce, identityToken, realUserStatus /* etc */ } = appleAuthRequestResponse;
 
-  console.warn('after press');
+  if (identityToken) {
+    // e.g. sign in with Firebase Auth using `nonce` & `identityToken`
+    console.log(nonce, identityToken);
+  } else {
+    // no token - failed sign-in?
+  }
+
+  if (realUserStatus === AppleAuthRealUserStatus.LIKELY_REAL) {
+    console.log("I'm a real person!");
+  }
+
+  console.warn(`Apple Authentication Completed, ${user}, ${email}`);
 }
 
 function RootComponent() {

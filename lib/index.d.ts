@@ -127,8 +127,16 @@ namespace RNAppleAuth {
    * A response from `performRequest(requestOptions)`.
    */
   export interface AppleAuthRequestResponse {
-    // TODO
+    // TODO type docs for each
     nonce: string;
+    user: string;
+    fullName: Object; // TODO
+    realUserStatus: AppleAuthRealUserStatus;
+    authorizedScopes: AppleAuthRequestScope[];
+    identityToken: string | null;
+    email: string | null;
+    state: string | null;
+    authorizationCode: string | null;
   }
 
   export interface Module {
