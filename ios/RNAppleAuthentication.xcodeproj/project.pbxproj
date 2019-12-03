@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		270944E52394778E00316C6B /* RCTConvert+ASUserDetectionStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944D72394778E00316C6B /* RCTConvert+ASUserDetectionStatus.m */; };
-		270944E62394778E00316C6B /* RCTConvert+ASAuthorizationScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944DB2394778E00316C6B /* RCTConvert+ASAuthorizationScope.m */; };
-		270944E72394778E00316C6B /* RNAppleAuthASAuthorizationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944DC2394778E00316C6B /* RNAppleAuthASAuthorizationControllerDelegate.m */; };
-		270944E82394778E00316C6B /* RCTConvert+ASAuthorizationOpenIDOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944DD2394778E00316C6B /* RCTConvert+ASAuthorizationOpenIDOperation.m */; };
+		270944E52394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944D72394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDRequest.m */; };
+		270944E72394778E00316C6B /* RNAppleAuthASAuthorizationDelegates.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944DC2394778E00316C6B /* RNAppleAuthASAuthorizationDelegates.m */; };
 		270944E92394778E00316C6B /* RNAppleAuthUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944DE2394778E00316C6B /* RNAppleAuthUtils.m */; };
 		270944EA2394778E00316C6B /* RNAppleAuthButtonViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944DF2394778E00316C6B /* RNAppleAuthButtonViewManager.m */; };
 		270944EB2394778E00316C6B /* RNAppleAuthButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944E02394778E00316C6B /* RNAppleAuthButtonView.m */; };
-		270944EC2394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDProviderCredentialState.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944E22394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDProviderCredentialState.m */; };
 		270944ED2394778E00316C6B /* RNAppleAuthModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944E42394778E00316C6B /* RNAppleAuthModule.m */; };
 /* End PBXBuildFile section */
 
@@ -31,22 +28,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		270944D42394778D00316C6B /* RCTConvert+ASAuthorizationOpenIDOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+ASAuthorizationOpenIDOperation.h"; sourceTree = "<group>"; };
-		270944D52394778D00316C6B /* RNAppleAuthASAuthorizationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAppleAuthASAuthorizationControllerDelegate.h; sourceTree = "<group>"; };
+		270944D52394778D00316C6B /* RNAppleAuthASAuthorizationDelegates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAppleAuthASAuthorizationDelegates.h; sourceTree = "<group>"; };
 		270944D62394778D00316C6B /* RNAppleAuthModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAppleAuthModule.h; sourceTree = "<group>"; };
-		270944D72394778E00316C6B /* RCTConvert+ASUserDetectionStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+ASUserDetectionStatus.m"; sourceTree = "<group>"; };
+		270944D72394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+ASAuthorizationAppleIDRequest.m"; sourceTree = "<group>"; };
 		270944D82394778E00316C6B /* RNAppleAuthUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAppleAuthUtils.h; sourceTree = "<group>"; };
-		270944D92394778E00316C6B /* RCTConvert+ASAuthorizationScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+ASAuthorizationScope.h"; sourceTree = "<group>"; };
-		270944DA2394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDProviderCredentialState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+ASAuthorizationAppleIDProviderCredentialState.h"; sourceTree = "<group>"; };
-		270944DB2394778E00316C6B /* RCTConvert+ASAuthorizationScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+ASAuthorizationScope.m"; sourceTree = "<group>"; };
-		270944DC2394778E00316C6B /* RNAppleAuthASAuthorizationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAppleAuthASAuthorizationControllerDelegate.m; sourceTree = "<group>"; };
-		270944DD2394778E00316C6B /* RCTConvert+ASAuthorizationOpenIDOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+ASAuthorizationOpenIDOperation.m"; sourceTree = "<group>"; };
+		270944DC2394778E00316C6B /* RNAppleAuthASAuthorizationDelegates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAppleAuthASAuthorizationDelegates.m; sourceTree = "<group>"; };
 		270944DE2394778E00316C6B /* RNAppleAuthUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAppleAuthUtils.m; sourceTree = "<group>"; };
 		270944DF2394778E00316C6B /* RNAppleAuthButtonViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAppleAuthButtonViewManager.m; sourceTree = "<group>"; };
 		270944E02394778E00316C6B /* RNAppleAuthButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAppleAuthButtonView.m; sourceTree = "<group>"; };
 		270944E12394778E00316C6B /* RNAppleAuthButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAppleAuthButtonView.h; sourceTree = "<group>"; };
-		270944E22394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDProviderCredentialState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+ASAuthorizationAppleIDProviderCredentialState.m"; sourceTree = "<group>"; };
-		270944E32394778E00316C6B /* RCTConvert+ASUserDetectionStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+ASUserDetectionStatus.h"; sourceTree = "<group>"; };
+		270944E32394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+ASAuthorizationAppleIDRequest.h"; sourceTree = "<group>"; };
 		270944E42394778E00316C6B /* RNAppleAuthModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNAppleAuthModule.m; sourceTree = "<group>"; };
 		2744B98221F45429004F8E3F /* libRNAppleAuthentication.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNAppleAuthentication.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -73,16 +64,10 @@
 		2744B98321F45429004F8E3F /* RNAppleAuthentication */ = {
 			isa = PBXGroup;
 			children = (
-				270944DA2394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDProviderCredentialState.h */,
-				270944E22394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDProviderCredentialState.m */,
-				270944D42394778D00316C6B /* RCTConvert+ASAuthorizationOpenIDOperation.h */,
-				270944DD2394778E00316C6B /* RCTConvert+ASAuthorizationOpenIDOperation.m */,
-				270944D92394778E00316C6B /* RCTConvert+ASAuthorizationScope.h */,
-				270944DB2394778E00316C6B /* RCTConvert+ASAuthorizationScope.m */,
-				270944E32394778E00316C6B /* RCTConvert+ASUserDetectionStatus.h */,
-				270944D72394778E00316C6B /* RCTConvert+ASUserDetectionStatus.m */,
-				270944D52394778D00316C6B /* RNAppleAuthASAuthorizationControllerDelegate.h */,
-				270944DC2394778E00316C6B /* RNAppleAuthASAuthorizationControllerDelegate.m */,
+				270944E32394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDRequest.h */,
+				270944D72394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDRequest.m */,
+				270944D52394778D00316C6B /* RNAppleAuthASAuthorizationDelegates.h */,
+				270944DC2394778E00316C6B /* RNAppleAuthASAuthorizationDelegates.m */,
 				270944E12394778E00316C6B /* RNAppleAuthButtonView.h */,
 				270944E02394778E00316C6B /* RNAppleAuthButtonView.m */,
 				270944DF2394778E00316C6B /* RNAppleAuthButtonViewManager.m */,
@@ -161,14 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				270944EC2394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDProviderCredentialState.m in Sources */,
 				270944E92394778E00316C6B /* RNAppleAuthUtils.m in Sources */,
-				270944E52394778E00316C6B /* RCTConvert+ASUserDetectionStatus.m in Sources */,
+				270944E52394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDRequest.m in Sources */,
 				270944EA2394778E00316C6B /* RNAppleAuthButtonViewManager.m in Sources */,
 				270944ED2394778E00316C6B /* RNAppleAuthModule.m in Sources */,
-				270944E82394778E00316C6B /* RCTConvert+ASAuthorizationOpenIDOperation.m in Sources */,
-				270944E62394778E00316C6B /* RCTConvert+ASAuthorizationScope.m in Sources */,
-				270944E72394778E00316C6B /* RNAppleAuthASAuthorizationControllerDelegate.m in Sources */,
+				270944E72394778E00316C6B /* RNAppleAuthASAuthorizationDelegates.m in Sources */,
 				270944EB2394778E00316C6B /* RNAppleAuthButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

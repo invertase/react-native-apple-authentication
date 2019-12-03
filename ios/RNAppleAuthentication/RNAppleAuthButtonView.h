@@ -19,5 +19,5 @@
 #import <AuthenticationServices/AuthenticationServices.h>
 
 @interface RNAppleAuthButtonView : ASAuthorizationAppleIDButton
-@property (nonatomic, copy) RCTBubblingEventBlock onPress;
+@property(nonatomic, copy) RCTBubblingEventBlock onPress;
 @end

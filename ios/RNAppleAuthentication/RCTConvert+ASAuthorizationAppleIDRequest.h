@@ -1,4 +1,3 @@
-//
 /**
  * Copyright (c) 2016-present Invertase Limited & Contributors
  *
@@ -16,8 +15,10 @@
  *
  */
 
-#ifndef RCTConvert_ASAuthorizationOpenIDOperation_h
-#define RCTConvert_ASAuthorizationOpenIDOperation_h
+#import <React/RCTConvert.h>
 
+@import AuthenticationServices;
 
-#endif /* RCTConvert_ASAuthorizationOpenIDOperation_h */
+@interface RCTConvert (ASAuthorizationAppleIDRequest)
++ (ASAuthorizationAppleIDRequest *)appIdRequestFromDictionary:(NSDictionary *)requestOptions;
+@end

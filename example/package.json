@@ -5,7 +5,7 @@
   "scripts": {
     "build:clean": "rimraf ios/build",
     "prepare": "patch-package",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
     "run:android": "react-native run-android",
     "run:ios": "react-native run-ios --simulator=\"iPhone 11\""
   },

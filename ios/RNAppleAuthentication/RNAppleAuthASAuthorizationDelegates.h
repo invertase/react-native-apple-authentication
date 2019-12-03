@@ -16,8 +16,20 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <React/RCTUtils.h>
 #import <React/RCTBridgeModule.h>
+
 @import AuthenticationServices;
 
-@interface RNAppleAuthModule : NSObject <RCTBridgeModule>
+@interface RNAppleAuthASAuthorizationDelegates : NSObject <ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding>
+
+@property _Nullable RCTPromiseRejectBlock promiseReject;
+@property _Nullable RCTPromiseResolveBlock promiseResolve;
+@property(nonatomic, strong, nonnull) NSString *nonce;
+@property(nonatomic, strong, nonnull) ASAuthorizationController *authController;
+
+- (instancetype)initWithPromiseResolve:(RCTPromiseResolveBlock)resolve andPromiseReject:(RCTPromiseRejectBlock)reject;
+
+- (void)performRequestsForAuthorizationController:(ASAuthorizationController *)authorizationController andProvidingNonce:(NSString *)nonce;
+
 @end

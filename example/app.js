@@ -18,12 +18,27 @@
 
 import React, { useState, useEffect } from 'react';
 import { AppRegistry, StyleSheet, View, Text } from 'react-native';
-import auth, { AppleButton, AppleAuthError } from '@invertase/react-native-apple-authentication';
+import auth, {
+  AppleButton,
+  AppleAuthError,
+  AppleAuthRequestOperation,
+  AppleAuthRequestScope,
+  AppleAuthRealUserStatus,
+} from '@invertase/react-native-apple-authentication';
 
 const user = 'apple@invertase.io';
 
-function onAppleButtonPress() {
-  console.warn(`Pressed`);
+async function onAppleButtonPress() {
+  console.warn('pressed!!');
+  const appleAuthRequestResponse = await auth.performRequest({
+    requestedOperation: AppleAuthRequestOperation.LOGIN,
+    requestedScopes: [AppleAuthRequestScope.EMAIL, AppleAuthRequestScope.FULL_NAME],
+  });
+
+  const { nonce } = appleAuthRequestResponse;
+// TODO
+
+  console.warn('after press');
 }
 
 function RootComponent() {

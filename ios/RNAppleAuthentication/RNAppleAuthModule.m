@@ -18,6 +18,7 @@
 #import <React/RCTUtils.h>
 
 #import "RNAppleAuthModule.h"
+#import "RNAppleAuthASAuthorizationDelegates.h"
 
 @implementation RNAppleAuthModule
 
@@ -32,13 +33,6 @@ RCT_EXPORT_MODULE();
 
 + (BOOL)requiresMainQueueSetup {
   return NO;
-}
-
-#pragma mark -
-#pragma mark ASAuthorizationControllerPresentationContextProviding Methods
-
-- (ASPresentationAnchor)presentationAnchorForAuthorizationController:(ASAuthorizationController *)controller {
-  return RCTKeyWindow();
 }
 
 #pragma mark -
@@ -61,24 +55,26 @@ RCT_EXPORT_METHOD(getCredentialStateForUser:
 }
 
 RCT_EXPORT_METHOD(performRequest:
-  (ASAuthorizationOpenIDOperation) operation
-    :(NSArray<ASAuthorizationScope> *) scopes
+  (ASAuthorizationAppleIDRequest *) appleIdRequest
     :(RCTPromiseResolveBlock) resolve
     :(RCTPromiseRejectBlock) reject
 ) {
-  // TODO
-  resolve([NSNull null]);
+  ASAuthorizationController *authorizationController = [
+      [ASAuthorizationController alloc] initWithAuthorizationRequests:@[appleIdRequest]
+  ];
+
+  RNAppleAuthASAuthorizationDelegates *delegates = [
+      [RNAppleAuthASAuthorizationDelegates alloc] initWithPromiseResolve:resolve andPromiseReject:reject
+  ];
+
+  [delegates performRequestsForAuthorizationController:authorizationController andProvidingNonce:appleIdRequest.nonce];
 }
 
 - (NSDictionary *)constantsToExport {
-  NSMutableDictionary *constants = [@{
+  return @{
       @"isSupported": @available(iOS 13.0, *) ? @(YES) : @(NO),
-      // TODO isSupported
-      // TODO AppleAuthRequestOperation
-      // TODO AppleAuthCredentialState
-  } mutableCopy];
-
-  return constants;
+      @"isSignUpButtonSupported": @available(iOS 13.2, *) ? @(YES) : @(NO),
+  };
 }
 
 @end
