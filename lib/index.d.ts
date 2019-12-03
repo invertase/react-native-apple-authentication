@@ -92,6 +92,38 @@ namespace RNAppleAuth {
      */
     getCredentialStateForUser(user: string): Promise<AppleAuthCredentialState>;
   }
+
+  /**
+   * Errors that can occur during authorization.
+   *
+   * @url https://developer.apple.com/documentation/authenticationservices/asauthorizationerror/code
+   */
+  export enum AppleAuthError {
+    /**
+     * The authorization attempt failed for an unknown reason.
+     */
+    UNKNOWN = '1000',
+
+    /**
+     * The user canceled the authorization attempt.
+     */
+    CANCELED = '1001',
+
+    /**
+     * The authorization request received an invalid response.
+     */
+    INVALID_RESPONSE = '1002',
+
+    /**
+     * The authorization request wasn't handled.
+     */
+    NOT_HANDLED = '1003',
+
+    /**
+     * The authorization attempt failed.
+     */
+    FAILED = '1004',
+  }
 }
 
 declare module '@invertase/react-native-apple-authentication' {
@@ -101,6 +133,8 @@ declare module '@invertase/react-native-apple-authentication' {
     Type: typeof RNAppleAuth.AppleButtonType;
     Style: typeof RNAppleAuth.AppleButtonStyle;
   } & React.FC<RNAppleAuth.AppleButton>;
+
+  export const AppleAuthError: typeof RNAppleAuth.AppleAuthError;
 
   const defaultExport: {} & RNAppleAuth.Module;
   export default defaultExport;

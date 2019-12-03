@@ -49,8 +49,15 @@ RCT_EXPORT_METHOD(getCredentialStateForUser:
     :(RCTPromiseResolveBlock) resolve
     :(RCTPromiseRejectBlock) reject
 ) {
-  // TODO
-  resolve([NSNull null]);
+  ASAuthorizationAppleIDProvider *appleIdProvider = [[ASAuthorizationAppleIDProvider alloc] init];
+  id completionBlock = ^(ASAuthorizationAppleIDProviderCredentialState credentialState, NSError *_Nullable error) {
+    if (error) {
+      return reject([@(error.code) stringValue], error.localizedDescription, error);
+    } else {
+      resolve(@(credentialState));
+    }
+  };
+  [appleIdProvider getCredentialStateForUserID:user completion:completionBlock];
 }
 
 RCT_EXPORT_METHOD(performRequest:
@@ -63,11 +70,12 @@ RCT_EXPORT_METHOD(performRequest:
   resolve([NSNull null]);
 }
 
-- (NSDictionary *)performRequest {
+- (NSDictionary *)constantsToExport {
   NSMutableDictionary *constants = [@{
-    // TODO isSupported
-    // TODO AppleAuthRequestOperation
-    // TODO AppleAuthCredentialState
+      @"isSupported": @available(iOS 13.0, *) ? @(YES) : @(NO),
+      // TODO isSupported
+      // TODO AppleAuthRequestOperation
+      // TODO AppleAuthCredentialState
   } mutableCopy];
 
   return constants;

@@ -16,36 +16,96 @@
  *
  */
 
-import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, View } from 'react-native';
-import auth, { AppleButton } from '@invertase/react-native-apple-authentication';
+import React, { useState, useEffect } from 'react';
+import { AppRegistry, StyleSheet, View, Text } from 'react-native';
+import auth, { AppleButton, AppleAuthError } from '@invertase/react-native-apple-authentication';
 
-class Root extends Component {
-  constructor(props) {
-    super(props);
-    try {
-      this.runSingleTest().catch(console.error);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+const user = 'apple@invertase.io';
 
-  async runSingleTest() {
-  }
+function onAppleButtonPress() {
+  console.warn(`Pressed`);
+}
 
-  render() {
+function RootComponent() {
+  if (!auth.isSupported) {
     return (
       <View style={[styles.container, styles.horizontal]}>
-        <AppleButton
-          style={styles.appleButton}
-          cornerRadius={5}
-          buttonStyle={AppleButton.Style.WHITE_OUTLINE}
-          buttonType={AppleButton.Type.CONTINUE}
-          onPress={() => console.warn(`Pressed`)}
-        />
+        <Text>Apple Authentication is not supported on this device.</Text>
       </View>
     );
   }
+
+  const [credentialStateForUser, updateCredentialStateForUser] = useState(-1);
+
+  useEffect(() => {
+    async function fetchCredentialState() {
+      const credentialState = await auth.getCredentialStateForUser(user);
+      updateCredentialStateForUser(credentialState);
+    }
+
+    fetchCredentialState().catch(error => updateCredentialStateForUser(`Error: ${error.code}`));
+
+    return () => {};
+  }, []);
+
+  return (
+    <View style={[styles.container, styles.horizontal]}>
+      <Text>Credential State: {JSON.stringify(credentialStateForUser)}</Text>
+
+      <Text style={styles.header}>AppleAuthError Codes</Text>
+      <Text>{AppleAuthError.UNKNOWN}</Text>
+      <Text>{AppleAuthError.CANCELED}</Text>
+      <Text>{AppleAuthError.INVALID_RESPONSE}</Text>
+      <Text>{AppleAuthError.NOT_HANDLED}</Text>
+      <Text>{AppleAuthError.FAILED}</Text>
+
+      <Text style={styles.header}>Buttons</Text>
+      <Text>Continue Styles</Text>
+      <AppleButton
+        style={styles.appleButton}
+        cornerRadius={5}
+        buttonStyle={AppleButton.Style.WHITE}
+        buttonType={AppleButton.Type.CONTINUE}
+        onPress={onAppleButtonPress}
+      />
+      <AppleButton
+        style={styles.appleButton}
+        cornerRadius={5}
+        buttonStyle={AppleButton.Style.WHITE_OUTLINE}
+        buttonType={AppleButton.Type.CONTINUE}
+        onPress={onAppleButtonPress}
+      />
+      <AppleButton
+        style={styles.appleButton}
+        cornerRadius={5}
+        buttonStyle={AppleButton.Style.BLACK}
+        buttonType={AppleButton.Type.CONTINUE}
+        onPress={onAppleButtonPress}
+      />
+      <Text>Sign-in Styles</Text>
+      <AppleButton
+        style={styles.appleButton}
+        cornerRadius={5}
+        buttonStyle={AppleButton.Style.WHITE}
+        buttonType={AppleButton.Type.SIGN_IN}
+        onPress={onAppleButtonPress}
+      />
+      <AppleButton
+        style={styles.appleButton}
+        cornerRadius={5}
+        buttonStyle={AppleButton.Style.WHITE_OUTLINE}
+        buttonType={AppleButton.Type.SIGN_IN}
+        onPress={onAppleButtonPress}
+      />
+      <AppleButton
+        style={styles.appleButton}
+        cornerRadius={5}
+        buttonStyle={AppleButton.Style.BLACK}
+        buttonType={AppleButton.Type.SIGN_IN}
+        onPress={onAppleButtonPress}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -54,10 +114,16 @@ const styles = StyleSheet.create({
     height: 60,
     margin: 10,
   },
+  header: {
+    margin: 10,
+    marginTop: 30,
+    fontSize: 18,
+    fontWeight: '600',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'red',
+    backgroundColor: 'pink',
   },
   horizontal: {
     flexDirection: 'column',
@@ -72,4 +138,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('testing', () => Root);
+AppRegistry.registerComponent('testing', () => RootComponent);

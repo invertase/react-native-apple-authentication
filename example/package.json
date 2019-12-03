@@ -7,7 +7,7 @@
     "prepare": "patch-package",
     "start": "react-native start",
     "run:android": "react-native run-android",
-    "run:ios": "react-native run-ios --simulator=\"iPhone X\""
+    "run:ios": "react-native run-ios --simulator=\"iPhone 11\""
   },
   "dependencies": {
     "react": "16.9.0",
