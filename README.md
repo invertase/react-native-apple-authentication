@@ -18,20 +18,19 @@
 
 ----
 
-
-Todo description.
-
+A React Native library providing support for Apple Authentication on iOS, including support for the `AppleButton` views.
 
 ## Installation
-
 
 ```bash
 yarn add @invertase/react-native-apple-authentication
 ```
 
+This module supports React Native auto-linking.
+
 ## Documentation
 
-TODO
+> Documentation is still todo, PRs welcome, full api usage can be seen in the [example app](example/app.js)
 
 ## License
 

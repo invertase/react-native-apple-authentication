@@ -1,8 +1,8 @@
 # React Native Apple Authentication - Testing Project
 
-> TODO
+> TODO: Running example app & testing
 
------
+---
 
 <p>
   <img align="left" width="75px" src="https://static.invertase.io/assets/invertase-logo-small.png"> 

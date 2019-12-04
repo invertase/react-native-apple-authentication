@@ -313,7 +313,6 @@ namespace RNAppleAuth {
      */
     authorizedScopes: AppleAuthRequestScope[];
 
-
     /**
      * A JSON Web Token (JWT) used to communicate information about the identity of the user in a
      * secure way to the app.
