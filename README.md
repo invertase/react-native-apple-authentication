@@ -36,21 +36,21 @@ This module supports React Native auto-linking.
 
 #### Enumerations
 
-* [AppleAuthCredentialState](../enums/_lib_index_d_.rnappleauth.appleauthcredentialstate.md)
-* [AppleAuthError](../enums/_lib_index_d_.rnappleauth.appleautherror.md)
-* [AppleAuthRealUserStatus](../enums/_lib_index_d_.rnappleauth.appleauthrealuserstatus.md)
-* [AppleAuthRequestOperation](../enums/_lib_index_d_.rnappleauth.appleauthrequestoperation.md)
-* [AppleAuthRequestScope](../enums/_lib_index_d_.rnappleauth.appleauthrequestscope.md)
-* [AppleButtonStyle](../enums/_lib_index_d_.rnappleauth.applebuttonstyle.md)
-* [AppleButtonType](../enums/_lib_index_d_.rnappleauth.applebuttontype.md)
+* [AppleAuthCredentialState](docs/enums/_lib_index_d_.rnappleauth.appleauthcredentialstate.md)
+* [AppleAuthError](docs/enums/_lib_index_d_.rnappleauth.appleautherror.md)
+* [AppleAuthRealUserStatus](docs/enums/_lib_index_d_.rnappleauth.appleauthrealuserstatus.md)
+* [AppleAuthRequestOperation](docs/enums/_lib_index_d_.rnappleauth.appleauthrequestoperation.md)
+* [AppleAuthRequestScope](docs/enums/_lib_index_d_.rnappleauth.appleauthrequestscope.md)
+* [AppleButtonStyle](docs/enums/_lib_index_d_.rnappleauth.applebuttonstyle.md)
+* [AppleButtonType](docs/enums/_lib_index_d_.rnappleauth.applebuttontype.md)
 
 #### Interfaces
 
-* [AppleAuthRequestOptions](../interfaces/_lib_index_d_.rnappleauth.appleauthrequestoptions.md)
-* [AppleAuthRequestResponse](../interfaces/_lib_index_d_.rnappleauth.appleauthrequestresponse.md)
-* [AppleAuthRequestResponseFullName](../interfaces/_lib_index_d_.rnappleauth.appleauthrequestresponsefullname.md)
-* [AppleButtonProps](../interfaces/_lib_index_d_.rnappleauth.applebuttonprops.md)
-* [Module](../interfaces/_lib_index_d_.rnappleauth.module.md)
+* [AppleAuthRequestOptions](docs/interfaces/_lib_index_d_.rnappleauth.appleauthrequestoptions.md)
+* [AppleAuthRequestResponse](docs/interfaces/_lib_index_d_.rnappleauth.appleauthrequestresponse.md)
+* [AppleAuthRequestResponseFullName](docs/interfaces/_lib_index_d_.rnappleauth.appleauthrequestresponsefullname.md)
+* [AppleButtonProps](docs/interfaces/_lib_index_d_.rnappleauth.applebuttonprops.md)
+* [Module](docs/interfaces/_lib_index_d_.rnappleauth.module.md)
 
 
 ## License
