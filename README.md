@@ -32,6 +32,27 @@ This module supports React Native auto-linking.
 
 > Documentation is still todo, PRs welcome, full api usage can be seen in the [example app](example/app.js)
 
+### Types
+
+#### Enumerations
+
+* [AppleAuthCredentialState](../enums/_lib_index_d_.rnappleauth.appleauthcredentialstate.md)
+* [AppleAuthError](../enums/_lib_index_d_.rnappleauth.appleautherror.md)
+* [AppleAuthRealUserStatus](../enums/_lib_index_d_.rnappleauth.appleauthrealuserstatus.md)
+* [AppleAuthRequestOperation](../enums/_lib_index_d_.rnappleauth.appleauthrequestoperation.md)
+* [AppleAuthRequestScope](../enums/_lib_index_d_.rnappleauth.appleauthrequestscope.md)
+* [AppleButtonStyle](../enums/_lib_index_d_.rnappleauth.applebuttonstyle.md)
+* [AppleButtonType](../enums/_lib_index_d_.rnappleauth.applebuttontype.md)
+
+#### Interfaces
+
+* [AppleAuthRequestOptions](../interfaces/_lib_index_d_.rnappleauth.appleauthrequestoptions.md)
+* [AppleAuthRequestResponse](../interfaces/_lib_index_d_.rnappleauth.appleauthrequestresponse.md)
+* [AppleAuthRequestResponseFullName](../interfaces/_lib_index_d_.rnappleauth.appleauthrequestresponsefullname.md)
+* [AppleButtonProps](../interfaces/_lib_index_d_.rnappleauth.applebuttonprops.md)
+* [Module](../interfaces/_lib_index_d_.rnappleauth.module.md)
+
+
 ## License
 
 - See [LICENSE](/LICENSE)

@@ -15,7 +15,7 @@
  *
  */
 
-namespace RNAppleAuth {
+export namespace RNAppleAuth {
   /**
    * The Button style (mainly color) to render.
    */

@@ -8,7 +8,7 @@
   "scripts": {
     "build": "genversion --semi lib/version.js",
     "build:clean": "rimraf rimraf ios/build",
-    "build:docs": "rimraf rimraf ios/build",
+    "build:docs": "typedoc --includeDeclarations --excludeExternals --out docs --plugin typedoc-plugin-markdown",
     "prepare": "yarn run build"
   },
   "repository": {
