@@ -5,13 +5,15 @@
   "scripts": {
     "build:clean": "rimraf ios/build",
     "prepare": "patch-package",
-    "start": "react-native start --reset-cache",
+    "start": "react-native start",
     "run:android": "react-native run-android",
     "run:ios": "react-native run-ios --simulator=\"iPhone 11\""
   },
   "dependencies": {
     "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react-native": "0.61.5",
+    "@react-native-firebase/app": "^6.1.0",
+    "@react-native-firebase/auth": "^6.1.0"
   },
   "devDependencies": {
     "patch-package": "^6.1.0",

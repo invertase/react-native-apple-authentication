@@ -1,0 +1,96 @@
+diff --git a/node_modules/@react-native-firebase/auth/ios/RNFBAuth/RNFBAuthModule.m b/node_modules/@react-native-firebase/auth/ios/RNFBAuth/RNFBAuthModule.m
+index 39dd280..e7a16e8 100644
+--- a/node_modules/@react-native-firebase/auth/ios/RNFBAuth/RNFBAuthModule.m
++++ b/node_modules/@react-native-firebase/auth/ios/RNFBAuth/RNFBAuthModule.m
+@@ -878,6 +878,8 @@ - (FIRAuthCredential *)getCredentialForProvider:(NSString *)provider token:(NSSt
+     credential = [FIRFacebookAuthProvider credentialWithAccessToken:authToken];
+   } else if ([provider compare:@"google.com" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+     credential = [FIRGoogleAuthProvider credentialWithIDToken:authToken accessToken:authTokenSecret];
++  } else if ([provider compare:@"apple.com" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
++    credential = [FIROAuthProvider credentialWithProviderID:@"apple.com" IDToken:authToken rawNonce:authTokenSecret];
+   } else if ([provider compare:@"password" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+     credential = [FIREmailAuthProvider credentialWithEmail:authToken password:authTokenSecret];
+   } else if ([provider compare:@"emailLink" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+diff --git a/node_modules/@react-native-firebase/auth/lib/index.d.ts b/node_modules/@react-native-firebase/auth/lib/index.d.ts
+index f93bcab..b7e2eb4 100644
+--- a/node_modules/@react-native-firebase/auth/lib/index.d.ts
++++ b/node_modules/@react-native-firebase/auth/lib/index.d.ts
+@@ -213,6 +213,16 @@ export namespace FirebaseAuthTypes {
+      * ```
+      */
+     GoogleAuthProvider: AuthProvider;
++    /**
++     * Apple auth provider implementation.
++     *
++     * #### Example
++     *
++     * ```js
++     * firebase.auth.AppleAuthProvider;
++     * ```
++     */
++    AppleAuthProvider: AuthProvider;
+     /**
+      * Github auth provider implementation.
+      *
+diff --git a/node_modules/@react-native-firebase/auth/lib/index.js b/node_modules/@react-native-firebase/auth/lib/index.js
+index 8469223..10acd30 100644
+--- a/node_modules/@react-native-firebase/auth/lib/index.js
++++ b/node_modules/@react-native-firebase/auth/lib/index.js
+@@ -27,6 +27,7 @@ import EmailAuthProvider from './providers/EmailAuthProvider';
+ import FacebookAuthProvider from './providers/FacebookAuthProvider';
+ import GithubAuthProvider from './providers/GithubAuthProvider';
+ import GoogleAuthProvider from './providers/GoogleAuthProvider';
++import AppleAuthProvider from './providers/AppleAuthProvider';
+ import OAuthProvider from './providers/OAuthProvider';
+ import PhoneAuthProvider from './providers/PhoneAuthProvider';
+ import TwitterAuthProvider from './providers/TwitterAuthProvider';
+@@ -38,6 +39,7 @@ const statics = {
+   EmailAuthProvider,
+   PhoneAuthProvider,
+   GoogleAuthProvider,
++  AppleAuthProvider,
+   GithubAuthProvider,
+   TwitterAuthProvider,
+   FacebookAuthProvider,
+diff --git a/node_modules/@react-native-firebase/auth/lib/providers/AppleAuthProvider.js b/node_modules/@react-native-firebase/auth/lib/providers/AppleAuthProvider.js
+new file mode 100644
+index 0000000..172cc1d
+--- /dev/null
++++ b/node_modules/@react-native-firebase/auth/lib/providers/AppleAuthProvider.js
+@@ -0,0 +1,36 @@
++/*
++ * Copyright (c) 2016-present Invertase Limited & Contributors
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this library except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *   http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ *
++ */
++
++const providerId = 'apple.com';
++
++export default class AppleAuthProvider {
++  constructor() {
++    throw new Error('`new AppleAuthProvider()` is not supported on the native Firebase SDKs.');
++  }
++
++  static get PROVIDER_ID() {
++    return providerId;
++  }
++
++  static credential(token, secret) {
++    return {
++      token,
++      secret,
++      providerId,
++    };
++  }
++}

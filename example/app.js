@@ -27,6 +27,8 @@ import auth, {
   AppleAuthRequestOperation,
 } from '@invertase/react-native-apple-authentication';
 
+import { firebase } from '@react-native-firebase/auth';
+
 /**
  * You'd technically persist this somewhere for later use.
  */
@@ -57,7 +59,6 @@ async function onAppleButtonPress(updateCredentialStateForUser) {
   // start a login request
   try {
     const appleAuthRequestResponse = await auth.performRequest({
-      requestedOperation: AppleAuthRequestOperation.LOGIN,
       requestedScopes: [AppleAuthRequestScope.EMAIL, AppleAuthRequestScope.FULL_NAME],
     });
 
@@ -79,7 +80,13 @@ async function onAppleButtonPress(updateCredentialStateForUser) {
 
     if (identityToken) {
       // e.g. sign in with Firebase Auth using `nonce` & `identityToken`
-      console.log(nonce, identityToken);
+      const appleCredential = firebase.auth.AppleAuthProvider.credential(identityToken, nonce);
+
+      console.log('appleCredential', appleCredential);
+      const userCredential = await firebase.auth().signInWithCredential(appleCredential);
+
+      console.log('userCredential', userCredential);
+      console.warn(`Firebase authenticated via Apple, UID: ${userCredential.user.uid}`);
     } else {
       // no token - failed sign-in?
     }
