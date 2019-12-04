@@ -175,7 +175,6 @@ RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
 }
 @end
 
-
 #pragma mark - Black - SignUp
 #if defined(__IPHONE_13_2) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_13_2
 @interface RNAppleAuthButtonViewManagerBlackSignUp : RCTViewManager @end

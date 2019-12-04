@@ -21,9 +21,7 @@
 
 @interface RNAppleAuthUtils : NSObject
 
-#pragma mark -
-#pragma mark Methods
-
+#pragma mark - Methods
 
 + (NSString *)randomNonce:(NSInteger)length;
 

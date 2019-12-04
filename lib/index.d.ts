@@ -27,6 +27,11 @@ namespace RNAppleAuth {
     DEFAULT = 'SignIn',
     SIGN_IN = 'SignIn',
     CONTINUE = 'Continue',
+    /**
+     *
+     * iOS 13.2+ Only
+     */
+    SIGN_UP = 'SignUp',
   }
 
   export enum AppleAuthCredentialState {

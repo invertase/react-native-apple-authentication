@@ -24,9 +24,7 @@
   ASAuthorizationAppleIDRequest *appleIdRequest = [appleIdProvider createRequest];
 
   appleIdRequest.requestedOperation = [
-      self authorizationOperationForInteger:[
-          [requestOptions valueForKey:@"requestedOperation"] pointerValue
-      ]
+      self authorizationOperationForInteger:[requestOptions valueForKey:@"requestedOperation"]
   ];
 
   appleIdRequest.requestedScopes = [
@@ -52,16 +50,36 @@
   return appleIdRequest;
 }
 
-+ (ASAuthorizationOpenIDOperation)authorizationOperationForInteger:(NSInteger *)operationInteger {
-  // TODO
++ (ASAuthorizationOpenIDOperation)authorizationOperationForInteger:(NSNumber *)operationInteger {
+  if (operationInteger == @0) {
+    return ASAuthorizationOperationImplicit;
+  } else if (operationInteger == @1) {
+    return ASAuthorizationOperationLogin;
+  } else if (operationInteger == @2) {
+    return ASAuthorizationOperationRefresh;
+  } else if (operationInteger == @3) {
+    return ASAuthorizationOperationLogout;
+  }
+
+  NSLog(@"RNAppleAuth -> Unknown operationInteger, defaulting to ASAuthorizationOperationImplicit");
   return ASAuthorizationOperationImplicit;
 }
 
 + (NSArray<ASAuthorizationScope> *)authorizationScopesForNSArray:(NSArray *)scopesArray {
-  // TODO
-  return @[ASAuthorizationScopeEmail, ASAuthorizationScopeFullName];
+  NSMutableArray *scopesArrayConverted = [NSMutableArray arrayWithCapacity:scopesArray.count];
+  [scopesArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    NSNumber *scopeInt = (NSNumber *) obj;
+    if (scopeInt == @0) {
+      [scopesArrayConverted addObject:ASAuthorizationScopeEmail];
+    } else if (scopeInt == @1) {
+      [scopesArrayConverted addObject:ASAuthorizationScopeFullName];
+    } else {
+      NSLog(@"RNAppleAuth -> Unknown scopeInt, excluding scope from authorizationScopesForNSArray output");
+    }
+  }];
+  return scopesArrayConverted;
 }
 
-
 RCT_CUSTOM_CONVERTER(ASAuthorizationAppleIDRequest *, ASAuthorizationAppleIDRequest, [self appIdRequestFromDictionary:[self NSDictionary:json]]);
+
 @end

@@ -18,15 +18,12 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "RNAppleAuthUtils.h"
 
-
 #pragma mark -
 #pragma mark Constants
 
 @implementation RNAppleAuthUtils
 
-
-#pragma mark -
-#pragma mark Methods
+#pragma mark - Methods
 
 + (NSString *)randomNonce:(NSInteger)length {
   NSInteger remainingLength = length;

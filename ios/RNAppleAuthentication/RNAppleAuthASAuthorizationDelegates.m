@@ -84,16 +84,21 @@
     ];
   }
 
-  NSDictionary *fullName;
+  NSMutableDictionary *fullName;
   if ([appleIdCredential valueForKey:@"fullName"] != nil) {
-    fullName = [appleIdCredential.fullName dictionaryWithValuesForKeys:@[
+    fullName = [[appleIdCredential.fullName dictionaryWithValuesForKeys:@[
         @"namePrefix",
         @"givenName",
         @"middleName",
         @"familyName",
         @"nameSuffix",
         @"nickname",
-    ]];
+    ]] mutableCopy];
+    [fullName enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+      if (obj == nil) {
+        fullName[key] = [NSNull null];
+      }
+    }];
   }
 
   return @{

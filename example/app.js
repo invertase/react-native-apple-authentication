@@ -161,11 +161,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
   },
-  logo: {
-    height: 120,
-    marginBottom: 16,
-    width: 135,
-  },
 });
 
 AppRegistry.registerComponent('testing', () => RootComponent);

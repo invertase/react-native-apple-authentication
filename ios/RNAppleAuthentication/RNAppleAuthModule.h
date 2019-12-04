@@ -17,7 +17,9 @@
 
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
+
 @import AuthenticationServices;
 
-@interface RNAppleAuthModule : NSObject <RCTBridgeModule>
+@interface RNAppleAuthModule : RCTEventEmitter <RCTBridgeModule>
 @end
