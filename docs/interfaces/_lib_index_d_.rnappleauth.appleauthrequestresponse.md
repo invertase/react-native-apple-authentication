@@ -1,4 +1,3 @@
-[@invertase/react-native-apple-authentication](../README.md) › [Globals](../globals.md) › ["lib/index.d"](../modules/_lib_index_d_.md) › [RNAppleAuth](../modules/_lib_index_d_.rnappleauth.md) › [AppleAuthRequestResponse](_lib_index_d_.rnappleauth.appleauthrequestresponse.md)
 
 # Interface: AppleAuthRequestResponse
 
@@ -28,7 +27,7 @@ A response from `performRequest(requestOptions)`.
 
 • **authorizationCode**: *string | null*
 
-*Defined in [lib/index.d.ts:349](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L349)*
+*Defined in [lib/index.d.ts:349](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L349)*
 
 A short-lived, one-time valid token that can provides proof of authorization to the server
 component of your app.
@@ -43,7 +42,7 @@ ___
 
 • **authorizedScopes**: *[AppleAuthRequestScope](../enums/_lib_index_d_.rnappleauth.appleauthrequestscope.md)[]*
 
-*Defined in [lib/index.d.ts:314](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L314)*
+*Defined in [lib/index.d.ts:314](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L314)*
 
 This value will contain an array of scopes for which the user provided authorization.
 Note that these may contain a subset of the requested scopes. You should query this value to
@@ -57,7 +56,7 @@ ___
 
 • **email**: *string | null*
 
-*Defined in [lib/index.d.ts:334](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L334)*
+*Defined in [lib/index.d.ts:334](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L334)*
 
 An optional email shared by the user.
 
@@ -69,7 +68,7 @@ ___
 
 • **fullName**: *null | [AppleAuthRequestResponseFullName](_lib_index_d_.rnappleauth.appleauthrequestresponsefullname.md)*
 
-*Defined in [lib/index.d.ts:298](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L298)*
+*Defined in [lib/index.d.ts:298](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L298)*
 
 An optional full name shared by the user.
 
@@ -83,7 +82,7 @@ ___
 
 • **identityToken**: *string | null*
 
-*Defined in [lib/index.d.ts:327](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L327)*
+*Defined in [lib/index.d.ts:327](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L327)*
 
 A JSON Web Token (JWT) used to communicate information about the identity of the user in a
 secure way to the app.
@@ -101,7 +100,7 @@ ___
 
 • **nonce**: *string*
 
-*Defined in [lib/index.d.ts:279](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L279)*
+*Defined in [lib/index.d.ts:279](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L279)*
 
 Nonce that was passed to the identity provider. If none was passed to the request, one will
 have automatically been created and available to be read from this property.
@@ -112,7 +111,7 @@ ___
 
 • **realUserStatus**: *[AppleAuthRealUserStatus](../enums/_lib_index_d_.rnappleauth.appleauthrealuserstatus.md)*
 
-*Defined in [lib/index.d.ts:305](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L305)*
+*Defined in [lib/index.d.ts:305](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L305)*
 
 Check this property for a hint as to whether the current user is a "real user".
 
@@ -124,7 +123,7 @@ ___
 
 • **state**: *string | null*
 
-*Defined in [lib/index.d.ts:339](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L339)*
+*Defined in [lib/index.d.ts:339](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L339)*
 
 A copy of the state value that was passed to the initial request.
 
@@ -134,7 +133,7 @@ ___
 
 • **user**: *string*
 
-*Defined in [lib/index.d.ts:289](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L289)*
+*Defined in [lib/index.d.ts:289](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L289)*
 
 An opaque user ID associated with the AppleID used for the sign in. This identifier will be
 stable across the 'developer team', it can later be used as an input to

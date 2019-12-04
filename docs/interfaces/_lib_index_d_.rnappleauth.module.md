@@ -1,4 +1,3 @@
-[@invertase/react-native-apple-authentication](../README.md) › [Globals](../globals.md) › ["lib/index.d"](../modules/_lib_index_d_.md) › [RNAppleAuth](../modules/_lib_index_d_.rnappleauth.md) › [Module](_lib_index_d_.rnappleauth.module.md)
 
 # Interface: Module
 
@@ -25,7 +24,7 @@
 
 • **isSignUpButtonSupported**: *boolean*
 
-*Defined in [lib/index.d.ts:368](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L368)*
+*Defined in [lib/index.d.ts:368](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L368)*
 
 A boolean value of whether the 'SignUp' Type variant of the Apple Authentication Button is
 supported.
@@ -39,7 +38,7 @@ ___
 
 • **isSupported**: *boolean*
 
-*Defined in [lib/index.d.ts:359](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L359)*
+*Defined in [lib/index.d.ts:359](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L359)*
 
 A boolean value of whether Apple Authentication is supported on this device & platform version.
 
@@ -52,7 +51,7 @@ versions less than 13.
 
 ▸ **getCredentialStateForUser**(`user`: string): *Promise‹[AppleAuthCredentialState](../enums/_lib_index_d_.rnappleauth.appleauthcredentialstate.md)›*
 
-*Defined in [lib/index.d.ts:381](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L381)*
+*Defined in [lib/index.d.ts:381](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L381)*
 
 Get the current @{RNAppleAuth.AppleAuthCredentialState} for the provided user identifier.
 
@@ -70,7 +69,7 @@ ___
 
 ▸ **onCredentialRevoked**(`listener`: Function): *Function*
 
-*Defined in [lib/index.d.ts:389](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L389)*
+*Defined in [lib/index.d.ts:389](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L389)*
 
 Subscribe to credential revoked events. Call `getCredentialStateForUser` on event received
 to confirm the current credential state for your user identifier.
@@ -89,7 +88,7 @@ ___
 
 ▸ **performRequest**(`options`: [AppleAuthRequestOptions](_lib_index_d_.rnappleauth.appleauthrequestoptions.md)): *Promise‹[AppleAuthRequestResponse](_lib_index_d_.rnappleauth.appleauthrequestresponse.md)›*
 
-*Defined in [lib/index.d.ts:374](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L374)*
+*Defined in [lib/index.d.ts:374](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L374)*
 
 Perform a request to Apple Authentication services with the provided request options.
 

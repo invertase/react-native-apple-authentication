@@ -1,4 +1,3 @@
-[@invertase/react-native-apple-authentication](../README.md) › [Globals](../globals.md) › ["lib/index.d"](../modules/_lib_index_d_.md) › [RNAppleAuth](../modules/_lib_index_d_.rnappleauth.md) › [AppleButtonType](_lib_index_d_.rnappleauth.applebuttontype.md)
 
 # Enumeration: AppleButtonType
 
@@ -19,7 +18,7 @@ THe Apple Button type to render, this controls the button text.
 
 • **CONTINUE**: = "Continue"
 
-*Defined in [lib/index.d.ts:61](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L61)*
+*Defined in [lib/index.d.ts:61](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L61)*
 
 Renders the button with 'Continue with Apple'.
 
@@ -29,7 +28,7 @@ ___
 
 • **DEFAULT**: = "SignIn"
 
-*Defined in [lib/index.d.ts:51](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L51)*
+*Defined in [lib/index.d.ts:51](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L51)*
 
 The default button, the same as `SIGN_IN`.
 
@@ -39,7 +38,7 @@ ___
 
 • **SIGN_IN**: = "SignIn"
 
-*Defined in [lib/index.d.ts:56](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L56)*
+*Defined in [lib/index.d.ts:56](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L56)*
 
 Renders the button with 'Sign in with Apple'.
 
@@ -49,7 +48,7 @@ ___
 
 • **SIGN_UP**: = "SignUp"
 
-*Defined in [lib/index.d.ts:68](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L68)*
+*Defined in [lib/index.d.ts:68](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L68)*
 
 Renders the button with 'Sign up with Apple'.
 

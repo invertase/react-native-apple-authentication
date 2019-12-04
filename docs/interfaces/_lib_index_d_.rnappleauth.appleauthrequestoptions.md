@@ -1,4 +1,3 @@
-[@invertase/react-native-apple-authentication](../README.md) › [Globals](../globals.md) › ["lib/index.d"](../modules/_lib_index_d_.md) › [RNAppleAuth](../modules/_lib_index_d_.rnappleauth.md) › [AppleAuthRequestOptions](_lib_index_d_.rnappleauth.appleauthrequestoptions.md)
 
 # Interface: AppleAuthRequestOptions
 
@@ -24,7 +23,7 @@ Apple Authentication Request options to be used with `performRequest(requestOpti
 
 • **nonce**? : *undefined | string*
 
-*Defined in [lib/index.d.ts:224](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L224)*
+*Defined in [lib/index.d.ts:224](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L224)*
 
 Nonce to be passed to the identity provider. If value not provided, one will automatically
 be created for you and available as part of @{RNAppleAuth.AppleAuthRequestResponse}.
@@ -41,7 +40,7 @@ ___
 
 • **requestedOperation**? : *[AppleAuthRequestOperation](../enums/_lib_index_d_.rnappleauth.appleauthrequestoperation.md)*
 
-*Defined in [lib/index.d.ts:204](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L204)*
+*Defined in [lib/index.d.ts:204](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L204)*
 
 Operation which should be executed.
 
@@ -53,7 +52,7 @@ ___
 
 • **requestedScopes**? : *[AppleAuthRequestScope](../enums/_lib_index_d_.rnappleauth.appleauthrequestscope.md)[]*
 
-*Defined in [lib/index.d.ts:197](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L197)*
+*Defined in [lib/index.d.ts:197](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L197)*
 
 The contact information to be requested from the user.
 
@@ -65,7 +64,7 @@ ___
 
 • **state**? : *undefined | string*
 
-*Defined in [lib/index.d.ts:231](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L231)*
+*Defined in [lib/index.d.ts:231](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L231)*
 
 State to be passed to the identity provider.
 
@@ -77,7 +76,7 @@ ___
 
 • **user**? : *undefined | string*
 
-*Defined in [lib/index.d.ts:212](https://github.com/invertase/react-native-apple-authentication/blob/1d958901/lib/index.d.ts#L212)*
+*Defined in [lib/index.d.ts:212](https://github.com/invertase/react-native-apple-authentication/blob/2b75721d/lib/index.d.ts#L212)*
 
 If you have been previously vended a 'user' value through a Apple Authorization response,
 you may set it here to provide additional context to the identity provider.
