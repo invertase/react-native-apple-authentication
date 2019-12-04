@@ -16,40 +16,127 @@
  */
 
 namespace RNAppleAuth {
+  /**
+   * The Button style (mainly color) to render.
+   */
   export enum AppleButtonStyle {
+    /**
+     * The default style, White.
+     */
     DEFAULT = 'White',
+
+    /**
+     * Render a white button with black text.
+     */
     WHITE = 'White',
+
+    /**
+     * Render a white button with black text and a bordered outline.
+     */
     WHITE_OUTLINE = 'WhiteOutline',
+
+    /**
+     * Render a black button with white text.
+     */
     BLACK = 'Black',
   }
 
+  /**
+   * THe Apple Button type to render, this controls the button text.
+   */
   export enum AppleButtonType {
+    /**
+     * The default button, the same as `SIGN_IN`.
+     */
     DEFAULT = 'SignIn',
+
+    /**
+     * Renders the button with 'Sign in with Apple'.
+     */
     SIGN_IN = 'SignIn',
+
+    /**
+     * Renders the button with 'Continue with Apple'.
+     */
     CONTINUE = 'Continue',
     /**
+     * Renders the button with 'Sign up with Apple'.
      *
-     * iOS 13.2+ Only
+     * > Note: This only works on iOS 13.2+. To check if the current device supports this, use the
+     * provided `isSignUpButtonSupported` flag from the AppleAuth module.
      */
     SIGN_UP = 'SignUp',
   }
 
+  /**
+   * The current Apple Authorization state.
+   */
   export enum AppleAuthCredentialState {
+    /**
+     * The Opaque user ID was revoked by the user.
+     */
     REVOKED,
+
+    /**
+     * The Opaque user ID is in good state.
+     */
     AUTHORIZED,
+
+    /**
+     * The Opaque user ID was not found.
+     */
     NOT_FOUND,
+
+    /**
+     * N/A
+     *
+     * @url https://developer.apple.com/documentation/authenticationservices/asauthorizationappleidprovidercredentialstate/asauthorizationappleidprovidercredentialtransferred?language=objc
+     */
     TRANSFERRED,
   }
 
+  /**
+   * Operation to be executed by the request.
+   *
+   * Request option used as part of `AppleAuthRequestOptions` `requestedOperation`
+   */
   export enum AppleAuthRequestOperation {
+    /**
+     * An operation that depends on the particular kind of credential provider.
+     */
     IMPLICIT,
+
+    /**
+     * An operation used to authenticate a user.
+     */
     LOGIN,
+
+    /**
+     * An operation that refreshes the logged-in user’s credentials.
+     */
     REFRESH,
+
+    /**
+     * An operation that ends an authenticated session.
+     */
     LOGOUT,
   }
 
+  /**
+   * The contact information to be requested from the user.  Only scopes for which this app was
+   * authorized for will be returned.
+   *
+   * Scopes used as part of `AppleAuthRequestOptions` `requestedScopes`
+   */
   export enum AppleAuthRequestScope {
+    /**
+     * A scope that includes the user’s email address.
+     */
     EMAIL,
+
+    /**
+     * A scope that includes the user’s full name.
+     */
     FULL_NAME,
   }
 
@@ -78,10 +165,23 @@ namespace RNAppleAuth {
     LIKELY_REAL,
   }
 
-  // TODO docs
-  export interface AppleButton {
+  /**
+   * The available props for the AppleButton view component.
+   */
+  export interface AppleButtonProps {
+    /**
+     * See @{RNAppleAuth.AppleButtonStyle}
+     */
     buttonStyle?: AppleButtonStyle;
-    buttonType?: string;
+
+    /**
+     * See @{RNAppleAuth.AppleButtonType}
+     */
+    buttonType?: AppleButtonType;
+
+    /**
+     * Corner radius of the button.
+     */
     cornerRadius?: number;
   }
 
@@ -112,11 +212,14 @@ namespace RNAppleAuth {
     user?: string;
 
     /**
-     * Nonce to be passed to the identity provider.
+     * Nonce to be passed to the identity provider. If value not provided, one will automatically
+     * be created for you and available as part of @{RNAppleAuth.AppleAuthRequestResponse}.
      *
-     * This value can be verified with the identity token provided as a part of successful ASAuthorization response.
+     * This value can be verified with the identity token provided as a part of successful
+     * ASAuthorization response.
      *
-     * The nonce size may depend on the actual technology used and an error might be returned by the request execution.
+     * The nonce size may depend on the actual technology used and an error might be returned by
+     * the request execution.
      */
     nonce?: string;
 
@@ -129,18 +232,121 @@ namespace RNAppleAuth {
   }
 
   /**
+   * An optional full name shared by the user.
+   *
+   * These fields are populated with values that the user authorized.
+   */
+  export interface AppleAuthRequestResponseFullName {
+    /**
+     * Pre-nominal letters denoting title, salutation, or honorific, e.g. Dr., Mr.
+     */
+    namePrefix: string | null;
+
+    /**
+     * Name bestowed upon an individual by one's parents, e.g. Johnathan
+     */
+    givenName: string | null;
+
+    /**
+     * Secondary given name chosen to differentiate those with the same first name, e.g. Maple
+     */
+    middleName: string | null;
+
+    /**
+     * Name passed from one generation to another to indicate lineage, e.g. Appleseed
+     */
+    familyName: string | null;
+
+    /**
+     * Post-nominal letters denoting degree, accreditation, or other honor, e.g. Esq., Jr., Ph.D.
+     */
+    nameSuffix: string | null;
+
+    /**
+     * Name substituted for the purposes of familiarity, e.g. "Johnny"
+     */
+    nickname: string | null;
+  }
+
+  /**
    * A response from `performRequest(requestOptions)`.
    */
   export interface AppleAuthRequestResponse {
-    // TODO type docs for each
+    /**
+     * Nonce that was passed to the identity provider. If none was passed to the request, one will
+     * have automatically been created and available to be read from this property.
+     */
     nonce: string;
+
+    /**
+     * An opaque user ID associated with the AppleID used for the sign in. This identifier will be
+     * stable across the 'developer team', it can later be used as an input to
+     * @{RNAppleAuth.AppleAuthRequest} to request user contact information.
+     *
+     * The identifier will remain stable as long as the user is connected with the requesting client.
+     * The value may change upon user disconnecting from the identity provider.
+     */
     user: string;
-    fullName: Object; // TODO
+
+    /**
+     * An optional full name shared by the user.
+     *
+     * This field is populated with a value that the user authorized.
+     *
+     * See @{RNAppleAuth.AppleAuthRequestResponseFullName}
+     */
+    fullName: null | AppleAuthRequestResponseFullName;
+
+    /**
+     * Check this property for a hint as to whether the current user is a "real user".
+     *
+     * See @{RNAppleAuth.AppleAuthRealUserStatus}
+     */
     realUserStatus: AppleAuthRealUserStatus;
+
+    /**
+     * This value will contain an array of scopes for which the user provided authorization.
+     * Note that these may contain a subset of the requested scopes. You should query this value to
+     * identify which scopes were returned as it may be different from ones you requested.
+     *
+     * See @{RNAppleAuth.AppleAuthRealUserStatus}
+     */
     authorizedScopes: AppleAuthRequestScope[];
+
+
+    /**
+     * A JSON Web Token (JWT) used to communicate information about the identity of the user in a
+     * secure way to the app.
+     *
+     * The ID token contains the following information signed by Apple's identity service:
+     *  - Issuer Identifier
+     *  - Subject Identifier
+     *  - Audience
+     *  - Expiry Time
+     *  - Issuance Time
+     */
     identityToken: string | null;
+
+    /**
+     * An optional email shared by the user.
+     *
+     * This field is populated with a value that the user authorized.
+     */
     email: string | null;
+
+    /**
+     * A copy of the state value that was passed to the initial request.
+     */
     state: string | null;
+
+    /**
+     * A short-lived, one-time valid token that can provides proof of authorization to the server
+     * component of your app.
+     *
+     * The authorization code is bound to the specific transaction using the state attribute passed
+     * in the authorization request. The server component of your app can validate the code using
+     * the Apple identity service endpoint.
+     */
     authorizationCode: string | null;
   }
 
@@ -164,19 +370,22 @@ namespace RNAppleAuth {
 
     /**
      * Perform a request to Apple Authentication services with the provided request options.
-     * @param options
+     * @param options AppleAuthRequestOptions
      */
     performRequest(options: AppleAuthRequestOptions): Promise<AppleAuthRequestResponse>;
 
     /**
-     * TODO docs
-     * @param user
+     * Get the current @{RNAppleAuth.AppleAuthCredentialState} for the provided user identifier.
+     *
+     * @param user An opaque user ID associated with the AppleID used for the sign in.
      */
     getCredentialStateForUser(user: string): Promise<AppleAuthCredentialState>;
 
     /**
-     * TODO Implement
-     * @param listener Returns a function that when called unsubscribes from future events.
+     * Subscribe to credential revoked events. Call `getCredentialStateForUser` on event received
+     * to confirm the current credential state for your user identifier.
+     *
+     * @param listener Returns a function that when called will unsubscribe from future events.
      */
     onCredentialRevoked(listener: Function): Function;
   }
@@ -220,7 +429,7 @@ declare module '@invertase/react-native-apple-authentication' {
   export const AppleButton: {
     Type: typeof RNAppleAuth.AppleButtonType;
     Style: typeof RNAppleAuth.AppleButtonStyle;
-  } & React.FC<RNAppleAuth.AppleButton>;
+  } & React.FC<RNAppleAuth.AppleButtonProps>;
 
   export const AppleAuthError: typeof RNAppleAuth.AppleAuthError;
   export const AppleAuthRequestScope: typeof RNAppleAuth.AppleAuthRequestScope;
