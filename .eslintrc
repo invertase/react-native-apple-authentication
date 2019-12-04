@@ -33,10 +33,6 @@
   },
   "globals": {
     "__DEV__": true,
-    "__RNFB__": true,
-    "firebase": true,
-    "should": true,
-    "Utils": true,
     "window": true
   }
 }
