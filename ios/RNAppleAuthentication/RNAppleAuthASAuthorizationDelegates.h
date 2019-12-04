@@ -23,13 +23,12 @@
 
 @interface RNAppleAuthASAuthorizationDelegates : NSObject <ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding>
 
-@property _Nullable RCTPromiseRejectBlock promiseReject;
-@property _Nullable RCTPromiseResolveBlock promiseResolve;
 @property(nonatomic, strong, nonnull) NSString *nonce;
-@property(nonatomic, strong, nonnull) ASAuthorizationController *authController;
+@property(nonatomic, strong, nullable) void (^completion)(NSError *, NSDictionary *);
 
-- (instancetype)initWithPromiseResolve:(RCTPromiseResolveBlock)resolve andPromiseReject:(RCTPromiseRejectBlock)reject;
+- (instancetype)initWithCompletion:(void (^)(NSError *error, NSDictionary *authorizationCredential))completion andNonce:(NSString *)nonce;
 
-- (void)performRequestsForAuthorizationController:(ASAuthorizationController *)authorizationController andProvidingNonce:(NSString *)nonce;
+- (void)performRequestsForAuthorizationController:(ASAuthorizationController *)authorizationController;
 
 @end
+

@@ -17,54 +17,45 @@
 
 #import "RNAppleAuthASAuthorizationDelegates.h"
 
+
 @implementation RNAppleAuthASAuthorizationDelegates
 
-- (instancetype)initWithPromiseResolve:(RCTPromiseResolveBlock)resolve andPromiseReject:(RCTPromiseRejectBlock)reject {
+- (instancetype)initWithCompletion:(void (^)(NSError *error, NSDictionary *authorizationCredential))completion andNonce:(NSString *)nonce {
   if (self = [super init]) {
-    _promiseReject = reject;
-    _promiseResolve = resolve;
+    _completion = completion;
+    _nonce = nonce;
   }
   return self;
 }
 
-#pragma mark -
-#pragma mark ASAuthorizationControllerPresentationContextProviding Methods
+#pragma mark - ASAuthorizationControllerPresentationContextProviding Methods
 
 - (ASPresentationAnchor)presentationAnchorForAuthorizationController:(ASAuthorizationController *)controller {
   return [[UIApplication sharedApplication] keyWindow];
 }
 
-#pragma mark -
-#pragma mark ASAuthorizationControllerDelegate Methods
+#pragma mark - ASAuthorizationControllerDelegate Methods
 
 - (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithAuthorization:(ASAuthorization *)authorization {
   NSLog(@"RNAppleAuth -> didCompleteWithAuthorization");
   ASAuthorizationAppleIDCredential *appleIdCredential = authorization.credential;
-  _promiseResolve([self buildDictionaryFromAppleIdCredential:appleIdCredential]);
-
-  _promiseResolve = nil;
-  _promiseReject = nil;
+  _completion(nil, [self buildDictionaryFromAppleIdCredential:appleIdCredential]);
+  _completion = nil;
 }
 
 - (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithError:(NSError *)error {
   NSLog(@"RNAppleAuth -> didCompleteWithError");
   NSLog(error.localizedDescription);
-  _promiseReject([@(error.code) stringValue], error.localizedDescription, error);
-
-  _promiseReject = nil;
-  _promiseResolve = nil;
+  _completion(error, nil);
+  _completion = nil;
 }
 
 #pragma mark - ASAuthorizationController Methods
 
-- (void)performRequestsForAuthorizationController:(ASAuthorizationController *)authorizationController andProvidingNonce:(NSString *)nonce {
-  _nonce = nonce;
-  _authController = authorizationController;
-
-  _authController.presentationContextProvider = self;
-  _authController.delegate = self;
-
-  [_authController performRequests];
+- (void)performRequestsForAuthorizationController:(ASAuthorizationController *)authorizationController {
+  authorizationController.delegate = self;
+  authorizationController.presentationContextProvider = self;
+  [authorizationController performRequests];
 }
 
 #pragma mark - ASAuthorizationController Methods

@@ -51,13 +51,13 @@
 }
 
 + (ASAuthorizationOpenIDOperation)authorizationOperationForInteger:(NSNumber *)operationInteger {
-  if (operationInteger == @0) {
+  if ([operationInteger intValue] == 0) {
     return ASAuthorizationOperationImplicit;
-  } else if (operationInteger == @1) {
+  } else if ([operationInteger intValue] == 1) {
     return ASAuthorizationOperationLogin;
-  } else if (operationInteger == @2) {
+  } else if ([operationInteger intValue] == 2) {
     return ASAuthorizationOperationRefresh;
-  } else if (operationInteger == @3) {
+  } else if ([operationInteger intValue] == 3) {
     return ASAuthorizationOperationLogout;
   }
 
@@ -68,10 +68,10 @@
 + (NSArray<ASAuthorizationScope> *)authorizationScopesForNSArray:(NSArray *)scopesArray {
   NSMutableArray *scopesArrayConverted = [NSMutableArray arrayWithCapacity:scopesArray.count];
   [scopesArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-    NSNumber *scopeInt = (NSNumber *) obj;
-    if (scopeInt == @0) {
+    int scopeInt = [obj intValue];
+    if (scopeInt == 0) {
       [scopesArrayConverted addObject:ASAuthorizationScopeEmail];
-    } else if (scopeInt == @1) {
+    } else if (scopeInt == 1) {
       [scopesArrayConverted addObject:ASAuthorizationScopeFullName];
     } else {
       NSLog(@"RNAppleAuth -> Unknown scopeInt, excluding scope from authorizationScopesForNSArray output");

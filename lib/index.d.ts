@@ -434,6 +434,7 @@ declare module '@invertase/react-native-apple-authentication' {
   export const AppleAuthError: typeof RNAppleAuth.AppleAuthError;
   export const AppleAuthRequestScope: typeof RNAppleAuth.AppleAuthRequestScope;
   export const AppleAuthRealUserStatus: typeof RNAppleAuth.AppleAuthRealUserStatus;
+  export const AppleAuthCredentialState: typeof RNAppleAuth.AppleAuthCredentialState;
   export const AppleAuthRequestOperation: typeof RNAppleAuth.AppleAuthRequestOperation;
 
   const defaultExport: {} & RNAppleAuth.Module;

@@ -333,7 +333,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.invertase.testing;
 				PRODUCT_NAME = testing;
-				PROVISIONING_PROFILE_SPECIFIER = "Mike Diarmid";
+				PROVISIONING_PROFILE_SPECIFIER = "#2 Mike Diarmid";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wno-nullability-completeness";
 			};
@@ -364,7 +364,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.invertase.testing;
 				PRODUCT_NAME = testing;
-				PROVISIONING_PROFILE_SPECIFIER = "Mike Diarmid";
+				PROVISIONING_PROFILE_SPECIFIER = "#2 Mike Diarmid";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wno-nullability-completeness";
 			};

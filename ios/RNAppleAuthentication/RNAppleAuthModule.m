@@ -88,14 +88,25 @@ RCT_EXPORT_METHOD(performRequest:
     :(RCTPromiseRejectBlock) reject
 ) {
   ASAuthorizationController *authorizationController = [
-      [ASAuthorizationController alloc] initWithAuthorizationRequests:@[appleIdRequest]
+      [ASAuthorizationController alloc] initWithAuthorizationRequests:@[
+          appleIdRequest
+      ]
   ];
 
-  RNAppleAuthASAuthorizationDelegates *delegates = [
-      [RNAppleAuthASAuthorizationDelegates alloc] initWithPromiseResolve:resolve andPromiseReject:reject
+  __block RNAppleAuthASAuthorizationDelegates *delegates = [
+      [RNAppleAuthASAuthorizationDelegates alloc]
+      initWithCompletion:^(NSError *error, NSDictionary *authorizationCredential) {
+        if (error) {
+          reject([@(error.code) stringValue], error.localizedDescription, error);
+        } else {
+          resolve(authorizationCredential);
+        }
+        delegates = nil;
+      }
+      andNonce:appleIdRequest.nonce
   ];
 
-  [delegates performRequestsForAuthorizationController:authorizationController andProvidingNonce:appleIdRequest.nonce];
+  [delegates performRequestsForAuthorizationController:authorizationController];
 }
 
 - (void)onCredentialRevoked {

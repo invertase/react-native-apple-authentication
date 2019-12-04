@@ -21,39 +21,81 @@ import { AppRegistry, StyleSheet, View, Text } from 'react-native';
 import auth, {
   AppleButton,
   AppleAuthError,
-  AppleAuthRequestOperation,
   AppleAuthRequestScope,
   AppleAuthRealUserStatus,
+  AppleAuthCredentialState,
+  AppleAuthRequestOperation,
 } from '@invertase/react-native-apple-authentication';
 
-const user = '1234567890';
+/**
+ * You'd technically persist this somewhere for later use.
+ */
+let user = null;
+
+/**
+ * Fetches the credential state for the current user, if any, and updates state on completion.
+ */
+async function fetchAndUpdateCredentialState(updateCredentialStateForUser) {
+  if (user === null) {
+    updateCredentialStateForUser('N/A');
+  } else {
+    const credentialState = await auth.getCredentialStateForUser(user);
+    if (credentialState === AppleAuthCredentialState.AUTHORIZED) {
+      updateCredentialStateForUser('AUTHORIZED');
+    } else {
+      updateCredentialStateForUser(credentialState);
+    }
+  }
+}
 
 /**
  * Starts the Sign In flow.
  */
-async function onAppleButtonPress() {
+async function onAppleButtonPress(updateCredentialStateForUser) {
   console.warn('Beginning Apple Authentication');
 
-  const appleAuthRequestResponse = await auth.performRequest({
-    user, // optional
-    requestedOperation: AppleAuthRequestOperation.LOGIN,
-    requestedScopes: [AppleAuthRequestScope.EMAIL, AppleAuthRequestScope.FULL_NAME],
-  });
+  // start a login request
+  try {
+    const appleAuthRequestResponse = await auth.performRequest({
+      requestedOperation: AppleAuthRequestOperation.LOGIN,
+      requestedScopes: [AppleAuthRequestScope.EMAIL, AppleAuthRequestScope.FULL_NAME],
+    });
 
-  const { user, email, nonce, identityToken, realUserStatus /* etc */ } = appleAuthRequestResponse;
+    console.log('appleAuthRequestResponse', appleAuthRequestResponse);
 
-  if (identityToken) {
-    // e.g. sign in with Firebase Auth using `nonce` & `identityToken`
-    console.log(nonce, identityToken);
-  } else {
-    // no token - failed sign-in?
+    const {
+      user: newUser,
+      email,
+      nonce,
+      identityToken,
+      realUserStatus /* etc */,
+    } = appleAuthRequestResponse;
+
+    user = newUser;
+
+    fetchAndUpdateCredentialState(updateCredentialStateForUser).catch(error =>
+      updateCredentialStateForUser(`Error: ${error.code}`),
+    );
+
+    if (identityToken) {
+      // e.g. sign in with Firebase Auth using `nonce` & `identityToken`
+      console.log(nonce, identityToken);
+    } else {
+      // no token - failed sign-in?
+    }
+
+    if (realUserStatus === AppleAuthRealUserStatus.LIKELY_REAL) {
+      console.log("I'm a real person!");
+    }
+
+    console.warn(`Apple Authentication Completed, ${user}, ${email}`);
+  } catch (error) {
+    if (error.code === AppleAuthError.CANCELED) {
+      console.warn('User canceled Apple Sign in.');
+    } else {
+      console.error(error);
+    }
   }
-
-  if (realUserStatus === AppleAuthRealUserStatus.LIKELY_REAL) {
-    console.log("I'm a real person!");
-  }
-
-  console.warn(`Apple Authentication Completed, ${user}, ${email}`);
 }
 
 function RootComponent() {
@@ -66,28 +108,26 @@ function RootComponent() {
   }
 
   const [credentialStateForUser, updateCredentialStateForUser] = useState(-1);
+  useEffect(() => {
+    fetchAndUpdateCredentialState(updateCredentialStateForUser).catch(error =>
+      updateCredentialStateForUser(`Error: ${error.code}`),
+    );
+    return () => {};
+  }, []);
 
   useEffect(() => {
-    async function fetchCredentialState() {
-      const credentialState = await auth.getCredentialStateForUser(user);
-      updateCredentialStateForUser(credentialState);
-    }
-
-    fetchCredentialState().catch(error => updateCredentialStateForUser(`Error: ${error.code}`));
-
-    return () => {};
+    return auth.onCredentialRevoked(async () => {
+      console.warn('Credential Revoked');
+      fetchAndUpdateCredentialState(updateCredentialStateForUser).catch(error =>
+        updateCredentialStateForUser(`Error: ${error.code}`),
+      );
+    });
   }, []);
 
   return (
     <View style={[styles.container, styles.horizontal]}>
-      <Text>Credential State: {JSON.stringify(credentialStateForUser)}</Text>
-
-      <Text style={styles.header}>AppleAuthError Codes</Text>
-      <Text>{AppleAuthError.UNKNOWN}</Text>
-      <Text>{AppleAuthError.CANCELED}</Text>
-      <Text>{AppleAuthError.INVALID_RESPONSE}</Text>
-      <Text>{AppleAuthError.NOT_HANDLED}</Text>
-      <Text>{AppleAuthError.FAILED}</Text>
+      <Text style={styles.header}>Credential State</Text>
+      <Text>{credentialStateForUser}</Text>
 
       <Text style={styles.header}>Buttons</Text>
       <Text>Continue Styles</Text>
@@ -96,21 +136,21 @@ function RootComponent() {
         cornerRadius={5}
         buttonStyle={AppleButton.Style.WHITE}
         buttonType={AppleButton.Type.CONTINUE}
-        onPress={onAppleButtonPress}
+        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
       />
       <AppleButton
         style={styles.appleButton}
         cornerRadius={5}
         buttonStyle={AppleButton.Style.WHITE_OUTLINE}
         buttonType={AppleButton.Type.CONTINUE}
-        onPress={onAppleButtonPress}
+        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
       />
       <AppleButton
         style={styles.appleButton}
         cornerRadius={5}
         buttonStyle={AppleButton.Style.BLACK}
         buttonType={AppleButton.Type.CONTINUE}
-        onPress={onAppleButtonPress}
+        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
       />
       <Text>Sign-in Styles</Text>
       <AppleButton
@@ -118,21 +158,21 @@ function RootComponent() {
         cornerRadius={5}
         buttonStyle={AppleButton.Style.WHITE}
         buttonType={AppleButton.Type.SIGN_IN}
-        onPress={onAppleButtonPress}
+        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
       />
       <AppleButton
         style={styles.appleButton}
         cornerRadius={5}
         buttonStyle={AppleButton.Style.WHITE_OUTLINE}
         buttonType={AppleButton.Type.SIGN_IN}
-        onPress={onAppleButtonPress}
+        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
       />
       <AppleButton
         style={styles.appleButton}
         cornerRadius={5}
         buttonStyle={AppleButton.Style.BLACK}
         buttonType={AppleButton.Type.SIGN_IN}
-        onPress={onAppleButtonPress}
+        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
       />
     </View>
   );
