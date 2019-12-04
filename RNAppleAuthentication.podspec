@@ -6,12 +6,12 @@ Pod::Spec.new do |s|
   s.version             = package["version"]
   s.description         = package["description"]
   s.summary             = <<-DESC
-                            A well tested feature rich Firebase implementation for React Native, supporting iOS & Android.
+                            Apple Authentication services for React Native.
                           DESC
   s.homepage            = "http://invertase.io/oss/react-native-firebase"
   s.license             = package['license']
   s.authors             = "Invertase Limited"
-  s.source              = { :git => "https://github.com/invertase/react-native-firebase.git", :tag => "v#{s.version}" }
+  s.source              = { :git => "https://github.com/invertase/react-native-apple-authentication.git", :tag => "v#{s.version}" }
   s.social_media_url    = 'http://twitter.com/invertaseio'
   s.ios.deployment_target = "9.0"
   s.source_files        = 'ios/**/*.{h,m}'
