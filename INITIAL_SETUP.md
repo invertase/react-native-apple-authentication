@@ -16,7 +16,7 @@ For the purpose of demonstration, suppose we created a fresh React Native projec
 
 ![Xcode signing and capabilities](docs/images/xcode-signin-capabilities.png)
 
-* You will need to sign as a team if you have this error message.
+* You will need to sign in as a team if you have this error message.
 
 ![Xcode team sign in](docs/images/xcode-signin-team.png)
 
