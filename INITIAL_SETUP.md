@@ -4,11 +4,9 @@
 
 For the purpose of demonstration, suppose we created a fresh React Native project called `testAppleButton`.
 
-* Open your project in Xcode.
+* Open your project in Xcode by clicking `open another project`, and navigating to this file: `testAppleButton/ios/testAppleButton.xcodeproj`
 
 ![Xcode console](docs/images/xcode-dashboard.png)
-
-* Open the following file by navigating to this path: `testAppleButton/ios/testAppleButton.xcodeproj`
 
 * Click `testAppleButton` under the target's header.
 
