@@ -36,7 +36,6 @@ This module supports React Native auto-linking.
 - Locate the module lib folder in your node modules: `PROJECT_DIR/node_modules/@invertase/react-native-apple-authentication/ios`
 - Drag the `RNAppleAuthentication.xcodeproj` project file into your project
 - Add `libRNAppleAuthentication.a` to all your target **Linked Frameworks and Libraries** (prone to be forgotten)
-- Add to your project ```info.plist``` the keys ```Privacy - Camera Usage Description``` and ```Privacy - Photo Library Usage Description``` as described [here](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html).
 
 
 ## Documentation
