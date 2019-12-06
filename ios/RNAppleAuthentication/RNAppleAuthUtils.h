@@ -15,11 +15,13 @@
  *
  */
 
+#import <React/RCTBridgeModule.h>
+
 #ifndef RNAppleAuthUtils_h
 #define RNAppleAuthUtils_h
 
 
-@interface RNAppleAuthUtils : NSObject
+@interface RNAppleAuthUtils : NSObject <RCTBridgeModule>
 
 #pragma mark - Methods
 
