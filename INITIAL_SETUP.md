@@ -40,7 +40,7 @@ For the purpose of demonstration, suppose we created a fresh React Native projec
 
 ![save configuration](docs/images/save-button.png)
 
-* Please note: If you choose another app to be your primary app, you will have to through the above noted process, up until you navigate to the Apple developer console, and choose the `Group with existing primary App ID` option & the `testAppleButton` ID.
+* Please note: If you choose another app to be your primary app, you will have to go through the above noted process, up until you navigate to the Apple developer console, and choose the `Group with existing primary App ID` option & the `testAppleButton` ID.
 
 ![save configuration for existing app ID](docs/images/group-with-existing-id.png)
 
