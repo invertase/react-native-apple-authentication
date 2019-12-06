@@ -44,5 +44,20 @@ For the purpose of demonstration, suppose we created a fresh React Native projec
 
 * Please note: If you choose another app to be your primary app, you will have to through the above noted process, up until you naivgate to the Apple developer console, and choose the `Group with exisitng primary App ID` option & the `testAppleButton` ID.
 
-![save configuration](docs/images/group-with-existing-id.png)
+![save configuration for existing app ID](docs/images/group-with-existing-id.png)
 
+* Click on `keys` in left-hand sidebar and create a new key.
+
+![create key](docs/images/create-key.png)
+
+* Give your new key a name. Tick the checkbox next to `Sign In with Apple`, and click `Configure`.
+
+![register key](docs/images/register-key.png)
+
+* Select `testAppleButton` as our primary app ID.
+
+![select App ID as key](docs/images/select-app-key.png)
+
+* Register your key, download it and keep it secure. Initial setup is now complete.
+
+![complete key registration](docs/images/complete-registration.png)
