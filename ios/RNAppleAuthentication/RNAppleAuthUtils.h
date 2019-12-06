@@ -15,6 +15,7 @@
  *
  */
 
+#import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
 
 #ifndef RNAppleAuthUtils_h
