@@ -28,7 +28,6 @@ import auth, {
 } from '@invertase/react-native-apple-authentication';
 
 
-
 class Tester extends React.Component {
   constructor() {
     super();
