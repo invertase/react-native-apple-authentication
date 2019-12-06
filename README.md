@@ -24,7 +24,7 @@ A well typed React Native library providing support for Apple Authentication on 
 
 ## Prerequisites to using this library
 
-The `react-native-apple-authentication` library will not work if you do not ensure the following:
+The `@invertase/react-native-apple-authentication` library will not work if you do not ensure the following:
 
 * You have setup react-native iOS development environment on your machine (Will only work on Mac). If not, please follow the official React Native documentation for getting  started: [React Native getting started documentation](https://facebook.github.io/react-native/docs/getting-started).
 
