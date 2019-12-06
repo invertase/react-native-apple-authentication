@@ -29,6 +29,8 @@
     "apple authentication"
   ],
   "devDependencies": {
+    "react: "*",
+    "react-native": "*",
     "@react-native-community/eslint-config": "^0.0.5",
     "genversion": "^2.2.0",
     "prettier": "^1.19.1",
