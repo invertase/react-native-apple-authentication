@@ -51,7 +51,7 @@ Below are simple steps to help you get up and running. Please skip and head to t
 - If you're authenticating users via `React Native Firebase`; see our [Firebase guide](docs/FIREBASE.md)
 
 
-#### 1. Initial set-up 
+#### 1. Initial set-up
 
 Import the `appleAuth` ([API documentation](docs/interfaces/_lib_index_d_.rnappleauth.module.md)) module and the `AppleButton` ([API documentation](docs/interfaces/_lib_index_d_.rnappleauth.applebuttonprops.md)) exported member element from the `@invertase/react-native-apple-authentication` library. Setup an event handler (`onPress`) to kick start the authentication request.
 
@@ -63,7 +63,7 @@ import { View } from 'react-native';
 import { AppleButton } from '@invertase/react-native-apple-authentication';
 
 async function onAppleButtonPress() {
-  
+
 }
 
 function App() {
@@ -191,6 +191,10 @@ function App() {
 - [AppleAuthRequestScope](docs/enums/_lib_index_d_.rnappleauth.appleauthrequestscope.md)
 - [AppleButtonStyle](docs/enums/_lib_index_d_.rnappleauth.applebuttonstyle.md)
 - [AppleButtonType](docs/enums/_lib_index_d_.rnappleauth.applebuttontype.md)
+
+### FAQs
+1. Why `full name` and `email` returns `null` ?
+- Apple only returns the `full name` and `email` on the first login, it will return `null` on the succeeding login so you need to save those data. To be able to fetch it again, go to your `Settings > Apple ID, iCloud, iTunes & App Store > Password & Security > Appls Using Your Apple ID`, then click on your app and click `Stop Using Apple ID`
 
 ## License
 
