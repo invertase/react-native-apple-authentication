@@ -195,8 +195,8 @@ function App() {
 ### FAQs
 
 1. Why does `full name` and `email` return `null`?
-  - Apple only returns the `full name` and `email` on the first login, it will return `null` on the succeeding login so you need to save those data. 
-  - For testing purposes, to be receive these again, go to your device settings; `Settings > Apple ID, iCloud, iTunes & App Store > Password & Security > Apps Using Your Apple ID`, tap on your app and tap `Stop Using Apple ID`. You can now sign-in again and you'll receive the `full name` and `email.
+   - Apple only returns the `full name` and `email` on the first login, it will return `null` on the succeeding login so you need to save those data. 
+   - For testing purposes, to be receive these again, go to your device settings; `Settings > Apple ID, iCloud, iTunes & App Store > Password & Security > Apps Using Your Apple ID`, tap on your app and tap `Stop Using Apple ID`. You can now sign-in again and you'll receive the `full name` and `email.
 
 ## License
 
