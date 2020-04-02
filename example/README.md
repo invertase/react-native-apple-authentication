@@ -17,3 +17,19 @@
 </p>
 
 ---
+
+# Gotchas
+
+## Mismatch of React Native versions
+
+If this error occurs on app startup, clean and rebuild using the following steps...
+
+1. Uninstall the app from the simulator.
+2. reset any local changes
+3. cd ios
+4. pod install
+5. cd ../example
+6. yarn
+7. yarn start
+8. yarn:build:clean
+9. yarn run:ios
