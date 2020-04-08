@@ -101,13 +101,16 @@ async function onAppleButtonPress(updateCredentialStateForUser) {
 function RootComponent() {
   const [credentialStateForUser, updateCredentialStateForUser] = useState(-1);
   useEffect(() => {
+    if (!appleAuth.isSupported) return
+
     fetchAndUpdateCredentialState(updateCredentialStateForUser).catch(error =>
       updateCredentialStateForUser(`Error: ${error.code}`),
     );
-    return () => {};
   }, []);
 
   useEffect(() => {
+    if (!appleAuth.isSupported) return
+
     return appleAuth.onCredentialRevoked(async () => {
       console.warn('Credential Revoked');
       fetchAndUpdateCredentialState(updateCredentialStateForUser).catch(error =>
