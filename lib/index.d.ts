@@ -416,7 +416,7 @@ declare type AppleAuth = {
    * Perform a request to Apple Authentication services with the provided request options.
    * @param options AppleAuthRequestOptions
    */
-  performRequest(options: AppleAuthRequestOptions): Promise<AppleAuthRequestResponse>;
+  performRequest(options?: AppleAuthRequestOptions): Promise<AppleAuthRequestResponse>;
 
   /**
    * Get the current @{AppleAuthCredentialState} for the provided user identifier.

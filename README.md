@@ -143,38 +143,29 @@ function App() {
 
 #### 4. Implement the logout process
 
-```js
-// App.js
+There is an operation `AppleAuthRequestOperation.LOGOUT`, however it does not work as expected and is not even being used by Apple in their example code. See [this issue for more information](https://github.com/invertase/react-native-apple-authentication/issues/10#issuecomment-611532131)
 
-import { View, Button } from 'react-native';
-import appleAuth, {
-  AppleAuthRequestOperation,
-  AppleAuthCredentialState,
-} from '@invertase/react-native-apple-authentication';
+So it is recommended when logging out to just clear all data you have from a user, collected during `AppleAuthRequestOperation.LOGIN`.
 
-async function onLogout() {
-  // performs logout request
-  const appleAuthRequestResponse = await appleAuth.performRequest({
-    requestedOperation: AppleAuthRequestOperation.LOGOUT,
+## Serverside verification
+
+#### Nonce
+
+- Based on the [Firebase implementation guidelines](https://firebase.google.com/docs/auth/ios/apple#sign_in_with_apple_and_authenticate_with_firebase) the nonce provided to `appleAuth.performRequest` is automatically SHA256-hashed.
+- To verify the nonce serverside you first need to hash the nonce value, ie:
+  ```js
+  crypto.createHash('sha256').update(nonce).digest('hex');
+  ```
+- The nonce can then be easily compared serverside for extra security verification, ie:
+  ```js
+  import crypto from 'crypto';
+  import appleSigninAuth from 'apple-signin-auth';
+  
+  appleIdTokenClaims = await appleSigninAuth.verifyIdToken(id_token, {
+    /** sha256 hex hash of raw nonce */
+    nonce: nonce ? crypto.createHash('sha256').update(nonce).digest('hex') : undefined,
   });
-
-  // get current authentication state for user
-  const credentialState = await appleAuth.getCredentialStateForUser(appleAuthRequestResponse.user);
-
-  // use credentialState response to ensure the user credential's have been revoked
-  if (credentialState === AppleAuthCredentialState.REVOKED) {
-    // user is unauthenticated
-  }
-}
-
-function App() {
-  return (
-    <View>
-      <Button onPress={() => onLogout()}>log out</Button>
-    </View>
-  );
-}
-```
+  ```
 
 ## API Reference Documentation
 
