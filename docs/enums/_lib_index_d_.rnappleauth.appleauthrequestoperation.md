@@ -21,6 +21,8 @@ async function onPressAppleButton() {
   const responseObject = await appleAuth.performRequest(requestOptions);
 }
 
+//LOGOUT is not truly supported by apple. This is left here for completion of the native API
+//but do not attempt to use it. Take a look here: https://github.com/invertase/react-native-apple-authentication/issues/10
 async function logout() {
   const requestOptions = {
     requestedOperation: AppleAuthRequestOperation.LOGOUT,
