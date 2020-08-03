@@ -31,8 +31,7 @@
 RCT_EXPORT_MODULE(RNAppleAuthButtonViewManagerWhiteSignIn)
 
 RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
-
-#if TARGET_OS_IOS
+#if !TARGET_OS_TV
 RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
   view.cornerRadius = [json floatValue];
 }
@@ -53,7 +52,7 @@ RCT_EXPORT_MODULE(RNAppleAuthButtonViewManagerWhiteContinue)
 
 RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
 
-#if TARGET_OS_IOS
+#if !TARGET_OS_TV
 RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
   view.cornerRadius = [json floatValue];
 }
@@ -70,7 +69,7 @@ RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
 @implementation RNAppleAuthButtonViewManagerWhiteSignUp
 RCT_EXPORT_MODULE(RNAppleAuthButtonViewManagerWhiteSignUp)
 RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
-#if TARGET_OS_IOS
+#if !TARGET_OS_TV
 RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
   view.cornerRadius = [json floatValue];
 }
@@ -99,7 +98,7 @@ RCT_EXPORT_MODULE(RNAppleAuthButtonViewManagerWhiteOutlineSignIn)
 
 RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
 
-#if TARGET_OS_IOS
+#if !TARGET_OS_TV
 RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
   view.cornerRadius = [json floatValue];
 }
@@ -120,7 +119,7 @@ RCT_EXPORT_MODULE(RNAppleAuthButtonViewManagerWhiteOutlineContinue)
 
 RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
 
-#if TARGET_OS_IOS
+#if !TARGET_OS_TV
 RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
   view.cornerRadius = [json floatValue];
 }
@@ -136,7 +135,7 @@ RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
 @implementation RNAppleAuthButtonViewManagerWhiteOutlineSignUp
   RCT_EXPORT_MODULE(RNAppleAuthButtonViewManagerWhiteOutlineSignUp)
   RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
-  #if TARGET_OS_IOS
+  #if !TARGET_OS_TV
   RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
     view.cornerRadius = [json floatValue];
   }
@@ -166,7 +165,7 @@ RCT_EXPORT_MODULE(RNAppleAuthButtonViewManagerBlackSignIn)
 
 RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
 
-#if TARGET_OS_IOS
+#if !TARGET_OS_TV
 RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
   view.cornerRadius = [json floatValue];
 }
@@ -187,7 +186,7 @@ RCT_EXPORT_MODULE(RNAppleAuthButtonViewManagerBlackContinue)
 
 RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
 
-#if TARGET_OS_IOS
+#if !TARGET_OS_TV
 RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
   view.cornerRadius = [json floatValue];
 }
@@ -204,7 +203,7 @@ RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
 @implementation RNAppleAuthButtonViewManagerBlackSignUp
   RCT_EXPORT_MODULE(RNAppleAuthButtonViewManagerBlackSignUp)
   RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
-  #if TARGET_OS_IOS
+  #if !TARGET_OS_TV
   RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
     view.cornerRadius = [json floatValue];
   }
