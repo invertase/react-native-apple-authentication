@@ -31,6 +31,7 @@
 RCT_EXPORT_MODULE(RNAppleAuthButtonViewManagerWhiteSignIn)
 
 RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
+
 #if TARGET_OS_IOS
 RCT_CUSTOM_VIEW_PROPERTY(cornerRadius, NSNumber *, RNAppleAuthButtonView) {
   view.cornerRadius = [json floatValue];
