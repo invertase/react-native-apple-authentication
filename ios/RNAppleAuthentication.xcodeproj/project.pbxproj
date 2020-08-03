@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05D5C28324D8777100EBE981 /* RNAppleAuthUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944DE2394778E00316C6B /* RNAppleAuthUtils.m */; };
+		05D5C28424D8777100EBE981 /* RCTConvert+ASAuthorizationAppleIDRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944D72394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDRequest.m */; };
+		05D5C28524D8777100EBE981 /* RNAppleAuthButtonViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944DF2394778E00316C6B /* RNAppleAuthButtonViewManager.m */; };
+		05D5C28624D8777100EBE981 /* RNAppleAuthModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944E42394778E00316C6B /* RNAppleAuthModule.m */; };
+		05D5C28724D8777100EBE981 /* RNAppleAuthASAuthorizationDelegates.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944DC2394778E00316C6B /* RNAppleAuthASAuthorizationDelegates.m */; };
+		05D5C28824D8777100EBE981 /* RNAppleAuthButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944E02394778E00316C6B /* RNAppleAuthButtonView.m */; };
 		270944E52394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944D72394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDRequest.m */; };
 		270944E72394778E00316C6B /* RNAppleAuthASAuthorizationDelegates.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944DC2394778E00316C6B /* RNAppleAuthASAuthorizationDelegates.m */; };
 		270944E92394778E00316C6B /* RNAppleAuthUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 270944DE2394778E00316C6B /* RNAppleAuthUtils.m */; };
@@ -16,6 +22,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		05D5C28A24D8777100EBE981 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2744B98021F45429004F8E3F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -28,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05D5C28E24D8777100EBE981 /* libRNAppleAuthentication-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libRNAppleAuthentication-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		270944D52394778D00316C6B /* RNAppleAuthASAuthorizationDelegates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAppleAuthASAuthorizationDelegates.h; sourceTree = "<group>"; };
 		270944D62394778D00316C6B /* RNAppleAuthModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNAppleAuthModule.h; sourceTree = "<group>"; };
 		270944D72394778E00316C6B /* RCTConvert+ASAuthorizationAppleIDRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+ASAuthorizationAppleIDRequest.m"; sourceTree = "<group>"; };
@@ -43,6 +59,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		05D5C28924D8777100EBE981 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2744B97F21F45429004F8E3F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				2744B98221F45429004F8E3F /* libRNAppleAuthentication.a */,
+				05D5C28E24D8777100EBE981 /* libRNAppleAuthentication-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +114,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		05D5C28124D8777100EBE981 /* RNAppleAuthentication-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05D5C28B24D8777100EBE981 /* Build configuration list for PBXNativeTarget "RNAppleAuthentication-tvOS" */;
+			buildPhases = (
+				05D5C28224D8777100EBE981 /* Sources */,
+				05D5C28924D8777100EBE981 /* Frameworks */,
+				05D5C28A24D8777100EBE981 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNAppleAuthentication-tvOS";
+			productName = RNAppleAuthentication;
+			productReference = 05D5C28E24D8777100EBE981 /* libRNAppleAuthentication-tvOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		2744B98121F45429004F8E3F /* RNAppleAuthentication */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2744B98821F45429004F8E3F /* Build configuration list for PBXNativeTarget "RNAppleAuthentication" */;
@@ -114,9 +155,12 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RNAppleAuthentication;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = Invertase;
 				TargetAttributes = {
+					05D5C28124D8777100EBE981 = {
+						ProvisioningStyle = Automatic;
+					};
 					2744B98121F45429004F8E3F = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
@@ -125,11 +169,11 @@
 			};
 			buildConfigurationList = 3323F1C5716BA966BBBB95A4 /* Build configuration list for PBXProject "RNAppleAuthentication" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = 3323F52AAFE26B7384BE4DE3;
 			productRefGroup = 2744B97521F452B8004F8E3F /* Products */;
@@ -137,11 +181,25 @@
 			projectRoot = "";
 			targets = (
 				2744B98121F45429004F8E3F /* RNAppleAuthentication */,
+				05D5C28124D8777100EBE981 /* RNAppleAuthentication-tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		05D5C28224D8777100EBE981 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05D5C28324D8777100EBE981 /* RNAppleAuthUtils.m in Sources */,
+				05D5C28424D8777100EBE981 /* RCTConvert+ASAuthorizationAppleIDRequest.m in Sources */,
+				05D5C28524D8777100EBE981 /* RNAppleAuthButtonViewManager.m in Sources */,
+				05D5C28624D8777100EBE981 /* RNAppleAuthModule.m in Sources */,
+				05D5C28724D8777100EBE981 /* RNAppleAuthASAuthorizationDelegates.m in Sources */,
+				05D5C28824D8777100EBE981 /* RNAppleAuthButtonView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2744B97E21F45429004F8E3F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,6 +216,82 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		05D5C28C24D8777100EBE981 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		05D5C28D24D8777100EBE981 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		2744B98921F45429004F8E3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -235,6 +369,7 @@
 		3323F77D701E1896E6D239CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -293,6 +428,7 @@
 		3323F7E33E1559A2B9826720 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -352,6 +488,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		05D5C28B24D8777100EBE981 /* Build configuration list for PBXNativeTarget "RNAppleAuthentication-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05D5C28C24D8777100EBE981 /* Debug */,
+				05D5C28D24D8777100EBE981 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2744B98821F45429004F8E3F /* Build configuration list for PBXNativeTarget "RNAppleAuthentication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
