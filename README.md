@@ -146,8 +146,7 @@ function App() {
 
 #### 4. Implement the logout process
 
-There is an operation `AppleAuthRequestOperation.LOGOUT`, however it does not work as expected and is not even being used by Apple in t
-r example code. See [this issue for more information](https://github.com/invertase/react-native-apple-authentication/issues/10#issuecomment-611532131)
+There is an operation `AppleAuthRequestOperation.LOGOUT`, however it does not work as expected and is not even being used by Apple in their example code. See [this issue for more information](https://github.com/invertase/react-native-apple-authentication/issues/10#issuecomment-611532131)
 
 So it is recommended when logging out to just clear all data you have from a user, collected during `AppleAuthRequestOperation.LOGIN`.
 
