@@ -216,6 +216,8 @@ The operation couldn’t be completed. (com.apple.AuthenticationServices.Authori
 
 In the case you are using the function `getCredentialStateForUser` on a simulator, this error will always be fired. You should test your code on a real device.
 
+Sometimes simply removing the simulator from your Apple Developer account, and letting it be re-added when you auth again in the simulator, does the trick: https://github.com/invertase/react-native-apple-authentication/issues/9#issuecomment-670096191
+
 
 ## License
 
