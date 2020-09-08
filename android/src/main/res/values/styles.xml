@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="SignInWithAppleButton">
+        <item name="android:background">@drawable/sign_in_with_apple_button_background_black</item>
+        <item name="android:textColor">@color/sign_in_with_apple_button_text_white</item>
+        <item name="android:drawableLeft">@drawable/sign_in_with_apple_button_icon_white</item>
+    </style>
+
+    <style name="SignInWithAppleButton.Black">
+        <!-- Inherits default settings. Black is the default if you don't specify a style. -->
+    </style>
+
+    <style name="SignInWithAppleButton.White">
+        <item name="android:background">@drawable/sign_in_with_apple_button_background_white</item>
+        <item name="android:textColor">@color/sign_in_with_apple_button_text_black</item>
+        <item name="android:drawableLeft">@drawable/sign_in_with_apple_button_icon_black</item>
+    </style>
+
+    <style name="SignInWithAppleButton.WhiteOutline">
+        <item name="android:background">@drawable/sign_in_with_apple_button_background_white_outline</item>
+        <item name="android:textColor">@color/sign_in_with_apple_button_text_black</item>
+        <item name="android:drawableLeft">@drawable/sign_in_with_apple_button_icon_black</item>
+    </style>
+
+    <style name="sign_in_with_apple_button_DialogTheme" parent="android:Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
+</resources>

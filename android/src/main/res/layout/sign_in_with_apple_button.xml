@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:duplicateParentState="true"
+    android:minHeight="@dimen/sign_in_with_apple_button_minimumHeight"
+    android:paddingStart="@dimen/sign_in_with_apple_button_horizontalPadding"
+    android:paddingEnd="@dimen/sign_in_with_apple_button_horizontalPadding">
+
+    <!-- Button icon -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/sign_in_with_apple_button_icon_marginEnd"
+        android:contentDescription="@string/sign_in_with_apple_button_iconContentDescription"
+        android:duplicateParentState="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/textView"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Button text -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/sign_in_with_apple_button_textView_contentSpacing"
+        android:duplicateParentState="true"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/sign_in_with_apple_button_signInWithApple" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

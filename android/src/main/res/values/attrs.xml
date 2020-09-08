@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SignInWithAppleButton">
+        <!-- Style: Use the "style" attribute to set these -->
+        <attr name="android:background"/>
+        <attr name="android:drawableLeft"/>
+        <attr name="android:textColor"/>
+        <attr name="android:textSize"/>
+        <attr name="android:textStyle"/>
+        <attr name="android:fontFamily"/>
+
+        <!-- Icon size -->
+        <attr name="sign_in_with_apple_button_iconSize" format="dimension" />
+
+        <!-- Text type -->
+        <attr name="sign_in_with_apple_button_textType" format="enum">
+            <enum name="signInWithApple" value="0" />
+            <enum name="continueWithApple" value="1" />
+        </attr>
+
+        <!-- Corner radius -->
+        <attr name="sign_in_with_apple_button_cornerRadius" format="dimension" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="sign_in_with_apple_button_signInWithApple">Sign in with Apple</string>
+    <string name="sign_in_with_apple_button_continueWithApple">Continue with Apple</string>
+    <string name="sign_in_with_apple_button_iconContentDescription">sign in with apple button icon</string>
+</resources>

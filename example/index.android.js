@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (c) 2016-present Invertase Limited & Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,11 +14,7 @@
  * limitations under the License.
  *
  */
+import { AppRegistry } from 'react-native';
+import App from './app';
 
-require('./app');
-
-/**
- * If you want to play with the class implementation (React version 16.7 or less),
- * comment out require('./app'); & uncomment require('./classVersion');
- */
-// require('./classVersion');
+AppRegistry.registerComponent('example', () => App);

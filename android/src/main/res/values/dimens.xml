@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sign_in_with_apple_button_minimumHeight">38dp</dimen>
+    <dimen name="sign_in_with_apple_button_horizontalPadding">9dp</dimen>
+    <dimen name="sign_in_with_apple_button_cornerRadius_default">4dp</dimen>
+    <dimen name="sign_in_with_apple_button_textView_contentSpacing">6dp</dimen>
+    <dimen name="sign_in_with_apple_button_icon_marginEnd">6dp</dimen>
+</resources>

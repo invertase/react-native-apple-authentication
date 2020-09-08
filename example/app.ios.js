@@ -17,7 +17,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { AppRegistry, StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import appleAuth, {
   AppleButton,
   AppleAuthError,
@@ -98,7 +98,7 @@ async function onAppleButtonPress(updateCredentialStateForUser) {
   }
 }
 
-function RootComponent() {
+export default function RootComponent() {
   const [credentialStateForUser, updateCredentialStateForUser] = useState(-1);
   useEffect(() => {
     if (!appleAuth.isSupported) return
@@ -118,7 +118,7 @@ function RootComponent() {
       );
     });
   }, []);
-  
+
   if (!appleAuth.isSupported) {
     return (
       <View style={[styles.container, styles.horizontal]}>
@@ -126,7 +126,7 @@ function RootComponent() {
       </View>
     );
   }
-  
+
   return (
     <View style={[styles.container, styles.horizontal]}>
       <Text style={styles.header}>Credential State</Text>
@@ -205,5 +205,3 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
-
-AppRegistry.registerComponent('testing', () => RootComponent);

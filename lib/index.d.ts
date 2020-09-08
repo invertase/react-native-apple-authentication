@@ -16,7 +16,7 @@
  */
 
 import React from 'react';
-import { GestureResponderEvent, StyleProp, ViewStyle } from 'react-native';
+import { GestureResponderEvent, StyleProp, ViewStyle, TextStyle } from 'react-native';
 
 /**
  * The Button style (mainly color) to render.
@@ -189,6 +189,16 @@ export interface AppleButtonProps {
   onPress?: (event: GestureResponderEvent) => void;
 
   style?: StyleProp<ViewStyle>;
+
+  /**
+   * Android-only. Styling for button text.
+   */
+  textStyle?: StyleProp<TextStyle>;
+
+  /**
+   * Android-only. View on the left that can be used for an Apple logo.
+   */
+  leftView?: React.ReactNode;
 }
 
 /**
@@ -443,3 +453,65 @@ declare type AppleAuth = {
 
 declare const appleAuth: {} & AppleAuth;
 export default appleAuth;
+
+
+/**
+ * Android
+ */
+declare enum ResponseTypeEnum {
+  ALL = "ALL",
+  CODE = "CODE",
+  ID_TOKEN = "ID_TOKEN",
+}
+
+interface IResponseType {
+  ALL: ResponseTypeEnum.ALL;
+  CODE: ResponseTypeEnum.CODE;
+  ID_TOKEN: ResponseTypeEnum.ID_TOKEN;
+}
+
+declare enum ScopeEnum {
+  ALL = "ALL",
+  EMAIL = "EMAIL",
+  NAME = "NAME",
+}
+
+interface IScope {
+  ALL: ScopeEnum.ALL;
+  EMAIL: ScopeEnum.EMAIL;
+  NAME: ScopeEnum.NAME;
+}
+
+interface IRNAppleAuthAndroidConfig {
+  clientId: string;
+  redirectUri: string;
+  responseType?: ResponseTypeEnum;
+  scope?: ScopeEnum;
+  state?: string;
+  nonce?: string;
+}
+
+interface ISigninResponseUser {
+  name?: { firstName?: string; lastName?: string; };
+  email?: string;
+}
+
+interface ISigninResponse {
+  user?: ISigninResponseUser;
+  state?: string;
+  id_token?: string;
+  code?: string;
+}
+
+interface IRNAppleAuthAndroid {
+  configure(configObject: IRNAppleAuthAndroidConfig): void;
+  signIn(): Promise<ISigninResponse>;
+  Errors: {
+    NOT_CONFIGURED: string;
+    SIGNIN_FAILED: string;
+    SIGNIN_CANCELLED: string;
+  };
+  Scope: IScope;
+  ResponseType: IResponseType;
+}
+export const appleAuthAndroid: IRNAppleAuthAndroid;

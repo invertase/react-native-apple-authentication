@@ -14,7 +14,7 @@
     "react-native": "0.61.5"
   },
   "devDependencies": {
-    "patch-package": "^6.1.0",
-    "@react-native-community/cli": "^3.0.4"
+    "@react-native-community/cli": "^3.0.4",
+    "patch-package": "^6.1.0"
   }
 }
