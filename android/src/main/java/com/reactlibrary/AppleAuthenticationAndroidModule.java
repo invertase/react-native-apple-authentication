@@ -24,6 +24,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule {
 
@@ -44,6 +46,16 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
     @Override
     public String getName() {
         return "RNAppleAuthModuleAndroid";
+    }
+
+    private static String bytesToHex(byte[] hash) {
+        StringBuffer hexString = new StringBuffer();
+        for (int i = 0; i < hash.length; i++) {
+        String hex = Integer.toHexString(0xff & hash[i]);
+        if(hex.length() == 1) hexString.append('0');
+            hexString.append(hex);
+        }
+        return hexString.toString();
     }
 
     @Override
@@ -115,7 +127,15 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
         }
 
         if (configObject.hasKey("nonce")) {
-            nonce = configObject.getString("nonce");
+            // Here we send the SHA256 of the nonce to keep in line with the iOS library (and avoid confusion)
+            try {
+              MessageDigest md = MessageDigest.getInstance("SHA-256");
+              md.update(configObject.getString("nonce").getBytes());
+              byte[] digest = md.digest();
+              nonce = bytesToHex(digest);
+            } catch (Exception e) {
+              // Couldn't hash the nonce
+            }
         }
 
         this.configuration = new SignInWithAppleConfiguration.Builder()
