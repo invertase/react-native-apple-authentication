@@ -1,10 +1,10 @@
-package com.reactlibrary
+package com.RNAppleAuthentication
 
 import android.net.Uri
 import android.os.Parcel
 import android.os.Parcelable
 import androidx.fragment.app.FragmentManager
-import com.reactlibrary.webview.SignInWebViewDialogFragment
+import com.RNAppleAuthentication.webview.SignInWebViewDialogFragment
 
 class SignInWithAppleService(
   private val fragmentManager: FragmentManager,

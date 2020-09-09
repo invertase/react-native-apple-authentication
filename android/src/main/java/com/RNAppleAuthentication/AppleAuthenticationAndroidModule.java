@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.RNAppleAuthentication;
 
 import android.app.Activity;
 
@@ -15,9 +15,9 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 
-import com.reactlibrary.SignInWithAppleCallback;
-import com.reactlibrary.SignInWithAppleConfiguration;
-import com.reactlibrary.SignInWithAppleService;
+import com.RNAppleAuthentication.SignInWithAppleCallback;
+import com.RNAppleAuthentication.SignInWithAppleConfiguration;
+import com.RNAppleAuthentication.SignInWithAppleService;
 
 import org.json.JSONObject;
 

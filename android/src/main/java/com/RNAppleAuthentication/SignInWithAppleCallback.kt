@@ -1,4 +1,4 @@
-package com.reactlibrary
+package com.RNAppleAuthentication
 
 interface SignInWithAppleCallback {
   fun onSignInWithAppleSuccess(code: String, id_token: String, state: String, user: String)

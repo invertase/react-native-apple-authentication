@@ -1,12 +1,12 @@
-package com.reactlibrary.webview
+package com.RNAppleAuthentication.webview
 
 import android.os.Handler
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.reactlibrary.SignInWithAppleService
 import java.lang.Exception
+import com.RNAppleAuthentication.SignInWithAppleService
 
 internal class SignInWebViewClient(
   private val attempt: SignInWithAppleService.AuthenticationAttempt,

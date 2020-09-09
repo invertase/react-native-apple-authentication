@@ -1,4 +1,4 @@
-package com.reactlibrary.webview
+package com.RNAppleAuthentication.webview
 
 import android.annotation.SuppressLint
 import android.content.DialogInterface
@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.webkit.WebView
 import androidx.fragment.app.DialogFragment
-import com.reactlibrary.FormInterceptorInterface
-import com.reactlibrary.R
-import com.reactlibrary.SignInWithAppleResult
-import com.reactlibrary.SignInWithAppleService
+import com.RNAppleAuthentication.FormInterceptorInterface
+import com.RNAppleAuthentication.R
+import com.RNAppleAuthentication.SignInWithAppleResult
+import com.RNAppleAuthentication.SignInWithAppleService
 
 @SuppressLint("SetJavaScriptEnabled")
 internal class SignInWebViewDialogFragment : DialogFragment() {

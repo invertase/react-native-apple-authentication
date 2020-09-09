@@ -1,4 +1,4 @@
-package com.reactlibrary
+package com.RNAppleAuthentication
 
 data class SignInWithAppleConfiguration private constructor(
   val clientId: String,

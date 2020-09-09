@@ -1,4 +1,4 @@
-package com.reactlibrary
+package com.RNAppleAuthentication
 
 import android.webkit.JavascriptInterface
 
