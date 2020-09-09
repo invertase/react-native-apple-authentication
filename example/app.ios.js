@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-/*
+/**
  * Copyright (c) 2016-present Invertase Limited & Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,6 +26,7 @@ import appleAuth, {
   AppleAuthCredentialState,
   AppleAuthRequestOperation,
 } from '@invertase/react-native-apple-authentication';
+
 
 /**
  * You'd technically persist this somewhere for later use.

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-/*
+/**
  * Copyright (c) 2016-present Invertase Limited & Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,9 +26,6 @@ import appleLogoWhite from './images/apple_logo_white.png';
 import appleLogoBlack from './images/apple_logo_black.png';
 
 
-/**
- * Starts the Sign In flow.
- */
 export default RootComponent = () => {
   const doAppleLogin = async () => {
     try {
@@ -51,16 +48,17 @@ export default RootComponent = () => {
 
         // [OPTIONAL]
         // A String value used to associate a client session with an ID token and mitigate replay attacks.
+        // This value will be SHA256 hashed by the library before being sent to Apple.
         // This is required if you intend to use Firebase to sign in with this credential.
         // Supply the response.id_token and rawNonce to Firebase OAuthProvider
-        nonce: "SHA-256 of rawNonce, where rawNonce is a unique non-repeating string"
+        nonce: "Unique, non-repeating nonce value",
       });
 
       const response = await appleAuthAndroid.signIn();
       if (response) {
         const code = response.code; // Present if selected ResponseType.ALL / ResponseType.CODE
         const id_token = response.id_token; // Present if selected ResponseType.ALL / ResponseType.ID_TOKEN
-        const user = response.user; // Present when user first logs in using appleid
+        const user = response.user; // Present when user first logs in using appleId
         console.log("Got auth code", code);
         console.log("Got id_token", id_token);
         console.log("Got user", user);
@@ -75,7 +73,7 @@ export default RootComponent = () => {
             console.log("Apple signin failed.");
             break;
           case appleAuthAndroid.Errors.SIGNIN_CANCELLED:
-            console.log("User cancelled apple signin.");
+            console.log("User cancelled Apple signin.");
             break;
           default:
             break;

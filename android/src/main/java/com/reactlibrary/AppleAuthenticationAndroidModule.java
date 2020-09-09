@@ -25,7 +25,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule {
 
@@ -87,7 +86,6 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
         if (activity == null || !(activity instanceof FragmentActivity)) {
             return null;
         }
-
         return ((FragmentActivity) activity).getSupportFragmentManager();
     }
 
@@ -127,14 +125,13 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
         }
 
         if (configObject.hasKey("nonce")) {
-            // Here we send the SHA256 of the nonce to keep in line with the iOS library (and avoid confusion)
+            // SHA256 of the nonce to keep in line with the iOS library (and avoid confusion)
             try {
               MessageDigest md = MessageDigest.getInstance("SHA-256");
               md.update(configObject.getString("nonce").getBytes());
               byte[] digest = md.digest();
               nonce = bytesToHex(digest);
             } catch (Exception e) {
-              // Couldn't hash the nonce
             }
         }
 
@@ -161,7 +158,6 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
             return;
         }
 
-
         SignInWithAppleCallback callback = new SignInWithAppleCallback() {
             @Override
             public void onSignInWithAppleSuccess(@NonNull String code, @NonNull String id_token, @NonNull String state, @NonNull String user) {
@@ -169,6 +165,7 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
                 response.putString("code", code);
                 response.putString("id_token", id_token);
                 response.putString("state", state);
+
                 try {
                     JSONObject userJSON = new JSONObject(user);
                     WritableMap userMap = Arguments.createMap();
