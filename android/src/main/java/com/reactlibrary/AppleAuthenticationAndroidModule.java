@@ -15,9 +15,9 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 
-import com.willowtreeapps.signinwithapplebutton.SignInWithAppleCallback;
-import com.willowtreeapps.signinwithapplebutton.SignInWithAppleConfiguration;
-import com.willowtreeapps.signinwithapplebutton.SignInWithAppleService;
+import com.reactlibrary.SignInWithAppleCallback;
+import com.reactlibrary.SignInWithAppleConfiguration;
+import com.reactlibrary.SignInWithAppleService;
 
 import org.json.JSONObject;
 
@@ -27,7 +27,6 @@ import java.util.UUID;
 import java.security.MessageDigest;
 
 public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule {
-
     private static final String E_NOT_CONFIGURED_ERROR = "E_NOT_CONFIGURED_ERROR";
     private static final String E_SIGNIN_FAILED_ERROR = "E_SIGNIN_FAILED_ERROR";
     private static final String E_SIGNIN_CANCELLED_ERROR = "E_SIGNIN_CANCELLED_ERROR";
