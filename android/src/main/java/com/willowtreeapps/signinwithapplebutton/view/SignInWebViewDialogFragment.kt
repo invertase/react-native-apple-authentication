@@ -14,7 +14,6 @@ import com.reactlibrary.R
 import com.willowtreeapps.signinwithapplebutton.FormInterceptorInterface
 import com.willowtreeapps.signinwithapplebutton.SignInWithAppleResult
 import com.willowtreeapps.signinwithapplebutton.SignInWithAppleService
-import com.willowtreeapps.signinwithapplebutton.view.SignInWithAppleButton.Companion.SIGN_IN_WITH_APPLE_LOG_TAG
 
 @SuppressLint("SetJavaScriptEnabled")
 internal class SignInWebViewDialogFragment : DialogFragment() {
@@ -106,7 +105,6 @@ internal class SignInWebViewDialogFragment : DialogFragment() {
         dialog?.dismiss()
         val callback = callback
         if (callback == null) {
-            Log.e(SIGN_IN_WITH_APPLE_LOG_TAG, "Callback is not configured")
             return
         }
         callback(result)
