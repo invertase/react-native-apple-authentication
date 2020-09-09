@@ -93,6 +93,7 @@ export default RootComponent = () => {
         leftView={(
           <Image
             style={{
+              alignSelf: 'center',
               width: 14,
               height: 14,
               marginRight: 7,
@@ -111,6 +112,7 @@ export default RootComponent = () => {
         leftView={(
           <Image
             style={{
+              alignSelf: 'center',
               width: 14,
               height: 14,
               marginRight: 7,
@@ -129,6 +131,7 @@ export default RootComponent = () => {
         leftView={(
           <Image
             style={{
+              alignSelf: 'center',
               width: 14,
               height: 14,
               marginRight: 7,
