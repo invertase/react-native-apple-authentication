@@ -18,9 +18,8 @@
 import React from 'react';
 import { GestureResponderEvent, StyleProp, ViewStyle, TextStyle } from 'react-native';
 
-/**
- * AppleButton, cross-platform
- */
+
+/** AppleButton, cross-platform */
 
 /**
  * The Apple Button type to render, this controls the button text.
@@ -93,8 +92,6 @@ interface AppleButtonProps {
    */
   cornerRadius?: number;
 
-  onPress?: (event: GestureResponderEvent) => void;
-
   /**
    * Styling for outside `TouchableOpacity`
    */
@@ -109,6 +106,8 @@ interface AppleButtonProps {
    * Android-only. View on the left that can be used for an Apple logo.
    */
   leftView?: React.ReactNode;
+
+  onPress: (event: GestureResponderEvent) => void;
 }
 
 export const AppleButton: {
@@ -117,92 +116,74 @@ export const AppleButton: {
 } & React.FC<AppleButtonProps>;
 
 
-/**
- * iOS
- */
+/** iOS */
 
-/**
- * The current Apple Authorization state.
- */
-declare enum AppleAuthCredentialState {
+declare enum AppleError {
   /**
-   * The Opaque user ID was revoked by the user.
+   * The authorization attempt failed for an unknown reason.
    */
-  REVOKED,
+  UNKNOWN = '1000',
 
   /**
-   * The Opaque user ID is in good state.
+   * The user canceled the authorization attempt.
    */
-  AUTHORIZED,
+  CANCELED = '1001',
 
   /**
-   * The Opaque user ID was not found.
+   * The authorization request received an invalid response.
    */
-  NOT_FOUND,
+  INVALID_RESPONSE = '1002',
 
   /**
-   * N/A
-   *
-   * @url https://developer.apple.com/documentation/authenticationservices/asauthorizationappleidprovidercredentialstate/asauthorizationappleidprovidercredentialtransferred?language=objc
+   * The authorization request wasn't handled.
    */
-  TRANSFERRED,
+  NOT_HANDLED = '1003',
+
+  /**
+   * The authorization attempt failed.
+   */
+  FAILED = '1004',
 }
 
-/**
- * Operation to be executed by the request.
- *
- * Request option used as part of `AppleAuthRequestOptions` `requestedOperation`
- */
-declare enum AppleAuthRequestOperation {
+declare enum AppleRequestOperation {
   /**
    * An operation that depends on the particular kind of credential provider.
    */
-  IMPLICIT,
+  IMPLICIT = 0,
 
   /**
    * An operation used to authenticate a user.
    */
-  LOGIN,
+  LOGIN = 1,
 
   /**
    * An operation that refreshes the logged-in user’s credentials.
    */
-  REFRESH,
+  REFRESH = 2,
 
   /**
    * An operation that ends an authenticated session.
    */
-  LOGOUT,
+  LOGOUT = 3,
 }
 
-/**
- * The contact information to be requested from the user.  Only scopes for which this app was
- * authorized for will be returned.
- *
- * Scopes used as part of `AppleAuthRequestOptions` `requestedScopes`
- */
-declare enum AppleAuthRequestScope {
+declare enum AppleRequestScope {
   /**
    * A scope that includes the user’s email address.
    */
-  EMAIL,
+  EMAIL = 0,
 
   /**
    * A scope that includes the user’s full name.
    */
-  FULL_NAME,
+  FULL_NAME = 1,
 }
 
-/**
- * Possible values for the real user indicator.
- *
- * @url https://developer.apple.com/documentation/authenticationservices/asuserdetectionstatus
- */
-declare enum AppleAuthRealUserStatus {
+declare enum AppleRealUserStatus {
   /**
    * Not supported on current platform, ignore the value.
    */
-  UNSUPPORTED,
+  UNSUPPORTED = 0,
 
   /**
    * Could not determine the value.
@@ -210,31 +191,56 @@ declare enum AppleAuthRealUserStatus {
    * New users in the ecosystem will get this value as well, so you should not blacklist but
    * instead treat these users as any new user through standard email sign up flows
    */
-  UNKNOWN,
+  UNKNOWN = 1,
 
   /**
    * A hint that there's high confidence that the user is real.
    */
-  LIKELY_REAL,
+  LIKELY_REAL = 2,
 }
+
+declare enum AppleCredentialState {
+  /**
+   * The Opaque user ID was revoked by the user.
+   */
+  REVOKED = 0,
+
+  /**
+   * The Opaque user ID is in good state.
+   */
+  AUTHORIZED = 1,
+
+  /**
+   * The Opaque user ID was not found.
+   */
+  NOT_FOUND = 2,
+
+  /**
+   * N/A
+   *
+   * @url https://developer.apple.com/documentation/authenticationservices/asauthorizationappleidprovidercredentialstate/asauthorizationappleidprovidercredentialtransferred?language=objc
+   */
+  TRANSFERRED = 3,
+}
+
 
 /**
  * Apple Authentication Request options to be used with `performRequest(requestOptions)`.
  */
-interface AppleAuthRequestOptions {
+interface AppleRequestOptions {
   /**
    * The contact information to be requested from the user.
    *
    * Only scopes for which this app was authorized for will be returned.
    */
-  requestedScopes?: AppleAuthRequestScope[];
+  requestedScopes?: AppleRequestScope[];
 
   /**
    * Operation which should be executed.
    *
    * @url https://developer.apple.com/documentation/authenticationservices/asauthorizationoperationimplicit?language=objc
    */
-  requestedOperation?: AppleAuthRequestOperation;
+  requestedOperation?: AppleRequestOperation;
 
   /**
    * If you have been previously vended a 'user' value through a Apple Authorization response,
@@ -246,7 +252,7 @@ interface AppleAuthRequestOptions {
 
   /**
    * Nonce to be passed to the identity provider. If value not provided, one will automatically
-   * be created for you and available as part of @{AppleAuthRequestResponse}.
+   * be created for you and available as part of @{AppleRequestResponse}.
    *
    * This value can be verified with the identity token provided as a part of successful
    * ASAuthorization response.
@@ -268,7 +274,7 @@ interface AppleAuthRequestOptions {
   /**
    * State to be passed to the identity provider.
    *
-   * This value will be returned as a part of successful AppleAuthRequestResponse response.
+   * This value will be returned as a part of successful AppleRequestResponse response.
    */
   state?: string;
 }
@@ -278,7 +284,7 @@ interface AppleAuthRequestOptions {
  *
  * These fields are populated with values that the user authorized.
  */
-interface AppleAuthRequestResponseFullName {
+interface AppleRequestResponseFullName {
   /**
    * Pre-nominal letters denoting title, salutation, or honorific, e.g. Dr., Mr.
    */
@@ -313,7 +319,7 @@ interface AppleAuthRequestResponseFullName {
 /**
  * A response from `performRequest(requestOptions)`.
  */
-interface AppleAuthRequestResponse {
+interface AppleRequestResponse {
   /**
    * Nonce that was passed to the identity provider. If none was passed to the request, one will
    * have automatically been created and available to be read from this property.
@@ -335,25 +341,25 @@ interface AppleAuthRequestResponse {
    *
    * This field is populated with a value that the user authorized.
    *
-   * See @{AppleAuthRequestResponseFullName}
+   * See @{AppleRequestResponseFullName}
    */
-  fullName: null | AppleAuthRequestResponseFullName;
+  fullName: null | AppleRequestResponseFullName;
 
   /**
    * Check this property for a hint as to whether the current user is a "real user".
    *
-   * See @{AppleAuthRealUserStatus}
+   * See @{AppleRealUserStatus}
    */
-  realUserStatus: AppleAuthRealUserStatus;
+  realUserStatus: AppleRealUserStatus;
 
   /**
    * This value will contain an array of scopes for which the user provided authorization.
    * Note that these may contain a subset of the requested scopes. You should query this value to
    * identify which scopes were returned as it may be different from ones you requested.
    *
-   * See @{AppleAuthRealUserStatus}
+   * See @{AppleRealUserStatus}
    */
-  authorizedScopes: AppleAuthRequestScope[];
+  authorizedScopes: AppleRequestScope[];
 
   /**
    * A JSON Web Token (JWT) used to communicate information about the identity of the user in a
@@ -391,38 +397,6 @@ interface AppleAuthRequestResponse {
   authorizationCode: string | null;
 }
 
-/**
- * Errors that can occur during authorization.
- *
- * @url https://developer.apple.com/documentation/authenticationservices/asauthorizationerror/code
- */
-declare enum AppleAuthError {
-  /**
-   * The authorization attempt failed for an unknown reason.
-   */
-  UNKNOWN = '1000',
-
-  /**
-   * The user canceled the authorization attempt.
-   */
-  CANCELED = '1001',
-
-  /**
-   * The authorization request received an invalid response.
-   */
-  INVALID_RESPONSE = '1002',
-
-  /**
-   * The authorization request wasn't handled.
-   */
-  NOT_HANDLED = '1003',
-
-  /**
-   * The authorization attempt failed.
-   */
-  FAILED = '1004',
-}
-
 
 export const appleAuth: {
   /**
@@ -444,16 +418,16 @@ export const appleAuth: {
 
   /**
    * Perform a request to Apple Authentication services with the provided request options.
-   * @param options AppleAuthRequestOptions
+   * @param options AppleRequestOptions
    */
-  performRequest(options?: AppleAuthRequestOptions): Promise<AppleAuthRequestResponse>;
+  performRequest(options?: AppleRequestOptions): Promise<AppleRequestResponse>;
 
   /**
-   * Get the current @{AppleAuthCredentialState} for the provided user identifier.
+   * Get the current @{AppleCredentialState} for the provided user identifier.
    *
    * @param user An opaque user ID associated with the AppleID used for the sign in.
    */
-  getCredentialStateForUser(user: string): Promise<AppleAuthCredentialState>;
+  getCredentialStateForUser(user: string): Promise<AppleCredentialState>;
 
   /**
    * Subscribe to credential revoked events. Call `getCredentialStateForUser` on event received
@@ -463,43 +437,71 @@ export const appleAuth: {
    */
   onCredentialRevoked(listener: Function): () => void | undefined;
 
-  Error: AppleAuthError;
-  Operation: AppleAuthRequestOperation;
-  Scope: AppleAuthRequestScope;
-  UserStatus: AppleAuthRealUserStatus;
-  State: AppleAuthCredentialState;
+  /**
+   * Errors that can occur during authorization.
+   *
+   * @url https://developer.apple.com/documentation/authenticationservices/asauthorizationerror/code
+   */
+  Error: typeof AppleError;
+
+  /**
+   * Operation to be executed by the request.
+   *
+   * Request option used as part of `AppleRequestOptions` `requestedOperation`
+   */
+  Operation: typeof AppleRequestOperation;
+
+  /**
+   * The contact information to be requested from the user.  Only scopes for which this app was
+   * authorized for will be returned.
+   *
+   * Scopes used as part of `AppleRequestOptions` `requestedScopes`
+   */
+  Scope: typeof AppleRequestScope;
+
+  /**
+   * Possible values for the real user indicator.
+   *
+   * @url https://developer.apple.com/documentation/authenticationservices/asuserdetectionstatus
+   */
+  UserStatus: typeof AppleRealUserStatus;
+
+  /**
+   * The current Apple Authorization state.
+   */
+  State: typeof AppleCredentialState;
 };
 export default appleAuth;
 
 
-/**
- * Android
- */
-declare enum ResponseTypeEnum {
+/** Android */
+
+type AndroidError = {
+  /**
+   * Apple auth for Android wasn't configured. Be sure to call `appleAuthAndroid.configure(options)`.
+   */
+  NOT_CONFIGURED: string;
+  SIGNIN_FAILED: string;
+
+  /**
+   * User cancelled (closed the browser window) the sign in request.
+   */
+  SIGNIN_CANCELLED: string;
+}
+
+declare enum AndroidResponseType {
   ALL = "ALL",
   CODE = "CODE",
   ID_TOKEN = "ID_TOKEN",
 }
 
-interface IResponseType {
-  ALL: ResponseTypeEnum.ALL;
-  CODE: ResponseTypeEnum.CODE;
-  ID_TOKEN: ResponseTypeEnum.ID_TOKEN;
-}
-
-declare enum ScopeEnum {
+declare enum AndroidScope {
   ALL = "ALL",
   EMAIL = "EMAIL",
   NAME = "NAME",
 }
 
-interface IScope {
-  ALL: ScopeEnum.ALL;
-  EMAIL: ScopeEnum.EMAIL;
-  NAME: ScopeEnum.NAME;
-}
-
-interface IRNAppleAuthAndroidConfig {
+interface AndroidConfig {
   /** The developer’s client identifier, as provided by WWDR. */
   clientId: string;
 
@@ -508,10 +510,10 @@ interface IRNAppleAuthAndroidConfig {
   redirectUri: string;
 
   /** The type of response requested.  */
-  responseType?: ResponseTypeEnum;
+  responseType?: AndroidResponseType;
 
   /** The amount of user information requested from Apple. */
-  scope?: ScopeEnum;
+  scope?: AndroidScope;
 
   /** The current state of the request. */
   state?: string;
@@ -523,16 +525,14 @@ interface IRNAppleAuthAndroidConfig {
   nonce?: string;
 }
 
-interface ISigninResponseUser {
-  name?: { firstName?: string; lastName?: string; };
-  email?: string;
-}
-
-interface ISigninResponse {
+interface AndroidSigninResponse {
   /**
    * User object describing the authorized user. This value may be omitted by Apple.
    */
-  user?: ISigninResponseUser;
+  user?: {
+    name?: { firstName?: string; lastName?: string; };
+    email?: string;
+  };
 
   /**
    * A copy of the state value that was passed to the initial request.
@@ -563,41 +563,30 @@ interface ISigninResponse {
   code: string;
 }
 
-interface IRNAppleAuthAndroid {
+interface AppleAuthAndroid {
   /**
    * Prepare the module for sign in. This *must* be called before `appleAuthAndroid.signIn()`;
    *
    * @see https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/incorporating_sign_in_with_apple_into_other_platforms#3332113
    */
-  configure(configObject: IRNAppleAuthAndroidConfig): void;
+  configure(configObject: AndroidConfig): void;
 
   /**
    * Open browser window to begin user sign in. *Must* call `appleAuthAndroid.configure(options)` first.
    */
-  signIn(): Promise<ISigninResponse>;
+  signIn(): Promise<AndroidSigninResponse>;
 
-  Error: {
-    /**
-     * Apple auth for Android wasn't configured. Be sure to call `appleAuthAndroid.configure(options)`.
-     */
-    NOT_CONFIGURED: string;
-    SIGNIN_FAILED: string;
-
-    /**
-     * User cancelled (closed the browser window) the sign in request.
-     */
-    SIGNIN_CANCELLED: string;
-  };
+  Error: AndroidError;
 
   /**
    * The amount of user information requested from Apple. Valid values are `name` and `email`.
    * You can request one, both, or none.
    */
-  Scope: IScope;
+  Scope: typeof AndroidScope;
 
   /**
    * The type of response requested. Valid values are `code` and `id_token`. You can request one or both.
    */
-  ResponseType: IResponseType;
+  ResponseType: typeof AndroidResponseType;
 }
-export const appleAuthAndroid: IRNAppleAuthAndroid;
+export const appleAuthAndroid: AppleAuthAndroid;
