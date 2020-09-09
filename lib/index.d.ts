@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright (c) 2016-present Invertase Limited & Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,34 +19,13 @@ import React from 'react';
 import { GestureResponderEvent, StyleProp, ViewStyle, TextStyle } from 'react-native';
 
 /**
- * The Button style (mainly color) to render.
+ * AppleButton, cross-platform
  */
-export enum AppleButtonStyle {
-  /**
-   * The default style, White.
-   */
-  DEFAULT = 'White',
-
-  /**
-   * Render a white button with black text.
-   */
-  WHITE = 'White',
-
-  /**
-   * Render a white button with black text and a bordered outline.
-   */
-  WHITE_OUTLINE = 'WhiteOutline',
-
-  /**
-   * Render a black button with white text.
-   */
-  BLACK = 'Black',
-}
 
 /**
- * THe Apple Button type to render, this controls the button text.
+ * The Apple Button type to render, this controls the button text.
  */
-export enum AppleButtonType {
+declare enum AppleButtonType {
   /**
    * The default button, the same as `SIGN_IN`.
    */
@@ -71,9 +50,81 @@ export enum AppleButtonType {
 }
 
 /**
+ * The Button style (mainly color) to render.
+ */
+declare enum AppleButtonStyle {
+  /**
+   * The default style, White.
+   */
+  DEFAULT = 'White',
+
+  /**
+   * Render a white button with black text.
+   */
+  WHITE = 'White',
+
+  /**
+   * Render a white button with black text and a bordered outline.
+   */
+  WHITE_OUTLINE = 'WhiteOutline',
+
+  /**
+   * Render a black button with white text.
+   */
+  BLACK = 'Black',
+}
+
+/**
+ * The available props for the AppleButton view component.
+ */
+interface AppleButtonProps {
+  /**
+   * See @{AppleButtonStyle}
+   */
+  buttonStyle?: AppleButtonStyle;
+
+  /**
+   * See @{AppleButtonType}
+   */
+  buttonType?: AppleButtonType;
+
+  /**
+   * Corner radius of the button.
+   */
+  cornerRadius?: number;
+
+  onPress?: (event: GestureResponderEvent) => void;
+
+  /**
+   * Styling for outside `TouchableOpacity`
+   */
+  style?: StyleProp<ViewStyle>;
+
+  /**
+   * Android-only. Styling for button text.
+   */
+  textStyle?: StyleProp<TextStyle>;
+
+  /**
+   * Android-only. View on the left that can be used for an Apple logo.
+   */
+  leftView?: React.ReactNode;
+}
+
+export const AppleButton: {
+  Type: typeof AppleButtonType;
+  Style: typeof AppleButtonStyle;
+} & React.FC<AppleButtonProps>;
+
+
+/**
+ * iOS
+ */
+
+/**
  * The current Apple Authorization state.
  */
-export enum AppleAuthCredentialState {
+declare enum AppleAuthCredentialState {
   /**
    * The Opaque user ID was revoked by the user.
    */
@@ -102,7 +153,7 @@ export enum AppleAuthCredentialState {
  *
  * Request option used as part of `AppleAuthRequestOptions` `requestedOperation`
  */
-export enum AppleAuthRequestOperation {
+declare enum AppleAuthRequestOperation {
   /**
    * An operation that depends on the particular kind of credential provider.
    */
@@ -130,7 +181,7 @@ export enum AppleAuthRequestOperation {
  *
  * Scopes used as part of `AppleAuthRequestOptions` `requestedScopes`
  */
-export enum AppleAuthRequestScope {
+declare enum AppleAuthRequestScope {
   /**
    * A scope that includes the user’s email address.
    */
@@ -147,7 +198,7 @@ export enum AppleAuthRequestScope {
  *
  * @url https://developer.apple.com/documentation/authenticationservices/asuserdetectionstatus
  */
-export enum AppleAuthRealUserStatus {
+declare enum AppleAuthRealUserStatus {
   /**
    * Not supported on current platform, ignore the value.
    */
@@ -168,43 +219,9 @@ export enum AppleAuthRealUserStatus {
 }
 
 /**
- * The available props for the AppleButton view component.
- */
-export interface AppleButtonProps {
-  /**
-   * See @{AppleButtonStyle}
-   */
-  buttonStyle?: AppleButtonStyle;
-
-  /**
-   * See @{AppleButtonType}
-   */
-  buttonType?: AppleButtonType;
-
-  /**
-   * Corner radius of the button.
-   */
-  cornerRadius?: number;
-
-  onPress?: (event: GestureResponderEvent) => void;
-
-  style?: StyleProp<ViewStyle>;
-
-  /**
-   * Android-only. Styling for button text.
-   */
-  textStyle?: StyleProp<TextStyle>;
-
-  /**
-   * Android-only. View on the left that can be used for an Apple logo.
-   */
-  leftView?: React.ReactNode;
-}
-
-/**
  * Apple Authentication Request options to be used with `performRequest(requestOptions)`.
  */
-export interface AppleAuthRequestOptions {
+interface AppleAuthRequestOptions {
   /**
    * The contact information to be requested from the user.
    *
@@ -261,7 +278,7 @@ export interface AppleAuthRequestOptions {
  *
  * These fields are populated with values that the user authorized.
  */
-export interface AppleAuthRequestResponseFullName {
+interface AppleAuthRequestResponseFullName {
   /**
    * Pre-nominal letters denoting title, salutation, or honorific, e.g. Dr., Mr.
    */
@@ -296,7 +313,7 @@ export interface AppleAuthRequestResponseFullName {
 /**
  * A response from `performRequest(requestOptions)`.
  */
-export interface AppleAuthRequestResponse {
+interface AppleAuthRequestResponse {
   /**
    * Nonce that was passed to the identity provider. If none was passed to the request, one will
    * have automatically been created and available to be read from this property.
@@ -379,7 +396,7 @@ export interface AppleAuthRequestResponse {
  *
  * @url https://developer.apple.com/documentation/authenticationservices/asauthorizationerror/code
  */
-export enum AppleAuthError {
+declare enum AppleAuthError {
   /**
    * The authorization attempt failed for an unknown reason.
    */
@@ -406,12 +423,8 @@ export enum AppleAuthError {
   FAILED = '1004',
 }
 
-export const AppleButton: {
-  Type: typeof AppleButtonType;
-  Style: typeof AppleButtonStyle;
-} & React.FC<AppleButtonProps>;
 
-declare type AppleAuth = {
+export const appleAuth: {
   /**
    * A boolean value of whether Apple Authentication is supported on this device & platform version.
    *
@@ -449,9 +462,13 @@ declare type AppleAuth = {
    * @param listener Returns a function that when called will unsubscribe from future events.
    */
   onCredentialRevoked(listener: Function): () => void | undefined;
-};
 
-declare const appleAuth: {} & AppleAuth;
+  Error: AppleAuthError;
+  Operation: AppleAuthRequestOperation;
+  Scope: AppleAuthRequestScope;
+  UserStatus: AppleAuthRealUserStatus;
+  State: AppleAuthCredentialState;
+};
 export default appleAuth;
 
 
@@ -483,11 +500,26 @@ interface IScope {
 }
 
 interface IRNAppleAuthAndroidConfig {
+  /** The developer’s client identifier, as provided by WWDR. */
   clientId: string;
+
+  /** The URI to which the authorization redirects. It must include a domain name, and can’t be an
+   * IP address or localhost. */
   redirectUri: string;
+
+  /** The type of response requested.  */
   responseType?: ResponseTypeEnum;
+
+  /** The amount of user information requested from Apple. */
   scope?: ScopeEnum;
+
+  /** The current state of the request. */
   state?: string;
+
+  /**
+   * A String value used to associate a client session with an ID token and mitigate replay attacks.
+   * This value will be SHA256 hashed by the library before being sent to Apple.
+   */
   nonce?: string;
 }
 
@@ -497,21 +529,75 @@ interface ISigninResponseUser {
 }
 
 interface ISigninResponse {
+  /**
+   * User object describing the authorized user. This value may be omitted by Apple.
+   */
   user?: ISigninResponseUser;
-  state?: string;
+
+  /**
+   * A copy of the state value that was passed to the initial request.
+   */
+  state: string;
+
+  /**
+   * A JSON Web Token (JWT) used to communicate information about the identity of the user in a
+   * secure way to the app.
+   *
+   * The ID token contains the following information signed by Apple's identity service:
+   *  - Issuer Identifier
+   *  - Subject Identifier
+   *  - Audience
+   *  - Expiry Time
+   *  - Issuance Time
+   */
   id_token?: string;
-  code?: string;
+
+  /**
+   * A short-lived, one-time valid token that can provides proof of authorization to the server
+   * component of your app.
+   *
+   * The authorization code is bound to the specific transaction using the state attribute passed
+   * in the authorization request. The server component of your app can validate the code using
+   * the Apple identity service endpoint.
+   */
+  code: string;
 }
 
 interface IRNAppleAuthAndroid {
+  /**
+   * Prepare the module for sign in. This *must* be called before `appleAuthAndroid.signIn()`;
+   *
+   * @see https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/incorporating_sign_in_with_apple_into_other_platforms#3332113
+   */
   configure(configObject: IRNAppleAuthAndroidConfig): void;
+
+  /**
+   * Open browser window to begin user sign in. *Must* call `appleAuthAndroid.configure(options)` first.
+   */
   signIn(): Promise<ISigninResponse>;
-  Errors: {
+
+  Error: {
+    /**
+     * Apple auth for Android wasn't configured. Be sure to call `appleAuthAndroid.configure(options)`.
+     */
     NOT_CONFIGURED: string;
     SIGNIN_FAILED: string;
+
+    /**
+     * User cancelled (closed the browser window) the sign in request.
+     */
     SIGNIN_CANCELLED: string;
   };
+
+  /**
+   * The amount of user information requested from Apple. Valid values are `name` and `email`.
+   * You can request one, both, or none.
+   */
   Scope: IScope;
+
+  /**
+   * The type of response requested. Valid values are `code` and `id_token`. You can request one or both.
+   */
   ResponseType: IResponseType;
 }
 export const appleAuthAndroid: IRNAppleAuthAndroid;

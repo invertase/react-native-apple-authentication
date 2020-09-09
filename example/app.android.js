@@ -18,10 +18,7 @@
 
 import React from 'react';
 import { StyleSheet, View, Image, Text } from 'react-native';
-import {
-  AppleButton,
-  appleAuthAndroid,
-} from '@invertase/react-native-apple-authentication';
+import { AppleButton, appleAuthAndroid } from '@invertase/react-native-apple-authentication';
 import appleLogoWhite from './images/apple_logo_white.png';
 import appleLogoBlack from './images/apple_logo_black.png';
 
@@ -66,13 +63,13 @@ export default RootComponent = () => {
     } catch (error) {
       if (error && error.message) {
         switch (error.message) {
-          case appleAuthAndroid.Errors.NOT_CONFIGURED:
+          case appleAuthAndroid.Error.NOT_CONFIGURED:
             console.log("appleAuthAndroid not configured yet.");
             break;
-          case appleAuthAndroid.Errors.SIGNIN_FAILED:
+          case appleAuthAndroid.Error.SIGNIN_FAILED:
             console.log("Apple signin failed.");
             break;
-          case appleAuthAndroid.Errors.SIGNIN_CANCELLED:
+          case appleAuthAndroid.Error.SIGNIN_CANCELLED:
             console.log("User cancelled Apple signin.");
             break;
           default:

@@ -18,14 +18,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import appleAuth, {
-  AppleButton,
-  AppleAuthError,
-  AppleAuthRequestScope,
-  AppleAuthRealUserStatus,
-  AppleAuthCredentialState,
-  AppleAuthRequestOperation,
-} from '@invertase/react-native-apple-authentication';
+import { appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
 
 
 /**
@@ -41,7 +34,7 @@ async function fetchAndUpdateCredentialState(updateCredentialStateForUser) {
     updateCredentialStateForUser('N/A');
   } else {
     const credentialState = await appleAuth.getCredentialStateForUser(user);
-    if (credentialState === AppleAuthCredentialState.AUTHORIZED) {
+    if (credentialState === appleAuth.State.AUTHORIZED) {
       updateCredentialStateForUser('AUTHORIZED');
     } else {
       updateCredentialStateForUser(credentialState);
@@ -58,8 +51,8 @@ async function onAppleButtonPress(updateCredentialStateForUser) {
   // start a login request
   try {
     const appleAuthRequestResponse = await appleAuth.performRequest({
-      requestedOperation: AppleAuthRequestOperation.LOGIN,
-      requestedScopes: [AppleAuthRequestScope.EMAIL, AppleAuthRequestScope.FULL_NAME],
+      requestedOperation: appleAuth.Operation.LOGIN,
+      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
     });
 
     console.log('appleAuthRequestResponse', appleAuthRequestResponse);
@@ -91,7 +84,7 @@ async function onAppleButtonPress(updateCredentialStateForUser) {
 
     console.warn(`Apple Authentication Completed, ${user}, ${email}`);
   } catch (error) {
-    if (error.code === AppleAuthError.CANCELED) {
+    if (error.code === appleAuth.Error.CANCELED) {
       console.warn('User canceled Apple Sign in.');
     } else {
       console.error(error);
