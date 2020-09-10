@@ -62,7 +62,7 @@ Below are simple steps to help you get up and running. The implementation differ
 
 #### 1. Initial set-up
 
-Import the `appleAuth` ([API documentation](docs/interfaces/_lib_index_d_.rnappleauth.module.md)) module and the `AppleButton` ([API documentation](docs/interfaces/_lib_index_d_.rnappleauth.applebuttonprops.md)) exported member element from the `@invertase/react-native-apple-authentication` library. Setup an event handler (`onPress`) to kick start the authentication request.
+Import the `appleAuth` ([API documentation](docs/interfaces/_lib_index_d_.md#66)) module and the `AppleButton` ([API documentation](docs/interfaces/_lib_index_d_.applebuttonprops.md)) exported member element from the `@invertase/react-native-apple-authentication` library. Setup an event handler (`onPress`) to kick start the authentication request.
 
 ```js
 // App.js
@@ -222,32 +222,32 @@ async function onAppleButtonPress() {
   ```
 
 ## API Reference Documentation
-- [AppleButtonProps](docs/interfaces/_lib_index_d_.rnappleauth.applebuttonprops.md)
-- [AppleButtonStyle](docs/enums/_lib_index_d_.rnappleauth.applebuttonstyle.md)
-- [AppleButtonType](docs/enums/_lib_index_d_.rnappleauth.applebuttontype.md)
+- [AppleButtonProps](docs/interfaces/_lib_index_d_.applebuttonprops.md)
+- [AppleButtonStyle](docs/enums/_lib_index_d_.applebuttonstyle.md)
+- [AppleButtonType](docs/enums/_lib_index_d_.applebuttontype.md)
 
 ### iOS Interfaces
-- [appleAuth module](docs/interfaces/_lib_index_d_.rnappleauth.module.md)
-- [AppleRequestOptions](docs/interfaces/_lib_index_d_.rnappleauth.applerequestoptions.md)
-- [AppleRequestResponse](docs/interfaces/_lib_index_d_.rnappleauth.applerequestresponse.md)
-- [AppleRequestResponseFullName](docs/interfaces/_lib_index_d_.rnappleauth.applerequestresponsefullname.md)
+- [appleAuth module](docs/modules/_lib_index_d_.md#66)
+- [AppleRequestResponse](docs/interfaces/_lib_index_d_.applerequestresponse.md)
+- [AppleRequestResponseFullName](docs/interfaces/_lib_index_d_.applerequestresponsefullname.md)
 
 ### iOS Enumerations
-- [AppleCredentialState](docs/enums/_lib_index_d_.rnappleauth.applecredentialstate.md)
-- [AppleError](docs/enums/_lib_index_d_.rnappleauth.appleerror.md)
-- [AppleRealUserStatus](docs/enums/_lib_index_d_.rnappleauth.applerealuserstatus.md)
-- [AppleRequestOperation](docs/enums/_lib_index_d_.rnappleauth.applerequestoperation.md)
-- [AppleRequestScope](docs/enums/_lib_index_d_.rnappleauth.applerequestscope.md)
+- [AppleRequestOptions](docs/enums/_lib_index_d_.applerequestoperation.md)
+- [AppleCredentialState](docs/enums/_lib_index_d_.applecredentialstate.md)
+- [AppleError](docs/enums/_lib_index_d_.appleerror.md)
+- [AppleRealUserStatus](docs/enums/_lib_index_d_.applerealuserstatus.md)
+- [AppleRequestOperation](docs/enums/_lib_index_d_.applerequestoperation.md)
+- [AppleRequestScope](docs/enums/_lib_index_d_.applerequestscope.md)
 
 ### Android Interfaces
-- [appleAuthAndroid module](docs/interfaces/_lib_index_d_.rnappleauthandroid.module.md)
-- [AndroidConfig](docs/enums/_lib_index_d_.rnappleauth.androidconfig.md)
-- [AndroidSigninResponse](docs/enums/_lib_index_d_.rnappleauth.androidsigninresponse.md)
+- [appleAuthAndroid module](docs/modules/_lib_index_d_.md#98)
+- [AndroidConfig](docs/interfaces/_lib_index_d_.androidconfig.md)
+- [AndroidSigninResponse](docs/interfaces/_lib_index_d_.androidsigninresponse.md)
+- [AndroidError](docs/modules/_lib_index_d_.md#androiderror.md)
 
 ### Android Enumerations
-- [AndroidError](docs/enums/_lib_index_d_.rnappleauth.androiderror.md)
-- [AndroidResponseType](docs/enums/_lib_index_d_.rnappleauth.androidresponsetype.md)
-- [AndroidScope](docs/enums/_lib_index_d_.rnappleauth.androidscope.md)
+- [AndroidResponseType](docs/enums/_lib_index_d_.androidresponsetype.md)
+- [AndroidScope](docs/enums/_lib_index_d_.androidscope.md)
 
 
 ### FAQs
