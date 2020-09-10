@@ -13,5 +13,5 @@ When you're done with the web setup, you should have a Service ID that:
 3. Includes the *exact* return URL you will provide to `appleAuthAndroid.configure`.
 
 ## Example
-![Xcode console](images/siwa-android-1.png)
-![Xcode console](images/siwa-android-2.png)
+![Apple dev console](images/siwa-android-1.png)
+![Apple dev console](images/siwa-android-2.png)
