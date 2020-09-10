@@ -35,7 +35,7 @@ The `@invertase/react-native-apple-authentication` library will not work if you 
 - **Once you're sure you've met the above, please follow our [Initial development environment setup](docs/INITIAL_SETUP.md) guide.**
 
 ## Version 2.0.0 breaking changes
-Version 2 with Android support introduces a few breaking changes with how methods are accessed. If you're upgrading from 1.x, check out the [Migration Guide](MIGRATION.md).
+Version 2 with Android support introduces a few breaking changes with how methods are accessed. If you're upgrading from 1.x, check out the [Migration Guide](docs/MIGRATION.md).
 
 ## Installation
 
