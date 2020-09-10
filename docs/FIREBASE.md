@@ -10,11 +10,11 @@ The `@invertase/react-native-apple-authentication` library will not work if you 
 
 - (iOS only) You have setup react-native iOS development environment on your machine (Will only work on Mac). If not, please follow the official React Native documentation for getting started: [React Native getting started documentation](https://facebook.github.io/react-native/docs/getting-started).
 
-- (iOS only) You are using Xcode version `11` or higher. This will allow you to develop using iOS version `13`, the only version possible for authenticating with Apple.
+- (iOS only) You are using Xcode version `11` or higher. This will allow you to develop using iOS version `13` or higher, when the Sign In with Apple APIs first became available.
 
 - **Once you're sure you've met the above, please follow our [Initial development environment setup](INITIAL_SETUP.md) guide.**
 
-# v6 iOS example
+# iOS example
 
 > To use this with React Native Firebase v6 and above, version `v6.2.0` of the [`@react-native-firebase/auth`](https://www.npmjs.com/package/@react-native-firebase/auth) package is required.
 

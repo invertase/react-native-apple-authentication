@@ -30,12 +30,12 @@ The `@invertase/react-native-apple-authentication` library will not work if you 
 
 - (iOS only) You have setup react-native iOS development environment on your machine (Will only work on Mac). If not, please follow the official React Native documentation for getting started: [React Native getting started documentation](https://facebook.github.io/react-native/docs/getting-started).
 
-- (iOS only) You are using Xcode version `11` or higher. This will allow you to develop using iOS version `13`, the only version possible for authenticating with Apple.
+- (iOS only) You are using Xcode version `11` or higher. This will allow you to develop using iOS version `13` and higher, when the APIs for Sign In with Apple became available.
 
 - **Once you're sure you've met the above, please follow our [Initial development environment setup](docs/INITIAL_SETUP.md) guide.**
 
 ## Version 2.0.0 breaking changes
-Version 2 with Android support introduces a few breaking changes with how methods are accessed. If you're upgrading from 1.x, check out the [Migration Guide](docs/MIGRATION.md).
+Version 2 added Android support and introduced a few breaking changes with how methods are accessed. Please see the [Migration Guide](docs/MIGRATION.md).
 
 ## Installation
 
@@ -55,7 +55,7 @@ Below are simple steps to help you get up and running. The implementation differ
 - [React Class example (iOS)](example/classVersion.js)
 - [React Hooks example (Android)](example/app.android.js)
 - If you're authenticating users via `React Native Firebase`; see our [Firebase guide](docs/FIREBASE.md)
-- For Android support, a couple extra steps are required on your account. Checkout [our guide](docs/ANDROID_EXTRA.md) for more info.
+- For Android support, a couple extra steps are required on your Apple developer account. Checkout [our guide](docs/ANDROID_EXTRA.md) for more info.
 
 
 ### iOS
@@ -255,7 +255,7 @@ async function onAppleButtonPress() {
 1. Why does `full name` and `email` return `null`?
    - Apple only returns the `full name` and `email` on the first login, it will return `null` on the succeeding login so you need to save those data.
    - For testing purposes, to be receive these again, go to your device settings; `Settings > Apple ID, iCloud, iTunes & App Store > Password & Security > Apps Using Your Apple ID`, tap on your app and tap `Stop Using Apple ID`. You can now sign-in again and you'll receive the `full name` and `email.
-   - Keep in mind you can always access the email server-side by inspecting the `id_token` returned from Apple when verifying the user.
+   - Keep in mind you can always access the `email` property server-side by inspecting the `id_token` returned from Apple when verifying the user.
 
 2. How to change button language?
     - Native Apple Button component reads language value from CFBundleDevelopmentRegion at Info.plist file. By changing CFBundleDevelopmentRegion value you can change default language for component.

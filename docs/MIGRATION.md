@@ -1,6 +1,6 @@
 ## Breaking Changes
 
-All exports are now namespaced.
+All exports are now namespaced, so to migrate from v1 you need to alter your import statements and how you access the symbols.
 
 ### 1.x
 ```js
