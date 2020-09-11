@@ -48,10 +48,9 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
 
     private static String bytesToHex(byte[] hash) {
         StringBuffer hexString = new StringBuffer();
-        for (int i = 0; i < hash.length; i++) {
-        String hex = Integer.toHexString(0xff & hash[i]);
-        if(hex.length() == 1) hexString.append('0');
-            hexString.append(hex);
+        for (int i=0; i < hash.length; i++) {
+            hexString.append(Character.forDigit((hash[i] >> 4) & 0xF, 16));
+            hexString.append(Character.forDigit((hash[i] & 0xF), 16));
         }
         return hexString.toString();
     }
