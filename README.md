@@ -182,22 +182,40 @@ function App() {
 // App.js
 
 import { appleAuthAndroid } from '@invertase/react-native-apple-authentication';
+import 'react-native-get-random-values';
+import { v4 as uuid } from 'uuid'
 
 async function onAppleButtonPress() {
-  // configure the request
+  // Generate secure, random values for state and nonce
+  const rawNonce = uuid();
+  const state = uuid();
+
+  // Configure the request
   appleAuthAndroid.configure({
-    clientId: 'Client id', // Registered with Apple as a Service ID
+    // The Service ID you registered with Apple
+    clientId: 'com.example.client-android',
+
+    // Return URL added to your Apple dev console. We intercept this redirect, but it must still match
+    // the URL you provided to Apple. It can be an empty route on your backend as it's never called.
     redirectUri: 'https://example.com/auth/callback',
+
+    // The type of response requested - code, id_token, or both.
     responseType: appleAuthAndroid.ResponseType.ALL,
+
+    // The amount of user information requested from Apple.
     scope: appleAuthAndroid.Scope.ALL,
-    nonce: 'Random nonce value, will be SHA256 hashed before sending to Apple',
-    state: 'State',
+
+    // Random nonce value that will be SHA256 hashed before sending to Apple.
+    nonce: rawNonce,
+
+    // Unique state value used to prevent CSRF attacks. A UUID will be generated if nothing is provided.
+    state,
   });
 
-  // open the browser window for user sign in
+  // Open the browser window for user sign in
   const response = await appleAuthAndroid.signIn();
 
-  // send the authorization code to your backend for verification
+  // Send the authorization code to your backend for verification
 }
 ```
 

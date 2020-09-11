@@ -15,7 +15,8 @@ internal class SignInWebViewClient(
   var mainHandler = Handler()
 
   /**
-   * Catch the webview redirect using the state value so we can intercept the POST data.
+   * On successful login, the Apple page will POST the form data to the `redirectUri` provided,
+   * so we intercept that request to collect the data.
    */
   override fun shouldInterceptRequest(
     view: WebView?,
