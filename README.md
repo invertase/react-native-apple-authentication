@@ -268,14 +268,14 @@ async function onAppleButtonPress() {
 - [AndroidScope](docs/enums/_lib_index_d_.androidscope.md)
 
 
-### FAQs
+## FAQs
 
 1. Why does `full name` and `email` return `null`?
    - Apple only returns the `full name` and `email` on the first login, it will return `null` on the succeeding login so you need to save those data.
    - For testing purposes, to be receive these again, go to your device settings; `Settings > Apple ID, iCloud, iTunes & App Store > Password & Security > Apps Using Your Apple ID`, tap on your app and tap `Stop Using Apple ID`. You can now sign-in again and you'll receive the `full name` and `email.
    - Keep in mind you can always access the `email` property server-side by inspecting the `id_token` returned from Apple when verifying the user.
 
-2. How to change button language?
+2. How to change button language? (iOS)
     - Native Apple Button component reads language value from CFBundleDevelopmentRegion at Info.plist file. By changing CFBundleDevelopmentRegion value you can change default language for component.
     ```XML
     <key>CFBundleDevelopmentRegion</key>
@@ -287,7 +287,7 @@ async function onAppleButtonPress() {
     <string>true</string>
     ```
 
-## Troubleshouting
+## Troubleshooting
 
 ```
 The operation couldn’t be completed. (com.apple.AuthenticationServices.AuthorizationError error 1000.)
@@ -312,6 +312,20 @@ Search for "Devices", select "Simulator" and press "Remove from Account".
   ![remove-from-manager](https://raw.githubusercontent.com/invertase/react-native-apple-authentication/master/docs/images/remove-simulator-devices-list.jpg)
 
 It should work fine.
+
+```
+"invalid_client" in Android webview
+```
+Make sure to read the Android [services setup docs](docs/ANDROID_EXTRA.md).
+
+###### Case 1:
+The `clientId` you passed to `appleAuthAndroid.configure` doesn't match the Service ID you setup in your Apple developer console.
+
+###### Case 2:
+Your Service ID is attached to the wrong Primary App ID, and therefore uses the incorrect Sign In with Apple key.
+
+###### Case 3:
+The `redirectUri` you passed to `appleAuthAndroid.configure` doesn't match one of the return URLs or domains/subdomains you added in your Apple developer console. The URL must match *exactly*, and cannot contain a query string.
 
 ## License
 
