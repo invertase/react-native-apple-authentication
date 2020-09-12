@@ -2,6 +2,10 @@
 
 # Release Notes
 
+## 2.0.0-beta.1
+
+- fix(android: add isSupported check, API19 required for android (thanks @dburdan!)
+
 ## 2.0.0-beta.0
 
 - feat!: add android support (#136, thanks @dburdan!)
