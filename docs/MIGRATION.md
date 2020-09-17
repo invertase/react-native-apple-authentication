@@ -1,5 +1,11 @@
 ## Breaking Changes
 
+### Kotlin Version
+
+v2 of the module requires kotlinVersion of 1.3.50 or greater, and is confirmed working with 1.4.10 ("current stable" at the time this document was written on September 17, 2020)
+
+### How you reference this module's types
+
 All exports are now namespaced, so to migrate from v1 you need to alter your import statements and how you access the symbols.
 
 ### 1.x
