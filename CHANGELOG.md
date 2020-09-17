@@ -4,8 +4,6 @@
 
 ## 2.0.0
 
-(all beta entries copied here so they are in one spot)
-
 - fix(ios): depend on React-Core directly, not React (#139, thanks @mikehardy!))
 - docs(android): document kotlinVersion requirement (thanks @nastyakitsune!)
 
