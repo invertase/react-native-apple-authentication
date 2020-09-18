@@ -2,6 +2,10 @@
 
 # Release Notes
 
+## 2.0.1
+
+- fix(types): export interfaces (#140, thanks @mrousavy!)
+
 ## 2.0.0
 
 - fix(ios): depend on React-Core directly, not React (#139, thanks @mikehardy!))
