@@ -76,7 +76,7 @@ declare enum AppleButtonStyle {
 /**
  * The available props for the AppleButton view component.
  */
-interface AppleButtonProps {
+export interface AppleButtonProps {
   /**
    * See @{AppleButtonStyle}
    */
@@ -227,7 +227,7 @@ declare enum AppleCredentialState {
 /**
  * Apple Authentication Request options to be used with `performRequest(requestOptions)`.
  */
-interface AppleRequestOptions {
+export interface AppleRequestOptions {
   /**
    * The contact information to be requested from the user.
    *
@@ -284,7 +284,7 @@ interface AppleRequestOptions {
  *
  * These fields are populated with values that the user authorized.
  */
-interface AppleRequestResponseFullName {
+export interface AppleRequestResponseFullName {
   /**
    * Pre-nominal letters denoting title, salutation, or honorific, e.g. Dr., Mr.
    */
@@ -319,7 +319,7 @@ interface AppleRequestResponseFullName {
 /**
  * A response from `performRequest(requestOptions)`.
  */
-interface AppleRequestResponse {
+export interface AppleRequestResponse {
   /**
    * Nonce that was passed to the identity provider. If none was passed to the request, one will
    * have automatically been created and available to be read from this property.
@@ -501,7 +501,7 @@ declare enum AndroidScope {
   NAME = "NAME",
 }
 
-interface AndroidConfig {
+export interface AndroidConfig {
   /** The developer’s client identifier, as provided by WWDR. */
   clientId: string;
 
@@ -525,7 +525,7 @@ interface AndroidConfig {
   nonce?: string;
 }
 
-interface AndroidSigninResponse {
+export interface AndroidSigninResponse {
   /**
    * User object describing the authorized user. This value may be omitted by Apple.
    */
