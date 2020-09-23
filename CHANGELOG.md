@@ -2,6 +2,10 @@
 
 # Release Notes
 
+## 2.0.2
+
+- fix(android, compile): assert webview context non-null for API30 compile (#143, thanks @dburdan!)
+
 ## 2.0.1
 
 - fix(types): export interfaces (#140, thanks @mrousavy!)
