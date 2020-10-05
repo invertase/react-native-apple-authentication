@@ -158,7 +158,7 @@ Make sure to correctly configure your Apple developer account to allow for prope
 
 import React from 'react';
 import { View } from 'react-native';
-import { AppleButton } from '@invertase/react-native-apple-authentication';
+import { appleAuthAndroid, AppleButton } from '@invertase/react-native-apple-authentication';
 
 async function onAppleButtonPress() {
 }
