@@ -226,7 +226,7 @@ async function onAppleButtonPress() {
 
 #### 1. Initial set-up
 - Ensure you follow the android steps above.
-- Install the web counterpart `yarn add react-apple-signin-auth` in your web project.
+- Install the [web counterpart](https://github.com/A-Tokyo/react-apple-signin-auth) `yarn add react-apple-signin-auth` in your web project.
 
 #### 2. Implement the login process on web
 ```js
