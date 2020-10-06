@@ -221,6 +221,59 @@ async function onAppleButtonPress() {
 }
 ```
 
+
+### Web
+
+#### 1. Initial set-up
+- Ensure you follow the android steps above.
+- Install the web counterpart `yarn add react-apple-signin-auth` in your web project.
+
+#### 2. Implement the login process on web
+```js
+import AppleSignin from 'react-apple-signin-auth';
+
+/** Apple Signin button */
+const MyAppleSigninButton = ({ ...rest }) => (
+  <AppleSignin
+    /** Auth options passed to AppleID.auth.init() */
+    authOptions={{
+      clientId: 'SAME AS ANDROID',
+      redirectURI: 'SAME AS ANDROID',
+      scope: 'email name',
+      state: 'state',
+      /** sha256 nonce before sending to apple to unify with native firebase behavior - https://github.com/invertase/react-native-apple-authentication/issues/28 */
+      nonce: sha256('nonce'),
+      /** We have to usePopup since we need clientSide authentication */
+      usePopup: true,
+    }}
+    onSuccess={(response) => {
+      console.log(response);
+      // {
+      //     "authorization": {
+      //       "state": "[STATE]",
+      //       "code": "[CODE]",
+      //       "id_token": "[ID_TOKEN]"
+      //     },
+      //     "user": {
+      //       "email": "[EMAIL]",
+      //       "name": {
+      //         "firstName": "[FIRST_NAME]",
+      //         "lastName": "[LAST_NAME]"
+      //       }
+      //     }
+      // }
+    }}
+  />
+);
+
+export default MyAppleSigninButton;
+```
+
+#### 3. Verify serverside
+- Send the apple response to your server.
+- See [Serverside Verification](#serverside-verification)
+- Ensure that you pass the clientID as the web service ID, not the native app bundle. Since the project utilizes the service ID for authenticating web and android.
+
 ## Serverside verification
 
 #### Nonce
