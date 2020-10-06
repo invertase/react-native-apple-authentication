@@ -222,7 +222,7 @@ async function onAppleButtonPress() {
 ```
 
 
-### Web
+### Web (not react-native-web, but that may come as a follow-on, this is pure web at the moment)
 
 #### 1. Initial set-up
 - Ensure you follow the android steps above.
