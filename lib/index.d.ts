@@ -322,7 +322,9 @@ export interface AppleRequestResponseFullName {
 export interface AppleRequestResponse {
   /**
    * Nonce that was passed to the identity provider. If none was passed to the request, one will
-   * have automatically been created and available to be read from this property.
+   * have automatically been created and available to be read from this property, unless `nonceEnabled`
+   * is false.
+   * NOTE: This value will be SHA256 hashed before sending to Apple.
    */
   nonce: string;
 
@@ -523,9 +525,26 @@ export interface AndroidConfig {
    * This value will be SHA256 hashed by the library before being sent to Apple.
    */
   nonce?: string;
+
+  /**
+   * Disable automatic nonce behaviour by setting this to false.
+   *
+   * Useful for authentication providers that don't yet support nonces.
+   *
+   * Defaults to true.
+   */
+  nonceEnabled?: boolean;
 }
 
 export interface AndroidSigninResponse {
+  /**
+   * Nonce that was passed to the identity provider. If none was passed to the request, one will
+   * have automatically been created and available to be read from this property, unless `nonceEnabled`
+   * is false.
+   * NOTE: This value will be SHA256 hashed before sending to Apple.
+   */
+  nonce?: string;
+
   /**
    * User object describing the authorized user. This value may be omitted by Apple.
    */
