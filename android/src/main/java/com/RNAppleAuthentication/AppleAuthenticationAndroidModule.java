@@ -96,6 +96,10 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
         SignInWithAppleConfiguration.Scope scope = SignInWithAppleConfiguration.Scope.ALL;
         SignInWithAppleConfiguration.ResponseType responseType = SignInWithAppleConfiguration.ResponseType.ALL;
         String state = UUID.randomUUID().toString();
+        Boolean nonceEnabled = configObject.hasKey("nonceEnabled")
+          ? configObject.getBoolean("nonceEnabled")
+          : true;
+        String rawNonce = "";
         String nonce = "";
 
         if (configObject.hasKey("clientId")) {
@@ -124,25 +128,33 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
             state = configObject.getString("state");
         }
 
-        if (configObject.hasKey("nonce")) {
+        if (nonceEnabled) {
+            if (configObject.hasKey("nonce")) {
+                nonce = rawNonce = configObject.getString("nonce");
+            } else {
+                // If no nonce is provided, generate one
+                nonce = rawNonce = UUID.randomUUID().toString();
+            }
+
             // SHA256 of the nonce to keep in line with the iOS library (and avoid confusion)
             try {
-              MessageDigest md = MessageDigest.getInstance("SHA-256");
-              md.update(configObject.getString("nonce").getBytes());
-              byte[] digest = md.digest();
-              nonce = bytesToHex(digest);
+                MessageDigest md = MessageDigest.getInstance("SHA-256");
+                md.update(nonce.getBytes());
+                byte[] digest = md.digest();
+                nonce = bytesToHex(digest);
             } catch (Exception e) {
             }
         }
 
         this.configuration = new SignInWithAppleConfiguration.Builder()
-                .clientId(clientId)
-                .redirectUri(redirectUri)
-                .responseType(SignInWithAppleConfiguration.ResponseType.ALL)
-                .scope(SignInWithAppleConfiguration.Scope.ALL)
-                .state(state)
-                .nonce(nonce)
-                .build();
+            .clientId(clientId)
+            .redirectUri(redirectUri)
+            .responseType(SignInWithAppleConfiguration.ResponseType.ALL)
+            .scope(SignInWithAppleConfiguration.Scope.ALL)
+            .state(state)
+            .rawNonce(rawNonce)
+            .nonce(nonce)
+            .build();
     }
 
     @ReactMethod
@@ -165,6 +177,11 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
                 response.putString("code", code);
                 response.putString("id_token", id_token);
                 response.putString("state", state);
+
+                String rawNonce = configuration.getRawNonce();
+                if (!rawNonce.isEmpty()) {
+                  response.putString("nonce", rawNonce);
+                }
 
                 try {
                     JSONObject userJSON = new JSONObject(user);
