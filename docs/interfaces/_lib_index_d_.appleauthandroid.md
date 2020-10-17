@@ -24,7 +24,7 @@
 
 • **isSupported**: *boolean*
 
-*Defined in [lib/index.d.ts:572](../../lib/index.d.ts#L572)*
+*Defined in [lib/index.d.ts:591](../../lib/index.d.ts#L591)*
 
 A boolean value of whether Apple Authentication is supported on this API version.
 The Apple authentication process requires API 19+ to work correctly.
@@ -35,7 +35,7 @@ ___
 
 • **Error**: *[AndroidError](../modules/_lib_index_d_.md#androiderror)*
 
-*Defined in [lib/index.d.ts:586](../../lib/index.d.ts#L586)*
+*Defined in [lib/index.d.ts:605](../../lib/index.d.ts#L605)*
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 • **ResponseType**: *typeof AndroidResponseType*
 
-*Defined in [lib/index.d.ts:597](../../lib/index.d.ts#L597)*
+*Defined in [lib/index.d.ts:616](../../lib/index.d.ts#L616)*
 
 The type of response requested. Valid values are `code` and `id_token`. You can request one or both.
 
@@ -53,7 +53,7 @@ ___
 
 • **Scope**: *typeof AndroidScope*
 
-*Defined in [lib/index.d.ts:592](../../lib/index.d.ts#L592)*
+*Defined in [lib/index.d.ts:611](../../lib/index.d.ts#L611)*
 
 The amount of user information requested from Apple. Valid values are `name` and `email`.
 You can request one, both, or none.
@@ -64,7 +64,7 @@ You can request one, both, or none.
 
 ▸ **configure**(`configObject`: [AndroidConfig](_lib_index_d_.androidconfig.md)): *void*
 
-*Defined in [lib/index.d.ts:579](../../lib/index.d.ts#L579)*
+*Defined in [lib/index.d.ts:598](../../lib/index.d.ts#L598)*
 
 Prepare the module for sign in. This *must* be called before `appleAuthAndroid.signIn()`;
 
@@ -84,7 +84,7 @@ ___
 
 ▸ **signIn**(): *Promise‹[AndroidSigninResponse](_lib_index_d_.androidsigninresponse.md)›*
 
-*Defined in [lib/index.d.ts:584](../../lib/index.d.ts#L584)*
+*Defined in [lib/index.d.ts:603](../../lib/index.d.ts#L603)*
 
 Open browser window to begin user sign in. *Must* call `appleAuthAndroid.configure(options)` first.
 
