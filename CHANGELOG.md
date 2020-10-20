@@ -2,6 +2,13 @@
 
 # Release Notes
 
+## 2.1.0
+
+- feat(android): Nonce return and optional nonce generation (#153, thanks @dburdan!)
+- docs(README): add info showing how to add pure web support (#148, thanks @A-Tokyo!)
+- docs(README, logout): updated logout usage to match v2 API (#146, thanks @eraykose!)
+- docs(README): add missing appleAuthAndroid import to sample code (#147, thanks @jheysoon!)
+
 ## 2.0.2
 
 - fix(android, compile): assert webview context non-null for API30 compile (#143, thanks @dburdan!)
