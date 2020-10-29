@@ -33,7 +33,7 @@ const onAppleButtonPress = async () => {
 
 ### 2.x
 ```js
-import { appleAuth } from '@invertase/react-native-apple-authentication';
+import { appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
 
 const onAppleButtonPress = async () => {
   const appleAuthRequestResponse = await appleAuth.performRequest({
