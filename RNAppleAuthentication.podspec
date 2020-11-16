@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
   s.social_media_url    = 'http://twitter.com/invertaseio'
   s.ios.deployment_target = "9.0"
   s.source_files        = 'ios/**/*.{h,m}'
-  s.dependency          'React-Core'
+  s.dependency          'React/Core'
   s.static_framework    = true
 end
