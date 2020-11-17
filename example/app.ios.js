@@ -20,7 +20,6 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
 
-
 /**
  * You'd technically persist this somewhere for later use.
  */
@@ -78,7 +77,7 @@ async function onAppleButtonPress(updateCredentialStateForUser) {
       // no token - failed sign-in?
     }
 
-    if (realUserStatus === AppleAuthRealUserStatus.LIKELY_REAL) {
+    if (realUserStatus === appleAuth.UserStatus.LIKELY_REAL) {
       console.log("I'm a real person!");
     }
 
@@ -95,7 +94,7 @@ async function onAppleButtonPress(updateCredentialStateForUser) {
 export default function RootComponent() {
   const [credentialStateForUser, updateCredentialStateForUser] = useState(-1);
   useEffect(() => {
-    if (!appleAuth.isSupported) return
+    if (!appleAuth.isSupported) return;
 
     fetchAndUpdateCredentialState(updateCredentialStateForUser).catch(error =>
       updateCredentialStateForUser(`Error: ${error.code}`),
@@ -103,7 +102,7 @@ export default function RootComponent() {
   }, []);
 
   useEffect(() => {
-    if (!appleAuth.isSupported) return
+    if (!appleAuth.isSupported) return;
 
     return appleAuth.onCredentialRevoked(async () => {
       console.warn('Credential Revoked');
