@@ -228,55 +228,120 @@ This library works on MacOS 10.15+ if using in conjunction with [react-native-ma
 
 ### Web (not react-native-web, but that may come as a follow-on, this is pure web at the moment)
 
+### WebView
+
 #### 1. Initial set-up
-- Ensure you follow the android steps above.
-- Install the [web counterpart](https://github.com/A-Tokyo/react-apple-signin-auth) `yarn add react-apple-signin-auth` in your web project.
+- Make sure to correctly configure your Apple developer account to allow for proper web based authentication.
+- Install the [React Native WebView](https://github.com/react-native-webview/react-native-webview) `yarn add react-native-webview` (or) `npm i react-native-webview` in your project. [Link native dependencies](https://github.com/react-native-webview/react-native-webview/blob/master/docs/Getting-Started.md#2-link-native-dependencies).
+- Your backend needs to implement web based authentification
 
-#### 2. Implement the login process on web
+#### 2. Implement the login process
 ```js
-import AppleSignin from 'react-apple-signin-auth';
 
-/** Apple Signin button */
-const MyAppleSigninButton = ({ ...rest }) => (
-  <AppleSignin
-    /** Auth options passed to AppleID.auth.init() */
-    authOptions={{
-      clientId: 'SAME AS ANDROID',
-      redirectURI: 'SAME AS ANDROID',
-      scope: 'email name',
-      state: 'state',
-      /** sha256 nonce before sending to apple to unify with native firebase behavior - https://github.com/invertase/react-native-apple-authentication/issues/28 */
-      nonce: sha256('nonce'),
-      /** We have to usePopup since we need clientSide authentication */
-      usePopup: true,
-    }}
-    onSuccess={(response) => {
-      console.log(response);
-      // {
-      //     "authorization": {
-      //       "state": "[STATE]",
-      //       "code": "[CODE]",
-      //       "id_token": "[ID_TOKEN]"
-      //     },
-      //     "user": {
-      //       "email": "[EMAIL]",
-      //       "name": {
-      //         "firstName": "[FIRST_NAME]",
-      //         "lastName": "[LAST_NAME]"
-      //       }
-      //     }
-      // }
-    }}
-  />
-);
+// App.js
+import React from 'react';
+import {
+  View,
+  TouchableWithoutFeedback
+  Text
+} from 'react-native';
+import {
+  appleAuth,
+  appleAuthAndroid,
+  AppleAuthWebView // Internaly using WebView
+} from "@invertase/react-native-apple-authentication";
 
-export default MyAppleSigninButton;
+function onAppleLoginWebViewButtonPress() {
+
+  // https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/incorporating_sign_in_with_apple_into_other_platforms
+  const appleAuthConfig = {
+    // The Service ID you registered with Apple
+    clientId: "com.example.client-web",
+
+    // Return URL added to your Apple dev console. It must still match the URL you provided to Apple.
+    redirectUri: "https://example.com/auth/callback",
+
+    // The type of response requested - code, id_token, or both.
+    responseType: "code id_token",
+
+    // The amount of user information requested from Apple.
+    scope: "name email"
+
+    // Random nonce value that will be SHA256 hashed before sending to Apple.
+    // nonce: nonce,
+
+    // Unique state value used to prevent CSRF attacks. A UUID will be generated if nothing is provided.
+    // state: state
+  };
+
+  this.setState(
+    {
+      appleAuthConfig: appleAuthConfig
+    }
+  );
+}
+
+function onAppleAuthResponse(responseContent) {
+
+  // Handle your server response (after login - apple redirects to your server url)
+  console.log("onAppleAuthResponse responseContent", responseContent);
+}
+
+// Apple authentication requires API 19+, so we check before showing the login button
+// If no iOS or Android is supported than we use webView fallback with custom button
+function App() {
+
+  render() {
+    const appleAuthConfig = this.state.appleAuthConfig;
+
+    if (appleAuthConfig) {
+      return (
+        <AppleAuthWebView
+          config={appleAuthConfig}
+          // optional loadingIndicator property
+          // loadingIndicator={
+          //   () => {
+          //     return (
+          //       <Loading />
+          //     );
+          //   }
+          // }
+          onResponse={this.onAppleAuthResponse}
+        />
+      );
+    }
+  }
+
+  return (
+    <View>
+
+      {
+        // (appleAuth.isSupported || appleAuthAndroid.isSupported) ? (
+        //   <AppleButton
+        //     buttonStyle={AppleButton.Style.BLACK}
+        //     buttonType={AppleButton.Type.SIGN_IN}
+        //     onPress={this.onAppleLoginButtonPress}
+        //   />
+        // )  // else add webView view button
+      }
+
+      <TouchableWithoutFeedback onPress={this.onAppleLoginWebViewButtonPress}>
+        <Text>
+          Sign in with Apple
+        </Text>
+      </TouchableWithoutFeedback>
+    </View>
+  );
+}
 ```
 
 #### 3. Verify serverside
 - Send the apple response to your server.
 - See [Serverside Verification](#serverside-verification)
 - Ensure that you pass the clientID as the web service ID, not the native app bundle. Since the project utilizes the service ID for authenticating web and android.
+
+### WebView Config
+- https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/incorporating_sign_in_with_apple_into_other_platforms
 
 ## Serverside verification
 
