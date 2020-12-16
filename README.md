@@ -287,7 +287,6 @@ function onAppleAuthResponse(responseContent) {
   console.log("onAppleAuthResponse responseContent", responseContent);
 }
 
-// Apple authentication requires API 19+, so we check before showing the login button
 // If no iOS or Android is supported than we use webView fallback with custom button
 function App() {
 
@@ -315,7 +314,11 @@ function App() {
   return (
     <View>
 
+
       {
+        // It makes sense to show the native buttons in a real app,
+        // something like the code below, but we are just demonstrating web login here so it is commented out
+
         // (appleAuth.isSupported || appleAuthAndroid.isSupported) ? (
         //   <AppleButton
         //     buttonStyle={AppleButton.Style.BLACK}
