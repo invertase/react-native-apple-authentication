@@ -239,12 +239,12 @@ This library works on MacOS 10.15+ if using in conjunction with [react-native-ma
 ```js
 
 // App.js
-import React from 'react';
+import React from "react";
 import {
   View,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
   Text
-} from 'react-native';
+} from "react-native";
 import {
   appleAuth,
   appleAuthAndroid,

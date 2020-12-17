@@ -17,8 +17,9 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
+import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import { appleAuth, AppleButton, AppleAuthWebView } from '@invertase/react-native-apple-authentication';
+import { getAppleAuthConfig, parseAppleAuthResponse } from './app.shared';
 
 /**
  * You'd technically persist this somewhere for later use.
@@ -93,6 +94,8 @@ async function onAppleButtonPress(updateCredentialStateForUser) {
 
 export default function RootComponent() {
   const [credentialStateForUser, updateCredentialStateForUser] = useState(-1);
+  const [appleAuthConfig, setAppleAuthConfig] = useState(null);
+
   useEffect(() => {
     if (!appleAuth.isSupported) return;
 
@@ -112,64 +115,103 @@ export default function RootComponent() {
     });
   }, []);
 
-  if (!appleAuth.isSupported) {
+  if (appleAuthConfig) {
     return (
-      <View style={[styles.container, styles.horizontal]}>
-        <Text>Apple Authentication is not supported on this device.</Text>
-      </View>
+      <AppleAuthWebView
+        config={appleAuthConfig}
+        onResponse={
+          (responseContent) => {
+            setAppleAuthConfig(null);
+            parseAppleAuthResponse(responseContent);
+          }
+        }
+      />
     );
   }
 
   return (
     <View style={[styles.container, styles.horizontal]}>
-      <Text style={styles.header}>Credential State</Text>
-      <Text>{credentialStateForUser}</Text>
+      {
+        appleAuth.isSupported && (
+          <View>
+            <Text style={styles.header}>Credential State</Text>
+            <Text>{credentialStateForUser}</Text>
 
-      <Text style={styles.header}>Buttons</Text>
-      <Text>Continue Styles</Text>
-      <AppleButton
-        style={styles.appleButton}
-        cornerRadius={5}
-        buttonStyle={AppleButton.Style.WHITE}
-        buttonType={AppleButton.Type.CONTINUE}
-        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
-      />
-      <AppleButton
-        style={styles.appleButton}
-        cornerRadius={5}
-        buttonStyle={AppleButton.Style.WHITE_OUTLINE}
-        buttonType={AppleButton.Type.CONTINUE}
-        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
-      />
-      <AppleButton
-        style={styles.appleButton}
-        cornerRadius={5}
-        buttonStyle={AppleButton.Style.BLACK}
-        buttonType={AppleButton.Type.CONTINUE}
-        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
-      />
-      <Text>Sign-in Styles</Text>
-      <AppleButton
-        style={styles.appleButton}
-        cornerRadius={5}
-        buttonStyle={AppleButton.Style.WHITE}
-        buttonType={AppleButton.Type.SIGN_IN}
-        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
-      />
-      <AppleButton
-        style={styles.appleButton}
-        cornerRadius={5}
-        buttonStyle={AppleButton.Style.WHITE_OUTLINE}
-        buttonType={AppleButton.Type.SIGN_IN}
-        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
-      />
-      <AppleButton
-        style={styles.appleButton}
-        cornerRadius={5}
-        buttonStyle={AppleButton.Style.BLACK}
-        buttonType={AppleButton.Type.SIGN_IN}
-        onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
-      />
+            <Text style={styles.header}>Buttons</Text>
+            <Text>Continue Styles</Text>
+            <AppleButton
+              style={styles.appleButton}
+              cornerRadius={5}
+              buttonStyle={AppleButton.Style.WHITE}
+              buttonType={AppleButton.Type.CONTINUE}
+              onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
+            />
+            <AppleButton
+              style={styles.appleButton}
+              cornerRadius={5}
+              buttonStyle={AppleButton.Style.WHITE_OUTLINE}
+              buttonType={AppleButton.Type.CONTINUE}
+              onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
+            />
+            <AppleButton
+              style={styles.appleButton}
+              cornerRadius={5}
+              buttonStyle={AppleButton.Style.BLACK}
+              buttonType={AppleButton.Type.CONTINUE}
+              onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
+            />
+            <Text>Sign-in Styles</Text>
+            <AppleButton
+              style={styles.appleButton}
+              cornerRadius={5}
+              buttonStyle={AppleButton.Style.WHITE}
+              buttonType={AppleButton.Type.SIGN_IN}
+              onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
+            />
+            <AppleButton
+              style={styles.appleButton}
+              cornerRadius={5}
+              buttonStyle={AppleButton.Style.WHITE_OUTLINE}
+              buttonType={AppleButton.Type.SIGN_IN}
+              onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
+            />
+            <AppleButton
+              style={styles.appleButton}
+              cornerRadius={5}
+              buttonStyle={AppleButton.Style.BLACK}
+              buttonType={AppleButton.Type.SIGN_IN}
+              onPress={() => onAppleButtonPress(updateCredentialStateForUser)}
+            />
+          </View>
+        )
+      }
+
+      {
+        !appleAuth.isSupported && (
+          <View>
+            <Text>
+              Apple Authentication is not supported on this device.
+            </Text>
+            <Text>
+              But in such cases you can always use apple webView sign in!
+            </Text>
+          </View>
+        )
+      }
+
+      {
+        <TouchableOpacity onPress={
+          () => {
+            setAppleAuthConfig(getAppleAuthConfig());
+          }
+        }>
+          <View style={styles.button}>
+            <Text style={styles.label}>
+              WebView sign in with Apple
+            </Text>
+          </View>
+        </TouchableOpacity>
+      }
     </View>
   );
 }
