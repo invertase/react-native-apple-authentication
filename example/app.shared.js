@@ -1,8 +1,11 @@
+import "react-native-get-random-values";
+import { v4 as uuid } from "uuid";
+
 export function getAppleAuthConfig() {
 
   // Generate secure, random values for state and nonce
-  const nonce = "uio";//uuid();
-  const state = "uio";//uuid();
+  const nonce = uuid();
+  const state = uuid();
 
   // https://developer.apple.com/documentation/sign_in_with_apple/sign_in_with_apple_js/incorporating_sign_in_with_apple_into_other_platforms
   const appleAuthConfig = {
