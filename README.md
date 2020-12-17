@@ -231,12 +231,12 @@ async function onAppleButtonPress() {
 ```js
 
 // App.js
-import React from 'react';
+import React from "react";
 import {
   View,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
   Text
-} from 'react-native';
+} from "react-native";
 import {
   appleAuth,
   appleAuthAndroid,
