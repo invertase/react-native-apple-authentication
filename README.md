@@ -54,7 +54,7 @@ Below are simple steps to help you get up and running. The implementation differ
 - [React Hooks example (iOS)](example/app.ios.js)
 - [React Class example (iOS)](example/classVersion.js)
 - [React Hooks example (Android)](example/app.android.js)
-- [Auth0 Implementation](#usage-with-auth0)
+- [Auth0 Implementation](docs/Auth0.md)
 - If you're authenticating users via `React Native Firebase`; see our [Firebase guide](docs/FIREBASE.md)
 - For Android support, a couple extra steps are required on your Apple developer account. Checkout [our guide](docs/ANDROID_EXTRA.md) for more info.
 
@@ -294,64 +294,6 @@ export default MyAppleSigninButton;
     nonce: nonce ? crypto.createHash('sha256').update(nonce).digest('hex') : undefined,
   });
   ```
-
-## Usage with Auth0
-Auth0 has [documentation](https://auth0.com/docs/connections/nativesocial/apple) regarding this specific feature, but here is a quick snippet for you to utilize in your applications. Keep in mind the specific parameters used are [documented in Auth0's API explorer](https://auth0.com/docs/api/authentication#token-exchange-for-native-social).
-
-```
-        const appleAuthRequestResponse = await appleAuth.performRequest({
-            nonceEnabled: false,
-            requestedOperation: appleAuth.Operation.LOGIN,
-            requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME]
-        });
-
-        const credentialState = await appleAuth.getCredentialStateForUser(
-            appleAuthRequestResponse.user
-        );
-
-        if (credentialState === appleAuth.State.AUTHORIZED) {
-            const {
-                    fullName,
-                    authorizationCode,
-                    email
-                } = appleAuthRequestResponse,
-                { familyName, givenName } = fullName;
-
-            await axios({
-                url: `https://${auth0Domain}/oauth/token`,
-                method: 'POST',
-                data: {
-                    grant_type:
-                        'urn:ietf:params:oauth:grant-type:token-exchange',
-                    subject_token_type:
-                        'http://auth0.com/oauth/token-type/apple-authz-code',
-                    scope:
-                        'read:appointments openid profile email email_verified',
-                    audience: auth0Audience,
-                    subject_token: authorizationCode,
-                    client_id: auth0Client,
-                    user_profile: JSON.stringify({
-                        name: {
-                            firstName: givenName,
-                            lastName: familyName
-                        },
-                        email: email
-                    })
-                }
-            })
-            .then(async (_auth0Response) => {
-                resolve({
-                    ..._auth0Response,
-                    first_name: givenName,
-                    last_name: familyName
-                });
-            })
-            .catch((_auth0Error) => {
-                console.log('AUTH0 ERROR', _auth0Error);
-                resolve({ error: true, message: 'error' });
-            });
-        }
-```
 
 ## API Reference Documentation
 - [AppleButtonProps](docs/interfaces/_lib_index_d_.applebuttonprops.md)
