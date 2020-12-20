@@ -54,6 +54,7 @@ Below are simple steps to help you get up and running. The implementation differ
 - [React Hooks example (iOS)](example/app.ios.js)
 - [React Class example (iOS)](example/classVersion.js)
 - [React Hooks example (Android)](example/app.android.js)
+- [Auth0 Implementation](docs/Auth0.md)
 - If you're authenticating users via `React Native Firebase`; see our [Firebase guide](docs/FIREBASE.md)
 - For Android support, a couple extra steps are required on your Apple developer account. Checkout [our guide](docs/ANDROID_EXTRA.md) for more info.
 
