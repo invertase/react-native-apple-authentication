@@ -67,8 +67,6 @@ export default async function AppleAuthentication() {
                 }
             })
                 .then(async (_auth0Response) => {
-                    //console.log(_auth0Response);
-
                     resolve({
                         message: 'success',
                         ..._auth0Response,
@@ -77,7 +75,6 @@ export default async function AppleAuthentication() {
                     });
                 })
                 .catch((_auth0Error) => {
-                    //console.log('AUTH0 ERROR', _auth0Error);
                     reject({ error: true, message: 'error', detailedInformation: _auth0Error });
                 });
         }
