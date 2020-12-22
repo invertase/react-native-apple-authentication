@@ -26,7 +26,7 @@ import { appleAuth, AppleButton } from '@invertase/react-native-apple-authentica
 
 /**
  * Note the sign in request can error, e.g. if the user cancels the sign-in.
- * Use `AppleAuthError` to determine the type of error, e.g. `error.code === AppleAuthError.CANCELED`
+ * Use `appleAuth.Error` to determine the type of error, e.g. `error.code === appleAuth.Error.CANCELED`
  */
 async function onAppleButtonPress() {
   // 1). start a apple sign-in request
