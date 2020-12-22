@@ -15,6 +15,7 @@ import appleAuth, {
   AppleAuthRequestOperation,
   AppleAuthRequestScope,
   AppleAuthCredentialState,
+  AppleAuthError,
 } from '@invertase/react-native-apple-authentication';
 
 const onAppleButtonPress = async () => {
@@ -28,6 +29,13 @@ const onAppleButtonPress = async () => {
   if (credentialState === AppleAuthCredentialState.AUTHORIZED) {
     // user is authenticated
   }
+  
+  // catch signIn errors
+  ...
+  catch (error) {
+    if (error.code === AppleAuthError.CANCELED) // do something
+  }
+  ...
 }
 ```
 
@@ -46,5 +54,12 @@ const onAppleButtonPress = async () => {
   if (credentialState === appleAuth.State.AUTHORIZED) {
     // user is authenticated
   }
+  
+  // catch signIn errors
+  ...
+  catch (error) {
+    if (error.code === appleAuth.Error.CANCELED) // do something
+  }
+  ...
 }
 ```
