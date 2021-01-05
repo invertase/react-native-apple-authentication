@@ -342,7 +342,20 @@ export default MyAppleSigninButton;
     <key>CFBundleAllowMixedLocalizations</key>
     <string>true</string>
     ```
+3. How do I get the email after the first login?
+    - You can get the email address by parsing the JWT token that's returned from any authentication, like so:
+    ```js
+    import { appleAuth } from '@invertase/react-native-apple-authentication';
+    import jwt_decode from 'jwt-decode';
 
+    const appleAuthRequestResponse = await appleAuth.performRequest({
+      requestedOperation: appleAuth.Operation.LOGIN,
+      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME]
+    });
+    // other fields are available, but full name is not
+    const { email, email_verified, is_private_email, sub } = jwt_decode(appleAuthRequestResponse.identityToken)
+    ```
+  
 ## Troubleshooting
 
 ```
