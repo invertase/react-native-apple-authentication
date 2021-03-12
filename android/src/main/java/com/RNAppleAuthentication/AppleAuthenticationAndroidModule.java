@@ -229,6 +229,16 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
                 callback
         );
 
-        service.show();
+        Activity activity = getCurrentActivity();
+        if (activity == null) {
+            promise.reject(new RuntimeException("Activity is not found"));
+        } else {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    service.show();
+                }
+            });
+        }
     }
 }
