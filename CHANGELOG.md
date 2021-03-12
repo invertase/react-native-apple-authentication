@@ -2,6 +2,10 @@
 
 # Release Notes
 
+## 2.1.1
+
+- fix(android, crash): call sign in with Apple service on UI thread (#196, thanks @yuri-lomashko-itechart!)
+
 ## 2.1.0
 
 - feat(android): Nonce return and optional nonce generation (#153, thanks @dburdan!)
