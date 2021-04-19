@@ -3,6 +3,7 @@ buildscript {
   def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['AppleAuth_kotlinVersion']
 
   repositories {
+    mavenCentral()
     google()
     jcenter()
   }
