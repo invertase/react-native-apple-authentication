@@ -6,14 +6,16 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "analyze": "npx tsc --noEmit",
+    "tsc:compile": "npx tsc --noEmit",
     "build": "genversion --semi lib/version.js",
     "build:all": "yarn build:clean && yarn build && yarn build:example:android && yarn build:example:ios",
     "build:example:android": "cd example/android && ./gradlew assembleDebug",
     "build:example:ios": "cd example && (xcodebuild -workspace ios/testing.xcworkspace -scheme testing -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=YES || true)",
     "build:clean": "rimraf ios/build android/build example/android/app/build example/ios/build",
     "build:docs": "typedoc --includeDeclarations --excludeExternals --out docs --plugin typedoc-plugin-markdown --hideBreadcrumbs",
-    "prepare": "yarn analyze && yarn build && cd example && yarn && cd ios && (pod install || true)",
+    "precommit": "yarn prepare && yarn build:all",
+    "prepare": "yarn tsc:compile && yarn prepare:example",
+    "prepare:example": "cd example && yarn && cd ios && (pod install || true)",
     "shipit": "yarn np"
   },
   "repository": {
