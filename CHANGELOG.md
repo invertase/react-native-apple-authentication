@@ -2,6 +2,12 @@
 
 # Release Notes
 
+## 2.1.2
+
+- fix(android): add mavenCentral, remove jcenter before it stops (#206, thanks @maheshwarimrinal!)
+- chore: bump dependencies to current stable everywhere possible (@mikehardy)
+- chore: add basic quality assurance CI workflows (@mikehardy)
+
 ## 2.1.1
 
 - fix(android, crash): call sign in with Apple service on UI thread (#196, thanks @yuri-lomashko-itechart!)
