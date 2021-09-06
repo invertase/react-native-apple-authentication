@@ -98,6 +98,11 @@ export interface AppleButtonProps {
   style?: StyleProp<ViewStyle>;
 
   /**
+   * Can be used in mock testing frameworks to inject / look up by id.
+   */
+  testID?: string;
+
+  /**
    * Android-only. Styling for button text.
    */
   textStyle?: StyleProp<TextStyle>;
