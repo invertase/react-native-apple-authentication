@@ -24,7 +24,7 @@ import { GestureResponderEvent, StyleProp, ViewStyle, TextStyle } from 'react-na
 /**
  * The Apple Button type to render, this controls the button text.
  */
-declare enum AppleButtonType {
+export declare enum AppleButtonType {
   /**
    * The default button, the same as `SIGN_IN`.
    */
@@ -51,7 +51,7 @@ declare enum AppleButtonType {
 /**
  * The Button style (mainly color) to render.
  */
-declare enum AppleButtonStyle {
+export declare enum AppleButtonStyle {
   /**
    * The default style, White.
    */
@@ -118,7 +118,7 @@ export const AppleButton: {
 
 /** iOS */
 
-declare enum AppleError {
+export declare enum AppleError {
   /**
    * The authorization attempt failed for an unknown reason.
    */
@@ -145,7 +145,7 @@ declare enum AppleError {
   FAILED = '1004',
 }
 
-declare enum AppleRequestOperation {
+export declare enum AppleRequestOperation {
   /**
    * An operation that depends on the particular kind of credential provider.
    */
@@ -167,7 +167,7 @@ declare enum AppleRequestOperation {
   LOGOUT = 3,
 }
 
-declare enum AppleRequestScope {
+export declare enum AppleRequestScope {
   /**
    * A scope that includes the user’s email address.
    */
@@ -179,7 +179,7 @@ declare enum AppleRequestScope {
   FULL_NAME = 1,
 }
 
-declare enum AppleRealUserStatus {
+export declare enum AppleRealUserStatus {
   /**
    * Not supported on current platform, ignore the value.
    */
@@ -199,7 +199,7 @@ declare enum AppleRealUserStatus {
   LIKELY_REAL = 2,
 }
 
-declare enum AppleCredentialState {
+export declare enum AppleCredentialState {
   /**
    * The Opaque user ID was revoked by the user.
    */
