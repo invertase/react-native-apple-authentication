@@ -5,10 +5,11 @@
   "scripts": {
     "build:clean": "rimraf ios/build",
     "prepare": "patch-package",
-    "start": "react-native start --reset-cache",
-    "run:android": "react-native run-android",
-    "run:ios": "react-native run-ios --simulator=\"iPhone 11\"",
-    "run:ios13": "react-native run-ios --simulator=\"iPhone 11 ios13\""
+    "start": "yarn react-native start --reset-cache",
+    "run:android": "yarn react-native run-android",
+    "run:ios": "yarn react-native run-ios --simulator=\"iPhone 11\"",
+    "run:ios:default": "yarn react-native run-ios",
+    "run:ios13": "yarn react-native run-ios --simulator=\"iPhone 11 ios13\""
   },
   "dependencies": {
     "react": "16.9.0",
