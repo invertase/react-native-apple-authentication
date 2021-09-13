@@ -50,7 +50,7 @@ internal class SignInWebViewDialogFragment : DialogFragment() {
   ): View? {
     super.onCreateView(inflater, container, savedInstanceState)
 
-    val webView = WebView(context!!).apply {
+    val webView = WebView(requireContext()).apply {
       settings.apply {
         javaScriptEnabled = true
         javaScriptCanOpenWindowsAutomatically = true
