@@ -1,7 +1,4 @@
 <p align="center">
-  <a href="https://invertase.io">
-    <img width="160px" src="https://static.invertase.io/assets/invertase-logo.png"><br/>
-  </a>
   <h2 align="center">React Native Apple Authentication</h2>
 </p>
 
@@ -402,16 +399,11 @@ The `redirectUri` you passed to `appleAuthAndroid.configure` doesn't match one o
 
 ---
 
-<p>
-  <img align="left" width="75px" src="https://static.invertase.io/assets/invertase-logo-small.png">
-  <p align="left">
-    Built and maintained with 💛 by <a href="https://invertase.io">Invertase</a>.
-  </p>
-  <p align="left">
-    <a href="https://invertase.io/hire-us">💼 Hire Us</a> |
-    <a href="https://opencollective.com/react-native-firebase">☕️ Sponsor Us</a> |
-    <a href="https://invertase.io/jobs">‍💻 Work With Us</a>
+<p align="center">
+  <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=react-native-firebase">
+    <img width="75px" src="https://static.invertase.io/assets/invertase/invertase-rounded-avatar.png">
+  </a>
+  <p align="center">
+    Built and maintained by <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=react-native-firebase">Invertase</a>.
   </p>
 </p>
-
----
