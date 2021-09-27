@@ -16,21 +16,22 @@
  *
  */
 
-import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
-import { AppleButton, appleAuthAndroid } from '@invertase/react-native-apple-authentication';
+import React, { useState } from 'react';
+import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
+import { AppleButton, appleAuthAndroid, AppleAuthWebView } from '@invertase/react-native-apple-authentication';
 import 'react-native-get-random-values';
 import { v4 as uuid } from 'uuid'
 import appleLogoWhite from './images/apple_logo_white.png';
 import appleLogoBlack from './images/apple_logo_black.png';
+import { getAppleAuthConfig, parseAppleAuthResponse } from './app.shared';
 
-
-export default RootComponent = () => {
+export default function RootComponent() {
+  const [appleAuthConfig, setAppleAuthConfig] = useState(null);
 
   const doAppleLogin = async () => {
     // Generate secure, random values for state and nonce
     const rawNonce = uuid();
-    const state = uuid();
+    const rawState = uuid();
 
     try {
       // Initialize the module
@@ -63,7 +64,7 @@ export default RootComponent = () => {
 
         // [OPTIONAL]
         // Unique state value used to prevent CSRF attacks. A UUID will be generated if nothing is provided.
-        state,
+        state: rawState,
       });
 
       const response = await appleAuthAndroid.signIn();
@@ -96,99 +97,138 @@ export default RootComponent = () => {
     }
   };
 
+  if (appleAuthConfig) {
+    return (
+      <AppleAuthWebView
+        config={appleAuthConfig}
+        onResponse={
+          (responseContent) => {
+            setAppleAuthConfig(null);
+            parseAppleAuthResponse(responseContent);
+          }
+        }
+      />
+    );
+  }
+
   return (
     <View style={[styles.container, styles.horizontal]}>
-      {appleAuthAndroid.isSupported && (
-        <View>
-          <Text style={styles.header}>Buttons</Text>
+      {
+        appleAuthAndroid.isSupported && (
+          <View>
+            <Text style={styles.header}>Buttons</Text>
 
-          <Text style={{ marginBottom: 8 }}>Continue Styles</Text>
-          <AppleButton
-            style={{ marginBottom: 10 }}
-            cornerRadius={5}
-            buttonStyle={AppleButton.Style.WHITE}
-            buttonType={AppleButton.Type.CONTINUE}
-            onPress={() => doAppleLogin()}
-            leftView={(
-              <Image
-                style={{
-                  alignSelf: 'center',
-                  width: 14,
-                  height: 14,
-                  marginRight: 7,
-                  resizeMode: 'contain',
-                }}
-                source={appleLogoBlack}
-              />
-            )}
-          />
-          <AppleButton
-            style={{ marginBottom: 10 }}
-            cornerRadius={0}
-            buttonStyle={AppleButton.Style.WHITE_OUTLINE}
-            buttonType={AppleButton.Type.CONTINUE}
-            onPress={() => doAppleLogin()}
-            leftView={(
-              <Image
-                style={{
-                  alignSelf: 'center',
-                  width: 14,
-                  height: 14,
-                  marginRight: 7,
-                  resizeMode: 'contain',
-                }}
-                source={appleLogoBlack}
-              />
-            )}
-          />
-          <AppleButton
-            style={{ marginBottom: 16 }}
-            cornerRadius={30}
-            buttonStyle={AppleButton.Style.BLACK}
-            buttonType={AppleButton.Type.CONTINUE}
-            onPress={() => doAppleLogin()}
-            leftView={(
-              <Image
-                style={{
-                  alignSelf: 'center',
-                  width: 14,
-                  height: 14,
-                  marginRight: 7,
-                  resizeMode: 'contain',
-                }}
-                source={appleLogoWhite}
-              />
-            )}
-          />
+            <Text style={{ marginBottom: 8 }}>Continue Styles</Text>
+            <AppleButton
+              style={{ marginBottom: 10 }}
+              cornerRadius={5}
+              buttonStyle={AppleButton.Style.WHITE}
+              buttonType={AppleButton.Type.CONTINUE}
+              onPress={() => doAppleLogin()}
+              leftView={(
+                <Image
+                  style={{
+                    alignSelf: 'center',
+                    width: 14,
+                    height: 14,
+                    marginRight: 7,
+                    resizeMode: 'contain',
+                  }}
+                  source={appleLogoBlack}
+                />
+              )}
+            />
+            <AppleButton
+              style={{ marginBottom: 10 }}
+              cornerRadius={0}
+              buttonStyle={AppleButton.Style.WHITE_OUTLINE}
+              buttonType={AppleButton.Type.CONTINUE}
+              onPress={() => doAppleLogin()}
+              leftView={(
+                <Image
+                  style={{
+                    alignSelf: 'center',
+                    width: 14,
+                    height: 14,
+                    marginRight: 7,
+                    resizeMode: 'contain',
+                  }}
+                  source={appleLogoBlack}
+                />
+              )}
+            />
+            <AppleButton
+              style={{ marginBottom: 16 }}
+              cornerRadius={30}
+              buttonStyle={AppleButton.Style.BLACK}
+              buttonType={AppleButton.Type.CONTINUE}
+              onPress={() => doAppleLogin()}
+              leftView={(
+                <Image
+                  style={{
+                    alignSelf: 'center',
+                    width: 14,
+                    height: 14,
+                    marginRight: 7,
+                    resizeMode: 'contain',
+                  }}
+                  source={appleLogoWhite}
+                />
+              )}
+            />
 
-          <Text style={{ marginBottom: 8 }}>Sign-in Styles</Text>
-          <AppleButton
-            style={{ marginBottom: 10 }}
-            cornerRadius={5}
-            buttonStyle={AppleButton.Style.WHITE}
-            buttonType={AppleButton.Type.SIGN_IN}
-            onPress={() => doAppleLogin()}
-          />
-          <AppleButton
-            style={{ marginBottom: 10 }}
-            cornerRadius={5}
-            buttonStyle={AppleButton.Style.WHITE_OUTLINE}
-            buttonType={AppleButton.Type.SIGN_IN}
-            onPress={() => doAppleLogin()}
-          />
-          <AppleButton
-            style={{ marginBottom: 10 }}
-            cornerRadius={5}
-            buttonStyle={AppleButton.Style.BLACK}
-            buttonType={AppleButton.Type.SIGN_IN}
-            onPress={() => doAppleLogin()}
-          />
-        </View>
-      )}
+            <Text style={{ marginBottom: 8 }}>Sign-in Styles</Text>
+            <AppleButton
+              style={{ marginBottom: 10 }}
+              cornerRadius={5}
+              buttonStyle={AppleButton.Style.WHITE}
+              buttonType={AppleButton.Type.SIGN_IN}
+              onPress={() => doAppleLogin()}
+            />
+            <AppleButton
+              style={{ marginBottom: 10 }}
+              cornerRadius={5}
+              buttonStyle={AppleButton.Style.WHITE_OUTLINE}
+              buttonType={AppleButton.Type.SIGN_IN}
+              onPress={() => doAppleLogin()}
+            />
+            <AppleButton
+              style={{ marginBottom: 10 }}
+              cornerRadius={5}
+              buttonStyle={AppleButton.Style.BLACK}
+              buttonType={AppleButton.Type.SIGN_IN}
+              onPress={() => doAppleLogin()}
+            />
+          </View>
+        )
+      }
 
-      {!appleAuthAndroid.isSupported && (
-        <Text>Sign In with Apple requires Android 4.4 (API 19) or higher.</Text>
-      )}
+      {
+        !appleAuthAndroid.isSupported && (
+          <View>
+            <Text>
+              Sign In with Apple requires Android 4.4 (API 19) or higher.
+            </Text>
+            <Text>
+              But in such cases you can always use apple webView sign in!
+            </Text>
+          </View>
+        )
+      }
+
+      {
+        <TouchableOpacity onPress={
+          () => {
+            setAppleAuthConfig(getAppleAuthConfig());
+          }
+        }>
+          <View style={styles.button}>
+            <Text style={styles.label}>
+              WebView sign in with Apple
+            </Text>
+          </View>
+        </TouchableOpacity>
+      }
     </View>
   );
 }
