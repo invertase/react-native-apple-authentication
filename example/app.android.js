@@ -168,6 +168,18 @@ export default RootComponent = () => {
             buttonStyle={AppleButton.Style.WHITE}
             buttonType={AppleButton.Type.SIGN_IN}
             onPress={() => doAppleLogin()}
+            leftView={(
+              <Image
+                style={{
+                  alignSelf: 'center',
+                  width: 14,
+                  height: 14,
+                  marginRight: 7,
+                  resizeMode: 'contain',
+                }}
+                source={appleLogoBlack}
+              />
+            )}
           />
           <AppleButton
             style={{ marginBottom: 10 }}
@@ -175,6 +187,18 @@ export default RootComponent = () => {
             buttonStyle={AppleButton.Style.WHITE_OUTLINE}
             buttonType={AppleButton.Type.SIGN_IN}
             onPress={() => doAppleLogin()}
+            leftView={(
+              <Image
+                style={{
+                  alignSelf: 'center',
+                  width: 14,
+                  height: 14,
+                  marginRight: 7,
+                  resizeMode: 'contain',
+                }}
+                source={appleLogoBlack}
+              />
+            )}
           />
           <AppleButton
             style={{ marginBottom: 10 }}
@@ -182,6 +206,18 @@ export default RootComponent = () => {
             buttonStyle={AppleButton.Style.BLACK}
             buttonType={AppleButton.Type.SIGN_IN}
             onPress={() => doAppleLogin()}
+            leftView={(
+              <Image
+                style={{
+                  alignSelf: 'center',
+                  width: 14,
+                  height: 14,
+                  marginRight: 7,
+                  resizeMode: 'contain',
+                }}
+                source={appleLogoWhite}
+              />
+            )}
           />
         </View>
       )}
