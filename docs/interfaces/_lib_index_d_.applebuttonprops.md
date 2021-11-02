@@ -1,3 +1,4 @@
+**[@invertase/react-native-apple-authentication](../README.md)**
 
 # Interface: AppleButtonProps
 
@@ -11,88 +12,89 @@ The available props for the AppleButton view component.
 
 ### Properties
 
-* [buttonStyle](_lib_index_d_.applebuttonprops.md#optional-buttonstyle)
-* [buttonType](_lib_index_d_.applebuttonprops.md#optional-buttontype)
-* [cornerRadius](_lib_index_d_.applebuttonprops.md#optional-cornerradius)
-* [leftView](_lib_index_d_.applebuttonprops.md#optional-leftview)
+* [buttonStyle](_lib_index_d_.applebuttonprops.md#buttonstyle)
+* [buttonType](_lib_index_d_.applebuttonprops.md#buttontype)
+* [cornerRadius](_lib_index_d_.applebuttonprops.md#cornerradius)
+* [leftView](_lib_index_d_.applebuttonprops.md#leftview)
 * [onPress](_lib_index_d_.applebuttonprops.md#onpress)
-* [style](_lib_index_d_.applebuttonprops.md#optional-style)
-* [textStyle](_lib_index_d_.applebuttonprops.md#optional-textstyle)
+* [style](_lib_index_d_.applebuttonprops.md#style)
+* [testID](_lib_index_d_.applebuttonprops.md#testid)
+* [textStyle](_lib_index_d_.applebuttonprops.md#textstyle)
 
 ## Properties
 
-### `Optional` buttonStyle
+### buttonStyle
 
-• **buttonStyle**? : *[AppleButtonStyle](../enums/_lib_index_d_.applebuttonstyle.md)*
+• `Optional` **buttonStyle**: [AppleButtonStyle](../enums/_lib_index_d_.applebuttonstyle.md)
 
-*Defined in [lib/index.d.ts:83](../../lib/index.d.ts#L83)*
+*Defined in [lib/index.d.ts:83](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L83)*
 
 See @{AppleButtonStyle}
 
 ___
 
-### `Optional` buttonType
+### buttonType
 
-• **buttonType**? : *[AppleButtonType](../enums/_lib_index_d_.applebuttontype.md)*
+• `Optional` **buttonType**: [AppleButtonType](../enums/_lib_index_d_.applebuttontype.md)
 
-*Defined in [lib/index.d.ts:88](../../lib/index.d.ts#L88)*
+*Defined in [lib/index.d.ts:88](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L88)*
 
 See @{AppleButtonType}
 
 ___
 
-### `Optional` cornerRadius
+### cornerRadius
 
-• **cornerRadius**? : *undefined | number*
+• `Optional` **cornerRadius**: undefined \| number
 
-*Defined in [lib/index.d.ts:93](../../lib/index.d.ts#L93)*
+*Defined in [lib/index.d.ts:93](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L93)*
 
 Corner radius of the button.
 
 ___
 
-### `Optional` leftView
+### leftView
 
-• **leftView**? : *React.ReactNode*
+• `Optional` **leftView**: React.ReactNode
 
-*Defined in [lib/index.d.ts:108](../../lib/index.d.ts#L108)*
+*Defined in [lib/index.d.ts:113](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L113)*
 
 Android-only. View on the left that can be used for an Apple logo.
 
 ___
 
-###  onPress
+### onPress
 
-• **onPress**: *function*
+•  **onPress**: (event: GestureResponderEvent) => void
 
-*Defined in [lib/index.d.ts:110](../../lib/index.d.ts#L110)*
-
-#### Type declaration:
-
-▸ (`event`: GestureResponderEvent): *void*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`event` | GestureResponderEvent |
+*Defined in [lib/index.d.ts:115](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L115)*
 
 ___
 
-### `Optional` style
+### style
 
-• **style**? : *StyleProp‹ViewStyle›*
+• `Optional` **style**: StyleProp\<ViewStyle>
 
-*Defined in [lib/index.d.ts:98](../../lib/index.d.ts#L98)*
+*Defined in [lib/index.d.ts:98](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L98)*
 
 Styling for outside `TouchableOpacity`
 
 ___
 
-### `Optional` textStyle
+### testID
 
-• **textStyle**? : *StyleProp‹TextStyle›*
+• `Optional` **testID**: undefined \| string
 
-*Defined in [lib/index.d.ts:103](../../lib/index.d.ts#L103)*
+*Defined in [lib/index.d.ts:103](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L103)*
+
+Can be used in mock testing frameworks to inject / look up by id.
+
+___
+
+### textStyle
+
+• `Optional` **textStyle**: StyleProp\<TextStyle>
+
+*Defined in [lib/index.d.ts:108](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L108)*
 
 Android-only. Styling for button text.

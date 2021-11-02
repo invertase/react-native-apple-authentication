@@ -1,3 +1,4 @@
+**[@invertase/react-native-apple-authentication](../README.md)**
 
 # Interface: AppleRequestResponseFullName
 
@@ -22,60 +23,60 @@ These fields are populated with values that the user authorized.
 
 ## Properties
 
-###  familyName
+### familyName
 
-• **familyName**: *string | null*
+•  **familyName**: string \| null
 
-*Defined in [lib/index.d.ts:306](../../lib/index.d.ts#L306)*
+*Defined in [lib/index.d.ts:311](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L311)*
 
 Name passed from one generation to another to indicate lineage, e.g. Appleseed
 
 ___
 
-###  givenName
+### givenName
 
-• **givenName**: *string | null*
+•  **givenName**: string \| null
 
-*Defined in [lib/index.d.ts:296](../../lib/index.d.ts#L296)*
+*Defined in [lib/index.d.ts:301](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L301)*
 
 Name bestowed upon an individual by one's parents, e.g. Johnathan
 
 ___
 
-###  middleName
+### middleName
 
-• **middleName**: *string | null*
+•  **middleName**: string \| null
 
-*Defined in [lib/index.d.ts:301](../../lib/index.d.ts#L301)*
+*Defined in [lib/index.d.ts:306](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L306)*
 
 Secondary given name chosen to differentiate those with the same first name, e.g. Maple
 
 ___
 
-###  namePrefix
+### namePrefix
 
-• **namePrefix**: *string | null*
+•  **namePrefix**: string \| null
 
-*Defined in [lib/index.d.ts:291](../../lib/index.d.ts#L291)*
+*Defined in [lib/index.d.ts:296](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L296)*
 
 Pre-nominal letters denoting title, salutation, or honorific, e.g. Dr., Mr.
 
 ___
 
-###  nameSuffix
+### nameSuffix
 
-• **nameSuffix**: *string | null*
+•  **nameSuffix**: string \| null
 
-*Defined in [lib/index.d.ts:311](../../lib/index.d.ts#L311)*
+*Defined in [lib/index.d.ts:316](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L316)*
 
 Post-nominal letters denoting degree, accreditation, or other honor, e.g. Esq., Jr., Ph.D.
 
 ___
 
-###  nickname
+### nickname
 
-• **nickname**: *string | null*
+•  **nickname**: string \| null
 
-*Defined in [lib/index.d.ts:316](../../lib/index.d.ts#L316)*
+*Defined in [lib/index.d.ts:321](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L321)*
 
 Name substituted for the purposes of familiarity, e.g. "Johnny"
