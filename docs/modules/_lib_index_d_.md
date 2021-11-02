@@ -1,3 +1,4 @@
+**[@invertase/react-native-apple-authentication](../README.md)**
 
 # Module: "lib/index.d"
 
@@ -31,72 +32,63 @@
 
 ### Variables
 
-* [AppleButton](_lib_index_d_.md#const-applebutton)
-* [appleAuth](_lib_index_d_.md#const-appleauth)
-* [appleAuthAndroid](_lib_index_d_.md#const-appleauthandroid)
+* [AppleButton](_lib_index_d_.md#applebutton)
+* [appleAuth](_lib_index_d_.md#appleauth)
+* [appleAuthAndroid](_lib_index_d_.md#appleauthandroid)
 
 ## Type aliases
 
-###  AndroidError
+### AndroidError
 
-Ƭ **AndroidError**: *object*
+Ƭ  **AndroidError**: { NOT_CONFIGURED: string ; SIGNIN_CANCELLED: string ; SIGNIN_FAILED: string  }
 
-*Defined in [lib/index.d.ts:479](../../lib/index.d.ts#L479)*
+*Defined in [lib/index.d.ts:486](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L486)*
 
 Android
 
 #### Type declaration:
 
-* **NOT_CONFIGURED**: *string*
-
-* **SIGNIN_CANCELLED**: *string*
-
-* **SIGNIN_FAILED**: *string*
+Name | Type | Description |
+------ | ------ | ------ |
+`NOT_CONFIGURED` | string | Apple auth for Android wasn't configured. Be sure to call `appleAuthAndroid.configure(options)`. |
+`SIGNIN_CANCELLED` | string | User cancelled (closed the browser window) the sign in request. |
+`SIGNIN_FAILED` | string | - |
 
 ## Variables
 
-### `Const` AppleButton
+### AppleButton
 
-• **AppleButton**: *object & React.FC‹[AppleButtonProps](../interfaces/_lib_index_d_.applebuttonprops.md)›*
+• `Const` **AppleButton**: { Style: *typeof* [AppleButtonStyle](../enums/_lib_index_d_.applebuttonstyle.md) ; Type: *typeof* [AppleButtonType](../enums/_lib_index_d_.applebuttontype.md)  } & React.FC\<[AppleButtonProps](../interfaces/_lib_index_d_.applebuttonprops.md)>
 
-*Defined in [lib/index.d.ts:113](../../lib/index.d.ts#L113)*
+*Defined in [lib/index.d.ts:118](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L118)*
 
 ___
 
-### `Const` appleAuth
+### appleAuth
 
-• **appleAuth**: *object*
+• `Const` **appleAuth**: object
 
-*Defined in [lib/index.d.ts:401](../../lib/index.d.ts#L401)*
+*Defined in [lib/index.d.ts:408](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L408)*
 
 #### Type declaration:
 
-* **Error**: *typeof AppleError*
-
-* **Operation**: *typeof AppleRequestOperation*
-
-* **Scope**: *typeof AppleRequestScope*
-
-* **State**: *typeof AppleCredentialState*
-
-* **UserStatus**: *typeof AppleRealUserStatus*
-
-* **isSignUpButtonSupported**: *boolean*
-
-* **isSupported**: *boolean*
-
-* **getCredentialStateForUser**(`user`: string): *Promise‹[AppleCredentialState](../enums/_lib_index_d_.applecredentialstate.md)›*
-
-* **onCredentialRevoked**(`listener`: Function): *function*
-
-  * (): *void | undefined*
-
-* **performRequest**(`options?`: [AppleRequestOptions](../interfaces/_lib_index_d_.applerequestoptions.md)): *Promise‹[AppleRequestResponse](../interfaces/_lib_index_d_.applerequestresponse.md)›*
+Name | Type | Description |
+------ | ------ | ------ |
+`Error` | *typeof* [AppleError](../enums/_lib_index_d_.appleerror.md) | Errors that can occur during authorization.  **`url`** https://developer.apple.com/documentation/authenticationservices/asauthorizationerror/code  |
+`Operation` | *typeof* [AppleRequestOperation](../enums/_lib_index_d_.applerequestoperation.md) | Operation to be executed by the request.  Request option used as part of `AppleRequestOptions` `requestedOperation`  |
+`Scope` | *typeof* [AppleRequestScope](../enums/_lib_index_d_.applerequestscope.md) | The contact information to be requested from the user.  Only scopes for which this app was authorized for will be returned.  Scopes used as part of `AppleRequestOptions` `requestedScopes`  |
+`State` | *typeof* [AppleCredentialState](../enums/_lib_index_d_.applecredentialstate.md) | The current Apple Authorization state. |
+`UserStatus` | *typeof* [AppleRealUserStatus](../enums/_lib_index_d_.applerealuserstatus.md) | Possible values for the real user indicator.  **`url`** https://developer.apple.com/documentation/authenticationservices/asuserdetectionstatus  |
+`isSignUpButtonSupported` | boolean | A boolean value of whether the 'SignUp' Type variant of the Apple Authentication Button is supported.  This will always return false for Android, and false for iOS devices running iOS versions less than 13.2  |
+`isSupported` | boolean | A boolean value of whether Apple Authentication is supported on this device & platform version.  This will always return false for Android, and false for iOS devices running iOS versions less than 13.  |
+`getCredentialStateForUser` | (user: string) => Promise\<[AppleCredentialState](../enums/_lib_index_d_.applecredentialstate.md)> | - |
+`onCredentialRevoked` | (listener: Function) => () => void \| undefined | - |
+`performRequest` | (options?: [AppleRequestOptions](../interfaces/_lib_index_d_.applerequestoptions.md)) => Promise\<[AppleRequestResponse](../interfaces/_lib_index_d_.applerequestresponse.md)> | - |
 
 ___
 
-### `Const` appleAuthAndroid
+### appleAuthAndroid
 
-• **appleAuthAndroid**: *[AppleAuthAndroid](../interfaces/_lib_index_d_.appleauthandroid.md)*
+• `Const` **appleAuthAndroid**: [AppleAuthAndroid](../interfaces/_lib_index_d_.appleauthandroid.md)
 
-*Defined in [lib/index.d.ts:592](../../lib/index.d.ts#L592)*
+*Defined in [lib/index.d.ts:623](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L623)*

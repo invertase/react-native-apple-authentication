@@ -1,3 +1,4 @@
+**[@invertase/react-native-apple-authentication](../README.md)**
 
 # Interface: AppleRequestOptions
 
@@ -11,20 +12,20 @@ Apple Authentication Request options to be used with `performRequest(requestOpti
 
 ### Properties
 
-* [nonce](_lib_index_d_.applerequestoptions.md#optional-nonce)
-* [nonceEnabled](_lib_index_d_.applerequestoptions.md#optional-nonceenabled)
-* [requestedOperation](_lib_index_d_.applerequestoptions.md#optional-requestedoperation)
-* [requestedScopes](_lib_index_d_.applerequestoptions.md#optional-requestedscopes)
-* [state](_lib_index_d_.applerequestoptions.md#optional-state)
-* [user](_lib_index_d_.applerequestoptions.md#optional-user)
+* [nonce](_lib_index_d_.applerequestoptions.md#nonce)
+* [nonceEnabled](_lib_index_d_.applerequestoptions.md#nonceenabled)
+* [requestedOperation](_lib_index_d_.applerequestoptions.md#requestedoperation)
+* [requestedScopes](_lib_index_d_.applerequestoptions.md#requestedscopes)
+* [state](_lib_index_d_.applerequestoptions.md#state)
+* [user](_lib_index_d_.applerequestoptions.md#user)
 
 ## Properties
 
-### `Optional` nonce
+### nonce
 
-• **nonce**? : *undefined | string*
+• `Optional` **nonce**: undefined \| string
 
-*Defined in [lib/index.d.ts:263](../../lib/index.d.ts#L263)*
+*Defined in [lib/index.d.ts:268](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L268)*
 
 Nonce to be passed to the identity provider. If value not provided, one will automatically
 be created for you and available as part of @{AppleRequestResponse}.
@@ -37,11 +38,11 @@ the request execution.
 
 ___
 
-### `Optional` nonceEnabled
+### nonceEnabled
 
-• **nonceEnabled**? : *undefined | false | true*
+• `Optional` **nonceEnabled**: undefined \| false \| true
 
-*Defined in [lib/index.d.ts:272](../../lib/index.d.ts#L272)*
+*Defined in [lib/index.d.ts:277](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L277)*
 
 Disable automatic nonce behaviour by setting this to false.
 
@@ -51,11 +52,11 @@ Defaults to true.
 
 ___
 
-### `Optional` requestedOperation
+### requestedOperation
 
-• **requestedOperation**? : *[AppleRequestOperation](../enums/_lib_index_d_.applerequestoperation.md)*
+• `Optional` **requestedOperation**: [AppleRequestOperation](../enums/_lib_index_d_.applerequestoperation.md)
 
-*Defined in [lib/index.d.ts:243](../../lib/index.d.ts#L243)*
+*Defined in [lib/index.d.ts:248](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L248)*
 
 Operation which should be executed.
 
@@ -63,11 +64,11 @@ Operation which should be executed.
 
 ___
 
-### `Optional` requestedScopes
+### requestedScopes
 
-• **requestedScopes**? : *[AppleRequestScope](../enums/_lib_index_d_.applerequestscope.md)[]*
+• `Optional` **requestedScopes**: [AppleRequestScope](../enums/_lib_index_d_.applerequestscope.md)[]
 
-*Defined in [lib/index.d.ts:236](../../lib/index.d.ts#L236)*
+*Defined in [lib/index.d.ts:241](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L241)*
 
 The contact information to be requested from the user.
 
@@ -75,11 +76,11 @@ Only scopes for which this app was authorized for will be returned.
 
 ___
 
-### `Optional` state
+### state
 
-• **state**? : *undefined | string*
+• `Optional` **state**: undefined \| string
 
-*Defined in [lib/index.d.ts:279](../../lib/index.d.ts#L279)*
+*Defined in [lib/index.d.ts:284](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L284)*
 
 State to be passed to the identity provider.
 
@@ -87,11 +88,11 @@ This value will be returned as a part of successful AppleRequestResponse respons
 
 ___
 
-### `Optional` user
+### user
 
-• **user**? : *undefined | string*
+• `Optional` **user**: undefined \| string
 
-*Defined in [lib/index.d.ts:251](../../lib/index.d.ts#L251)*
+*Defined in [lib/index.d.ts:256](https://github.com/invertase/react-native-apple-authentication/blob/91271b4/lib/index.d.ts#L256)*
 
 If you have been previously vended a 'user' value through a Apple Authorization response,
 you may set it here to provide additional context to the identity provider.
