@@ -361,7 +361,7 @@ The operation couldn’t be completed. (com.apple.AuthenticationServices.Authori
 
 ###### Case 1:
 Check that the connection settings have been made correctly.
-The setup can be found here: [Initial Setup](https://github.com/invertase/react-native-apple-authentication/blob/master/docs/INITIAL_SETUP.md)
+The setup can be found here: [Initial Setup](https://github.com/invertase/react-native-apple-authentication/blob/main/docs/INITIAL_SETUP.md)
 
 ###### Case 2:
 If you are using the function `getCredentialStateForUser` on a simulator, this error will always be triggered, for the reason that this function verifies the authenticity of the device.
@@ -373,9 +373,9 @@ If you are using a simulator, go to [Mange Apple Account](https://appleid.apple.
 
 Search for "Devices", select "Simulator" and press "Remove from Account".
 
-  ![show-devices](https://raw.githubusercontent.com/invertase/react-native-apple-authentication/master/docs/images/devices-list.jpg)
+  ![show-devices](https://raw.githubusercontent.com/invertase/react-native-apple-authentication/main/docs/images/devices-list.jpg)
 
-  ![remove-from-manager](https://raw.githubusercontent.com/invertase/react-native-apple-authentication/master/docs/images/remove-simulator-devices-list.jpg)
+  ![remove-from-manager](https://raw.githubusercontent.com/invertase/react-native-apple-authentication/main/docs/images/remove-simulator-devices-list.jpg)
 
 It should work fine.
 
