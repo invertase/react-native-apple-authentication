@@ -78,7 +78,7 @@ jobs:
           timeout_minutes: 15
           retry_wait_seconds: 60
           max_attempts: 3
-          command: yarn build:example:android
+          command: yarn example:build:android
 
   # ------------------
   #        iOS
@@ -144,5 +144,5 @@ jobs:
 
       - name: Build iOS App
         run: |
-          yarn build:example:ios
+          yarn example:build:ios
         shell: bash
