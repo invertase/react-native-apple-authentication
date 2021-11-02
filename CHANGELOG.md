@@ -2,6 +2,24 @@
 
 # Release Notes
 
+## 2.1.6
+
+- fix: default branch is now main (#244, thanks @mikehardy)
+- docs(example, android): include logos in all example buttons (#237, thanks @mikehardy)
+
+## 2.1.5
+
+- fix(android): Updates to recommended way of importing context (#236, thanks @AndresPerezTesela!)
+
+## 2.1.4
+
+- fix(android): use function vs arrow for babel compat in AppleButton export (#234, thanks @EIrwin)
+
+## 2.1.3
+
+- chore: Adds rn's testID to the valid props, adds typescript exports (#233, thanks @doublethefish!)
+- chore(example): allow test runs without react-native global install
+
 ## 2.1.2
 
 - fix(android): add mavenCentral, remove jcenter before it stops (#206, thanks @maheshwarimrinal!)
