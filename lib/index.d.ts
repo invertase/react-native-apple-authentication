@@ -483,7 +483,7 @@ export default appleAuth;
 
 /** Android */
 
-type AndroidError = {
+export type AndroidError = {
   /**
    * Apple auth for Android wasn't configured. Be sure to call `appleAuthAndroid.configure(options)`.
    */
@@ -496,13 +496,13 @@ type AndroidError = {
   SIGNIN_CANCELLED: string;
 }
 
-declare enum AndroidResponseType {
+export declare enum AndroidResponseType {
   ALL = "ALL",
   CODE = "CODE",
   ID_TOKEN = "ID_TOKEN",
 }
 
-declare enum AndroidScope {
+export declare enum AndroidScope {
   ALL = "ALL",
   EMAIL = "EMAIL",
   NAME = "NAME",
@@ -587,7 +587,7 @@ export interface AndroidSigninResponse {
   code: string;
 }
 
-interface AppleAuthAndroid {
+export interface AppleAuthAndroid {
   /**
    * A boolean value of whether Apple Authentication is supported on this API version.
    *

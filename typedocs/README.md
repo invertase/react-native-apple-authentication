@@ -55,7 +55,6 @@ Below are simple steps to help you get up and running. The implementation differ
 - If you're authenticating users via `React Native Firebase`; see our [Firebase guide](docs/FIREBASE.md)
 - For Android support, a couple extra steps are required on your Apple developer account. Checkout [our guide](docs/ANDROID_EXTRA.md) for more info.
 
-
 ### iOS
 
 #### 1. Initial set-up
@@ -218,7 +217,6 @@ async function onAppleButtonPress() {
   // Send the authorization code to your backend for verification
 }
 ```
-
 
 ### Web (not react-native-web, but that may come as a follow-on, this is pure web at the moment)
 
