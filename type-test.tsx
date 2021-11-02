@@ -68,7 +68,7 @@ async function onAppleButtonPressAndroid() {
     console.log(response.user?.name?.firstName);
     console.log(response.user?.name?.lastName);
     console.log(response.user?.email);
-  } catch (error) {
+  } catch (error: any) {
     if (error && error.message) {
       switch (error.message) {
         case appleAuthAndroid.Error.NOT_CONFIGURED:
