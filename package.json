@@ -17,8 +17,8 @@
     "example:build:android": "cd example && yarn build:android && cd android && ./gradlew assembleDebug",
     "example:build:ios": "cd example && yarn build:ios && (xcodebuild -workspace ios/testing.xcworkspace -scheme testing -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=YES || true)",
     "example:start": "cd example && yarn start",
-    "example:ios": "cd example && yarn ios",
-    "example:android": "cd example && yarn android",
+    "example:ios": "cd example && yarn run:ios",
+    "example:android": "cd example && yarn run:android",
     "shipit": "yarn np"
   },
   "repository": {
