@@ -25,7 +25,7 @@ Name passed from one generation to another to indicate lineage, e.g. Appleseed
 
 #### Defined in
 
-[index.d.ts:311](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L311)
+[index.d.ts:311](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L311)
 
 ___
 
@@ -37,7 +37,7 @@ Name bestowed upon an individual by one's parents, e.g. Johnathan
 
 #### Defined in
 
-[index.d.ts:301](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L301)
+[index.d.ts:301](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L301)
 
 ___
 
@@ -49,7 +49,7 @@ Secondary given name chosen to differentiate those with the same first name, e.g
 
 #### Defined in
 
-[index.d.ts:306](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L306)
+[index.d.ts:306](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L306)
 
 ___
 
@@ -61,7 +61,7 @@ Pre-nominal letters denoting title, salutation, or honorific, e.g. Dr., Mr.
 
 #### Defined in
 
-[index.d.ts:296](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L296)
+[index.d.ts:296](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L296)
 
 ___
 
@@ -73,7 +73,7 @@ Post-nominal letters denoting degree, accreditation, or other honor, e.g. Esq., 
 
 #### Defined in
 
-[index.d.ts:316](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L316)
+[index.d.ts:316](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L316)
 
 ___
 
@@ -85,4 +85,4 @@ Name substituted for the purposes of familiarity, e.g. "Johnny"
 
 #### Defined in
 
-[index.d.ts:321](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L321)
+[index.d.ts:321](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L321)

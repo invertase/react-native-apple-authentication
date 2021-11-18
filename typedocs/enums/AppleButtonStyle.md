@@ -21,7 +21,7 @@ Render a black button with white text.
 
 #### Defined in
 
-[index.d.ts:73](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L73)
+[index.d.ts:73](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L73)
 
 ___
 
@@ -33,7 +33,7 @@ The default style, White.
 
 #### Defined in
 
-[index.d.ts:58](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L58)
+[index.d.ts:58](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L58)
 
 ___
 
@@ -45,7 +45,7 @@ Render a white button with black text.
 
 #### Defined in
 
-[index.d.ts:63](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L63)
+[index.d.ts:63](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L63)
 
 ___
 
@@ -57,4 +57,4 @@ Render a white button with black text and a bordered outline.
 
 #### Defined in
 
-[index.d.ts:68](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L68)
+[index.d.ts:68](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L68)

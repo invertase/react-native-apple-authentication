@@ -16,7 +16,7 @@
 
 #### Defined in
 
-[index.d.ts:506](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L506)
+[index.d.ts:506](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L506)
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 #### Defined in
 
-[index.d.ts:507](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L507)
+[index.d.ts:507](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L507)
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 #### Defined in
 
-[index.d.ts:508](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L508)
+[index.d.ts:508](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L508)

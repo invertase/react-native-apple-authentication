@@ -62,7 +62,7 @@ Android
 
 #### Defined in
 
-[index.d.ts:486](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L486)
+[index.d.ts:486](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L486)
 
 ## Variables
 
@@ -72,7 +72,7 @@ Android
 
 #### Defined in
 
-[index.d.ts:118](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L118)
+[index.d.ts:118](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L118)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[index.d.ts:408](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L408)
+[index.d.ts:408](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L408)
 
 ___
 
@@ -107,4 +107,4 @@ ___
 
 #### Defined in
 
-[index.d.ts:623](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L623)
+[index.d.ts:623](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L623)

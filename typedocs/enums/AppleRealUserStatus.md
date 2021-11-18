@@ -18,7 +18,7 @@ A hint that there's high confidence that the user is real.
 
 #### Defined in
 
-[index.d.ts:204](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L204)
+[index.d.ts:204](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L204)
 
 ___
 
@@ -33,7 +33,7 @@ instead treat these users as any new user through standard email sign up flows
 
 #### Defined in
 
-[index.d.ts:199](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L199)
+[index.d.ts:199](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L199)
 
 ___
 
@@ -45,4 +45,4 @@ Not supported on current platform, ignore the value.
 
 #### Defined in
 
-[index.d.ts:191](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L191)
+[index.d.ts:191](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L191)

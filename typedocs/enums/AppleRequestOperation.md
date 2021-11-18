@@ -19,7 +19,7 @@ An operation that depends on the particular kind of credential provider.
 
 #### Defined in
 
-[index.d.ts:157](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L157)
+[index.d.ts:157](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L157)
 
 ___
 
@@ -31,7 +31,7 @@ An operation used to authenticate a user.
 
 #### Defined in
 
-[index.d.ts:162](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L162)
+[index.d.ts:162](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L162)
 
 ___
 
@@ -43,7 +43,7 @@ An operation that ends an authenticated session.
 
 #### Defined in
 
-[index.d.ts:172](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L172)
+[index.d.ts:172](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L172)
 
 ___
 
@@ -55,4 +55,4 @@ An operation that refreshes the logged-in user’s credentials.
 
 #### Defined in
 
-[index.d.ts:167](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L167)
+[index.d.ts:167](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L167)

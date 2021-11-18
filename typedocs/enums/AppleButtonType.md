@@ -21,7 +21,7 @@ Renders the button with 'Continue with Apple'.
 
 #### Defined in
 
-[index.d.ts:41](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L41)
+[index.d.ts:41](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L41)
 
 ___
 
@@ -33,7 +33,7 @@ The default button, the same as `SIGN_IN`.
 
 #### Defined in
 
-[index.d.ts:31](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L31)
+[index.d.ts:31](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L31)
 
 ___
 
@@ -45,7 +45,7 @@ Renders the button with 'Sign in with Apple'.
 
 #### Defined in
 
-[index.d.ts:36](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L36)
+[index.d.ts:36](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L36)
 
 ___
 
@@ -60,4 +60,4 @@ provided `isSignUpButtonSupported` flag from the AppleAuth module.
 
 #### Defined in
 
-[index.d.ts:48](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L48)
+[index.d.ts:48](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L48)

@@ -22,7 +22,7 @@ The user canceled the authorization attempt.
 
 #### Defined in
 
-[index.d.ts:135](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L135)
+[index.d.ts:135](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L135)
 
 ___
 
@@ -34,7 +34,7 @@ The authorization attempt failed.
 
 #### Defined in
 
-[index.d.ts:150](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L150)
+[index.d.ts:150](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L150)
 
 ___
 
@@ -46,7 +46,7 @@ The authorization request received an invalid response.
 
 #### Defined in
 
-[index.d.ts:140](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L140)
+[index.d.ts:140](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L140)
 
 ___
 
@@ -58,7 +58,7 @@ The authorization request wasn't handled.
 
 #### Defined in
 
-[index.d.ts:145](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L145)
+[index.d.ts:145](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L145)
 
 ___
 
@@ -70,4 +70,4 @@ The authorization attempt failed for an unknown reason.
 
 #### Defined in
 
-[index.d.ts:130](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L130)
+[index.d.ts:130](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L130)

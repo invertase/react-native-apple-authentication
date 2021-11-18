@@ -19,7 +19,7 @@ The Opaque user ID is in good state.
 
 #### Defined in
 
-[index.d.ts:216](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L216)
+[index.d.ts:216](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L216)
 
 ___
 
@@ -31,7 +31,7 @@ The Opaque user ID was not found.
 
 #### Defined in
 
-[index.d.ts:221](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L221)
+[index.d.ts:221](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L221)
 
 ___
 
@@ -43,7 +43,7 @@ The Opaque user ID was revoked by the user.
 
 #### Defined in
 
-[index.d.ts:211](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L211)
+[index.d.ts:211](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L211)
 
 ___
 
@@ -57,4 +57,4 @@ N/A
 
 #### Defined in
 
-[index.d.ts:228](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L228)
+[index.d.ts:228](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L228)

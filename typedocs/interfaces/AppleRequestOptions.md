@@ -30,7 +30,7 @@ the request execution.
 
 #### Defined in
 
-[index.d.ts:268](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L268)
+[index.d.ts:268](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L268)
 
 ___
 
@@ -46,7 +46,7 @@ Defaults to true.
 
 #### Defined in
 
-[index.d.ts:277](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L277)
+[index.d.ts:277](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L277)
 
 ___
 
@@ -60,7 +60,7 @@ Operation which should be executed.
 
 #### Defined in
 
-[index.d.ts:248](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L248)
+[index.d.ts:248](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L248)
 
 ___
 
@@ -74,7 +74,7 @@ Only scopes for which this app was authorized for will be returned.
 
 #### Defined in
 
-[index.d.ts:241](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L241)
+[index.d.ts:241](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L241)
 
 ___
 
@@ -88,7 +88,7 @@ This value will be returned as a part of successful AppleRequestResponse respons
 
 #### Defined in
 
-[index.d.ts:284](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L284)
+[index.d.ts:284](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L284)
 
 ___
 
@@ -103,4 +103,4 @@ Inherited from `ASAuthorizationAppleIDRequest`
 
 #### Defined in
 
-[index.d.ts:256](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L256)
+[index.d.ts:256](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L256)

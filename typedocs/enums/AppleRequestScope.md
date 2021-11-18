@@ -17,7 +17,7 @@ A scope that includes the user’s email address.
 
 #### Defined in
 
-[index.d.ts:179](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L179)
+[index.d.ts:179](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L179)
 
 ___
 
@@ -29,4 +29,4 @@ A scope that includes the user’s full name.
 
 #### Defined in
 
-[index.d.ts:184](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L184)
+[index.d.ts:184](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L184)

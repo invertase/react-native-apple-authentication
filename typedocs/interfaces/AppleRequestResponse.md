@@ -31,7 +31,7 @@ the Apple identity service endpoint.
 
 #### Defined in
 
-[index.d.ts:404](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L404)
+[index.d.ts:404](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L404)
 
 ___
 
@@ -47,7 +47,7 @@ See @{AppleRealUserStatus}
 
 #### Defined in
 
-[index.d.ts:369](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L369)
+[index.d.ts:369](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L369)
 
 ___
 
@@ -61,7 +61,7 @@ This field is populated with a value that the user authorized.
 
 #### Defined in
 
-[index.d.ts:389](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L389)
+[index.d.ts:389](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L389)
 
 ___
 
@@ -77,7 +77,7 @@ See @{AppleRequestResponseFullName}
 
 #### Defined in
 
-[index.d.ts:353](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L353)
+[index.d.ts:353](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L353)
 
 ___
 
@@ -97,7 +97,7 @@ The ID token contains the following information signed by Apple's identity servi
 
 #### Defined in
 
-[index.d.ts:382](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L382)
+[index.d.ts:382](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L382)
 
 ___
 
@@ -112,7 +112,7 @@ NOTE: This value will be SHA256 hashed before sending to Apple.
 
 #### Defined in
 
-[index.d.ts:334](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L334)
+[index.d.ts:334](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L334)
 
 ___
 
@@ -126,7 +126,7 @@ See @{AppleRealUserStatus}
 
 #### Defined in
 
-[index.d.ts:360](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L360)
+[index.d.ts:360](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L360)
 
 ___
 
@@ -138,7 +138,7 @@ A copy of the state value that was passed to the initial request.
 
 #### Defined in
 
-[index.d.ts:394](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L394)
+[index.d.ts:394](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L394)
 
 ___
 
@@ -156,4 +156,4 @@ The value may change upon user disconnecting from the identity provider.
 
 #### Defined in
 
-[index.d.ts:344](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L344)
+[index.d.ts:344](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L344)

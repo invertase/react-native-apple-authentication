@@ -28,7 +28,7 @@ See @{AppleButtonStyle}
 
 #### Defined in
 
-[index.d.ts:83](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L83)
+[index.d.ts:83](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L83)
 
 ___
 
@@ -40,7 +40,7 @@ See @{AppleButtonType}
 
 #### Defined in
 
-[index.d.ts:88](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L88)
+[index.d.ts:88](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L88)
 
 ___
 
@@ -52,7 +52,7 @@ Corner radius of the button.
 
 #### Defined in
 
-[index.d.ts:93](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L93)
+[index.d.ts:93](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L93)
 
 ___
 
@@ -64,7 +64,7 @@ Android-only. View on the left that can be used for an Apple logo.
 
 #### Defined in
 
-[index.d.ts:113](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L113)
+[index.d.ts:113](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L113)
 
 ___
 
@@ -76,7 +76,7 @@ Styling for outside `TouchableOpacity`
 
 #### Defined in
 
-[index.d.ts:98](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L98)
+[index.d.ts:98](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L98)
 
 ___
 
@@ -88,7 +88,7 @@ Can be used in mock testing frameworks to inject / look up by id.
 
 #### Defined in
 
-[index.d.ts:103](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L103)
+[index.d.ts:103](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L103)
 
 ___
 
@@ -100,7 +100,7 @@ Android-only. Styling for button text.
 
 #### Defined in
 
-[index.d.ts:108](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L108)
+[index.d.ts:108](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L108)
 
 ## Methods
 
@@ -120,4 +120,4 @@ Android-only. Styling for button text.
 
 #### Defined in
 
-[index.d.ts:115](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L115)
+[index.d.ts:115](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L115)

@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[index.d.ts:610](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L610)
+[index.d.ts:610](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L610)
 
 ___
 
@@ -34,7 +34,7 @@ The type of response requested. Valid values are `code` and `id_token`. You can 
 
 #### Defined in
 
-[index.d.ts:621](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L621)
+[index.d.ts:621](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L621)
 
 ___
 
@@ -47,7 +47,7 @@ You can request one, both, or none.
 
 #### Defined in
 
-[index.d.ts:616](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L616)
+[index.d.ts:616](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L616)
 
 ___
 
@@ -61,7 +61,7 @@ The Apple authentication process requires API 19+ to work correctly.
 
 #### Defined in
 
-[index.d.ts:596](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L596)
+[index.d.ts:596](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L596)
 
 ## Methods
 
@@ -85,7 +85,7 @@ Prepare the module for sign in. This *must* be called before `appleAuthAndroid.s
 
 #### Defined in
 
-[index.d.ts:603](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L603)
+[index.d.ts:603](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L603)
 
 ___
 
@@ -101,4 +101,4 @@ Open browser window to begin user sign in. *Must* call `appleAuthAndroid.configu
 
 #### Defined in
 
-[index.d.ts:608](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L608)
+[index.d.ts:608](https://github.com/invertase/react-native-apple-authentication/blob/be79317/lib/index.d.ts#L608)
