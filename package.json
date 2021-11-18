@@ -41,16 +41,16 @@
   ],
   "devDependencies": {
     "@react-native-community/eslint-config": "^3.0.1",
-    "@types/react": "17.0.33",
-    "@types/react-native": "0.66.2",
+    "@types/react": "17.0.35",
+    "@types/react-native": "0.66.4",
     "genversion": "^3.0.2",
     "np": "^7.5.0",
     "prettier": "^2.4.1",
-    "react-native": "^0.66.1",
+    "react-native": "^0.66.3",
     "rimraf": "^3.0.2",
-    "typedoc": "^0.22.7",
-    "typedoc-plugin-markdown": "^3.11.3",
-    "typescript": "^4.4.4"
+    "typedoc": "^0.22.9",
+    "typedoc-plugin-markdown": "^3.11.6",
+    "typescript": "^4.5.2"
   },
   "publishConfig": {
     "access": "public"
