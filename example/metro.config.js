@@ -16,14 +16,14 @@
  */
 
 const { resolve, join } = require('path');
-const { createBlacklist } = require('metro');
+const exclusionList = require('metro-config/src/defaults/exclusionList');
 
 const rootDir = resolve(__dirname, '..');
 
 const config = {
   projectRoot: __dirname,
   resolver: {
-    blackListRE: createBlacklist([
+    blockList: exclusionList([
       /.*\/__fixtures__\/.*/,
       new RegExp(`^${escape(resolve(rootDir, 'example/ios'))}\\/.*$`),
     ]),
