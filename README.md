@@ -344,7 +344,7 @@ If you are using the function `getCredentialStateForUser` on a simulator, this e
 You must test your code on a real device.
 
 ###### Case 3:
-If you are using a simulator, go to [Mange Apple Account](https://appleid.apple.com/account/manage).
+If you are using a simulator, go to [Manage Apple Account](https://appleid.apple.com/account/manage).
 
 Search for "Devices", select "Simulator" and press "Remove from Account".
 
