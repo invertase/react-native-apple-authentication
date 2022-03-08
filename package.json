@@ -12,13 +12,14 @@
     "build:clean": "rimraf ios/build android/build example/android/app/build example/ios/build",
     "build:docs": "typedoc --excludeExternals --out typedocs --plugin typedoc-plugin-markdown --hideBreadcrumbs --entryPoints lib/index.d.ts",
     "precommit": "yarn prepare && yarn build:all",
-    "prepare": "yarn tsc:compile && yarn example:prepare",
-    "example:prepare": "cd example && yarn && cd ios && (pod install || true)",
+    "prepare": "yarn build && yarn tsc:compile && yarn example:prepare",
+    "example:prepare": "cd example && yarn && yarn pod-install",
     "example:build:android": "cd example/android && ./gradlew assembleDebug",
     "example:build:ios": "cd example && (xcodebuild -workspace ios/testing.xcworkspace -scheme testing -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=YES || true)",
     "example:start": "cd example && yarn start",
-    "example:ios": "cd example && yarn ios",
-    "example:android": "cd example && yarn android",
+    "example:ios": "cd example && yarn run:ios",
+    "example:ios13": "cd example && yarn run:ios13",
+    "example:android": "cd example && yarn run:android",
     "shipit": "yarn np"
   },
   "repository": {
@@ -41,16 +42,16 @@
   ],
   "devDependencies": {
     "@react-native-community/eslint-config": "^3.0.1",
-    "@types/react": "17.0.33",
-    "@types/react-native": "0.66.2",
+    "@types/react": "17.0.39",
+    "@types/react-native": "0.67.2",
     "genversion": "^3.0.2",
-    "np": "^7.5.0",
-    "prettier": "^2.4.1",
-    "react-native": "^0.66.1",
+    "np": "^7.6.0",
+    "prettier": "^2.5.1",
+    "react-native": "^0.67.3",
     "rimraf": "^3.0.2",
-    "typedoc": "^0.22.7",
-    "typedoc-plugin-markdown": "^3.11.3",
-    "typescript": "^4.4.4"
+    "typedoc": "^0.22.13",
+    "typedoc-plugin-markdown": "^3.11.14",
+    "typescript": "^4.6.2"
   },
   "publishConfig": {
     "access": "public"
