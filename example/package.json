@@ -12,13 +12,15 @@
     "run:ios13": "yarn react-native run-ios --simulator=\"iPhone 11 ios13\""
   },
   "dependencies": {
-    "react": "16.9.0",
-    "react-native": "0.61.5",
-    "react-native-get-random-values": "^1.5.0",
-    "uuid": "^8.3.0"
+    "@invertase/react-native-apple-authentication": "^2.1.5",
+    "react": "17.0.2",
+    "react-native": "0.67.3",
+    "react-native-get-random-values": "^1.7.2",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@react-native-community/cli": "^4.13.0",
-    "patch-package": "^6.1.0"
+    "@react-native-community/cli": "^7.0.3",
+    "patch-package": "^6.4.7",
+    "pod-install": "^0.1.32"
   }
 }
