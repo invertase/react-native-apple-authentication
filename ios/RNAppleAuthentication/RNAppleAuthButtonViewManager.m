@@ -18,7 +18,7 @@
 #import <React/RCTViewManager.h>
 #import "RNAppleAuthButtonView.h"
 
-#if TARGET_OS_MAC
+#if TARGET_OS_OSX
 @compatibility_alias RNCPView NSView;
 #else
 @compatibility_alias RNCPView UIView;
