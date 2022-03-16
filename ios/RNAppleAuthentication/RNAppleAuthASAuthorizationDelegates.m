@@ -31,7 +31,11 @@
 #pragma mark - ASAuthorizationControllerPresentationContextProviding Methods
 
 - (ASPresentationAnchor)presentationAnchorForAuthorizationController:(ASAuthorizationController *)controller {
-  return [[UIApplication sharedApplication] keyWindow];
+#if TARGET_OS_OSX
+    return [[NSApplication sharedApplication] keyWindow];
+#else
+    return [[UIApplication sharedApplication] keyWindow];
+#endif
 }
 
 #pragma mark - ASAuthorizationControllerDelegate Methods
