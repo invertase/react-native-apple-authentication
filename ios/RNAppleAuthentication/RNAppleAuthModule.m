@@ -41,7 +41,7 @@ RCT_EXPORT_MODULE();
 - (NSDictionary *)constantsToExport {
   return @{
       @"isSupported": @available(iOS 13.0, macOS 10.15, *) ? @(YES) : @(NO),
-      @"isSignUpButtonSupported": @available(iOS 13.2, macOS 10.15, *) ? @(YES) : @(NO),
+      @"isSignUpButtonSupported": @available(iOS 13.2, macOS 10.15.1, *) ? @(YES) : @(NO),
   };
 }
 
