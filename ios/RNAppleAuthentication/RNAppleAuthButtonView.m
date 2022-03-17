@@ -21,7 +21,12 @@
 
 - (instancetype)initWithAuthorizationButtonType:(ASAuthorizationAppleIDButtonType)type authorizationButtonStyle:(ASAuthorizationAppleIDButtonStyle)style {
   if (self = [super initWithAuthorizationButtonType:type authorizationButtonStyle:style]) {
+#if TARGET_OS_OSX
+    [self setTarget:self];
+    [self setAction:@selector(onAppleIDButtonPress)];
+#else
     [self addTarget:self action:@selector(onAppleIDButtonPress) forControlEvents:UIControlEventTouchUpInside];
+#endif
   }
 
   return self;

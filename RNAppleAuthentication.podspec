@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.authors             = "Invertase Limited"
   s.source              = { :git => "https://github.com/invertase/react-native-apple-authentication.git", :tag => "v#{s.version}" }
   s.social_media_url    = 'http://twitter.com/invertaseio'
-  s.ios.deployment_target = "9.0"
+  s.platforms           = { :ios => "9.0", :osx => "10.15" }
   s.source_files        = 'ios/**/*.{h,m}'
   s.dependency          'React-Core'
   s.static_framework    = true
