@@ -13,12 +13,13 @@
     "build:docs": "typedoc --excludeExternals --out typedocs --plugin typedoc-plugin-markdown --hideBreadcrumbs --entryPoints lib/index.d.ts",
     "precommit": "yarn prepare && yarn build:all",
     "prepare": "yarn build && yarn tsc:compile && yarn example:prepare",
-    "example:prepare": "cd example && yarn && cd ios && (pod install || true)",
+    "example:prepare": "cd example && yarn && cd ios && yarn pod-install",
     "example:build:android": "cd example/android && ./gradlew assembleDebug",
     "example:build:ios": "cd example && (xcodebuild -workspace ios/testing.xcworkspace -scheme testing -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=YES || true)",
     "example:start": "cd example && yarn start",
-    "example:ios": "cd example && yarn ios",
-    "example:android": "cd example && yarn android",
+    "example:ios": "cd example && yarn run:ios",
+    "example:ios13": "cd example && yarn run:ios13",
+    "example:android": "cd example && yarn run:android",
     "shipit": "yarn np"
   },
   "repository": {
