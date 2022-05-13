@@ -73,3 +73,4 @@ docs
 .prettierrc
 tsconfig.json
 type-test.tsx
+typedocs
