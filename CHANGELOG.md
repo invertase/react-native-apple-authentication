@@ -2,6 +2,24 @@
 
 # Release Notes
 
+## 2.2.0
+- feat: react-native-macos support! (thanks @asabhaney!) 
+- docs(example, android): include logos in all example buttons (thanks @mikehardy)
+- chore(example): update podfile.lock with results of yarn in root (thanks @mikehardy)
+- fix: default branch is now main (thanks @mikehardy)
+- build(deps): bump workflow action versions to current (thanks @mikehardy)
+- build(deps): yarn upgrade --latest except typedoc (thanks @mikehardy)
+- docs: regenerate typedoc (thanks @mikehardy)
+- docs(typedocs): forward-port to current typedocs, separate docs (thanks @mikehardy)
+- chore(example, deps): use modern android versions in random values (thanks @mikehardy)
+- docs: fix typo (thanks @pvinis!)
+- docs(example): update example to rn68 (thanks @mikehardy)
+- chore(ci): bump node in workflows to 16, JDK to temurin (thanks @mikehardy)
+- build(android): remove buildToolsVersion (thanks @dulmandakh)
+- build(deps): bump javascript dependencies (thanks @mikehardy)
+- chore: ignore typedocs directory for npm publish (thanks @mikehardy)
+- chore: update README (thanks @ehesp!)
+
 ## 2.1.6
 
 - fix: default branch is now main (#244, thanks @mikehardy)
