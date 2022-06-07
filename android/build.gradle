@@ -50,7 +50,6 @@ android {
 
 repositories {
   mavenCentral()
-  jcenter()
   google()
 
   def found = false
