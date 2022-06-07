@@ -21,7 +21,7 @@
     "example:ios": "cd example && yarn run:ios",
     "example:ios13": "cd example && yarn run:ios13",
     "example:android": "cd example && yarn run:android",
-    "shipit": "yarn np"
+    "shipit": "echo no luck running it like this, try ./node_modules/.bin/np"
   },
   "repository": {
     "type": "git",
