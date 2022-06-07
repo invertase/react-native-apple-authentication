@@ -2,6 +2,9 @@
 
 # Release Notes
 
+## 2.2.1
+- fix(android, build): remove jcenter from build repo list (#281) (thanks @maheshwarimrinal!)
+
 ## 2.2.0
 - feat: react-native-macos support! (thanks @asabhaney!) 
 - docs(example, android): include logos in all example buttons (thanks @mikehardy)
