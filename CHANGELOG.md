@@ -5,6 +5,10 @@
 ## 2.2.2
 - fix(android, build): set kotlin version, should fix #277 (thanks @mikehardy!)
 
+**UNINTENTIONAL BREAKING CHANGE**: older android build toolchains, as are in use in react-native 0.66 and below, require kotlinVersion = "1.6.21" in your android/build.gradle ext block to compile. Sorry for the hassle. See https://github.com/invertase/react-native-apple-authentication/issues/297
+
+
+
 ## 2.2.1
 - fix(android, build): remove jcenter from build repo list (#281) (thanks @maheshwarimrinal!)
 
