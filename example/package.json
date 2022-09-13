@@ -7,9 +7,7 @@
     "prepare": "patch-package",
     "start": "yarn react-native start --reset-cache",
     "run:android": "yarn react-native run-android",
-    "run:ios": "yarn react-native run-ios --simulator=\"iPhone 11\"",
-    "run:ios:default": "yarn react-native run-ios",
-    "run:ios13": "yarn react-native run-ios --simulator=\"iPhone 11 ios13\""
+    "run:ios": "yarn react-native run-ios"
   },
   "dependencies": {
     "@invertase/react-native-apple-authentication": "^2.1.5",

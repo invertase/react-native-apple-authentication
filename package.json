@@ -19,7 +19,6 @@
     "example:build:ios": "cd example && (xcodebuild -workspace ios/testing.xcworkspace -scheme testing -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=YES || true)",
     "example:start": "cd example && yarn start",
     "example:ios": "cd example && yarn run:ios",
-    "example:ios13": "cd example && yarn run:ios13",
     "example:android": "cd example && yarn run:android",
     "shipit": "echo no luck running it like this, try ./node_modules/.bin/np"
   },
