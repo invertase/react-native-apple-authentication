@@ -2,7 +2,7 @@
 
 ## Services setup
 
-To support Sign In with Apple on Android, we make use of Apple's [web setup](https://help.apple.com/developer-account/#/dev1c0e25352), but you'll need iOS configured as well.
+To support Sign In with Apple on Android, we make use of Apple's [web setup](https://developer.apple.com/help/account/configure-app-capabilities/configure-sign-in-with-apple-for-the-web), but you'll need iOS configured as well.
 
 Note: The name of your Service ID is what Apple will show to Android users when logging in. e.g. "Use your Apple ID to sign in to Example App".
 
