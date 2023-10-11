@@ -29,7 +29,7 @@ export default async function AppleAuthentication() {
         const appleAuthRequestResponse = await appleAuth.performRequest({
             nonceEnabled: false,
             requestedOperation: appleAuth.Operation.LOGIN,
-            requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME]
+            requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL]
         });
 
         const credentialState = await appleAuth.getCredentialStateForUser(
