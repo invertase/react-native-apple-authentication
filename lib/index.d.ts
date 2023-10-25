@@ -112,6 +112,11 @@ export interface AppleButtonProps {
    */
   leftView?: React.ReactNode;
 
+  /**
+   * Android-only. Custom button text.
+   */
+  buttonText?: string;
+
   onPress: (event: GestureResponderEvent) => void;
 }
 
