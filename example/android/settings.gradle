@@ -1,6 +1,12 @@
-rootProject.name = 'AppleAuthExample'
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
-include ':app'
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+    }
+}
 
-// include ':reactnativeappleauth'
-// project(':reactnativeappleauth').projectDir = new File(rootProject.projectDir, '../../android')
+rootProject.name = "RNAppleAuthExample"
+
+apply(from: "../node_modules/react-native-test-app/test-app.gradle")
+applyTestAppSettings(settings)

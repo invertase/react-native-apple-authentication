@@ -1,57 +1,7 @@
-require_relative '../node_modules/react-native/scripts/react_native_pods'
-require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+require_relative '../node_modules/react-native-test-app/test_app'
 
-platform :ios, '11.0'
+use_flipper! false unless ENV['USE_FLIPPER'] == '1'
 
-target 'testing' do
-  config = use_native_modules!
+workspace 'RNAppleAuthExample.xcworkspace'
 
-  # pod 'RNAppleAuthentication', :path => '../../'
-
-  use_react_native!(
-    :path => config[:reactNativePath],
-    # to enable hermes on iOS, change `false` to `true` and then install pods
-    :hermes_enabled => false
-  )
-
-  # Enables Flipper.
-  #
-  # Note that if you have use_frameworks! enabled, Flipper will not work and
-  # you should disable the next line.
-  use_flipper!()
-
-  post_install do |installer|
-    react_native_post_install(installer)
-
-    # allow compiler wrappers in PATH to work (for example, ccache)
-    installer.pods_project.targets.each do |target|
-      target.build_configurations.each do |config|
-        config.build_settings["CC"] = "clang"
-        config.build_settings["LD"] = "clang"
-        config.build_settings["CXX"] = "clang++"
-        config.build_settings["LDPLUSPLUS"] = "clang++"
-      end
-    end
-
-    # work around known build issues on M1 macs
-    installer.aggregate_targets.each do |aggregate_target|
-      aggregate_target.user_project.native_targets.each do |target|
-        target.build_configurations.each do |config|
-          config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
-          config.build_settings['EXCLUDED_ARCHS'] = 'i386'
-        end
-      end
-      aggregate_target.user_project.save
-    end
-
-    # quiet non-module warnings - only interested in our module warnings
-    installer.pods_project.targets.each do |target|
-      if !target.name.include? "react-native-apple-authentication"
-        target.build_configurations.each do |config|
-          config.build_settings["GCC_WARN_INHIBIT_ALL_WARNINGS"] = "YES"
-        end
-      end
-    end
-    __apply_Xcode_12_5_M1_post_install_workaround(installer)
-  end
-end
+use_test_app!

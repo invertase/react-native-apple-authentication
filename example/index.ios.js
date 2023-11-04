@@ -23,4 +23,4 @@ import App from './app';
  */
 // import App from './classVersion';
 
-AppRegistry.registerComponent('testing', () => App);
+AppRegistry.registerComponent('RNAppleAuthExample', () => App);
