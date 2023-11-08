@@ -284,6 +284,8 @@ PODS:
     - glog
   - react-native-get-random-values (1.9.0):
     - React-Core
+  - react-native-webview (13.6.2):
+    - React-Core
   - React-NativeModulesApple (0.72.6):
     - React-callinvoker
     - React-Core
@@ -397,7 +399,7 @@ PODS:
     - React-Core
     - React-jsi
   - ReactTestApp-Resources (1.0.0-dev)
-  - RNAppleAuthentication (2.2.2):
+  - RNAppleAuthentication (2.3.0):
     - React-Core
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
@@ -425,6 +427,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-get-random-values (from `../node_modules/react-native-get-random-values`)
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -496,6 +499,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/logger"
   react-native-get-random-values:
     :path: "../node_modules/react-native-get-random-values"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-perflogger:
@@ -564,6 +569,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 194e32c6aab382d88713ad3dd0025c5f5c4ee072
   React-logger: cebf22b6cf43434e471dc561e5911b40ac01d289
   react-native-get-random-values: dee677497c6a740b71e5612e8dbd83e7539ed5bb
+  react-native-webview: 8fc09f66a1a5b16bbe37c3878fda27d5982bb776
   React-NativeModulesApple: 63505fb94b71e2469cab35bdaf36cca813cb5bfd
   React-perflogger: e3596db7e753f51766bceadc061936ef1472edc3
   React-RCTActionSheet: 17ab132c748b4471012abbcdcf5befe860660485
@@ -584,7 +590,7 @@ SPEC CHECKSUMS:
   ReactNativeHost: 5caf8c9381f26c453fabbe8c3b87f6a013a3c459
   ReactTestApp-DevSupport: b1c7adc1c49c50d3bc1cbe7f23191170bdac0319
   ReactTestApp-Resources: 1f512f66574607bcfa614e9c0d30e7a990fecf30
-  RNAppleAuthentication: 0571c08da8c327ae2afc0261b48b4a515b0286a6
+  RNAppleAuthentication: e99eaf3c4c01ad8ecb6125dd6f0cfd98871685b5
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: b76f1acfda8212aa16b7e26bcce3983230c82603
 
