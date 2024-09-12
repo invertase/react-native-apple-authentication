@@ -44,6 +44,8 @@ yarn add @invertase/react-native-apple-authentication
 
 You will not have to manually link this module as it supports React Native auto-linking.
 
+**Note: if you using Expo, you may need to run `npx expo prebuild` first**
+
 ## Usage
 
 Below are simple steps to help you get up and running. The implementation differs between iOS an Android, so if you're having trouble, be sure to look through the docs. Please skip and head to the full code examples noted below if you prefer to see a more complete implementation:
