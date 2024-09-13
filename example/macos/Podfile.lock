@@ -397,7 +397,7 @@ PODS:
     - React-Core
     - React-jsi
   - ReactTestApp-Resources (1.0.0-dev)
-  - RNAppleAuthentication (2.2.2):
+  - RNAppleAuthentication (2.3.0):
     - React-Core
   - SocketRocket (0.7.0)
   - Yoga (1.14.0)
@@ -584,10 +584,10 @@ SPEC CHECKSUMS:
   ReactNativeHost: 5caf8c9381f26c453fabbe8c3b87f6a013a3c459
   ReactTestApp-DevSupport: b1c7adc1c49c50d3bc1cbe7f23191170bdac0319
   ReactTestApp-Resources: 8539dac0f8d2ef3821827a537e37812104c6ff78
-  RNAppleAuthentication: 0571c08da8c327ae2afc0261b48b4a515b0286a6
+  RNAppleAuthentication: de994be39f987a31272fd8486790ad1865388f9e
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   Yoga: eb938eb0ef4d510b93617486cf6cbe1ad6a94436
 
 PODFILE CHECKSUM: 15e14cc29e0e7f324ca90349697f13aeb212ac89
 
-COCOAPODS: 1.14.2
+COCOAPODS: 1.15.2
