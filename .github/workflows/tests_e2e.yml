@@ -58,7 +58,7 @@ jobs:
           timeout_minutes: 10
           retry_wait_seconds: 60
           max_attempts: 3
-          command: yarn --no-audit --prefer-offline
+          command: yarn --no-audit --prefer-offline && yarn --no-audit --prefer-offline example:prepare
 
       - name: Configure JDK
         uses: actions/setup-java@v3
@@ -140,7 +140,7 @@ jobs:
           timeout_minutes: 10
           retry_wait_seconds: 60
           max_attempts: 3
-          command: yarn --no-audit --prefer-offline
+          command: yarn --no-audit --prefer-offline && yarn --no-audit --prefer-offline example:prepare
 
       - name: Build iOS App
         run: |
