@@ -22,7 +22,7 @@
     "example:ios": "cd example && yarn ios",
     "example:macos": "cd example && yarn macos",
     "example:android": "cd example && yarn android",
-    "shipit": "echo no luck running it like this, try ./node_modules/.bin/np"
+    "shipit": "echo no luck this way - try ./node_modules/.bin/np --no-tests"
   },
   "repository": {
     "type": "git",
