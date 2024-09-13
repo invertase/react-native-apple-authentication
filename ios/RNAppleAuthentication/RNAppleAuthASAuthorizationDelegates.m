@@ -16,7 +16,12 @@
  */
 
 #import "RNAppleAuthASAuthorizationDelegates.h"
+
+// Needed for visionOS support, but not available for macOS
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#endif
+
 #import <AuthenticationServices/AuthenticationServices.h>
 
 
