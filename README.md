@@ -44,7 +44,20 @@ yarn add @invertase/react-native-apple-authentication
 
 You will not have to manually link this module as it supports React Native auto-linking.
 
-**Note: if you using Expo, you may need to run `npx expo prebuild` first**
+### Expo usage
+
+To enable the Sign In with Apple capability in your app, set the ios.usesAppleSignIn property to true in your project's app config:
+```json
+{
+  "expo": {
+    "ios": {
+      "usesAppleSignIn": true
+    }
+  }
+}
+```
+
+You may also need to run `npx expo prebuild`.
 
 ## Usage
 
