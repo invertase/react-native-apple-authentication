@@ -12,7 +12,6 @@
     "build:all": "yarn build:clean && yarn build && yarn example:build:android && yarn example:build:ios",
     "build:clean": "rimraf ios/build android/build example/android/app/build example/ios/build example/macos/build",
     "build:docs": "typedoc --excludeExternals --out typedocs --plugin typedoc-plugin-markdown --hideBreadcrumbs --entryPoints lib/index.d.ts",
-    "precommit": "yarn prepare && yarn build:all",
     "prepare": "yarn build && yarn tsc:compile && yarn example:prepare",
     "example:prepare": "cd example && yarn && cd ios && (pod install || true) && cd ../macos && (pod install || true)",
     "example:build:android": "cd example/android && ./gradlew assembleDebug",
@@ -22,7 +21,7 @@
     "example:ios": "cd example && yarn ios",
     "example:macos": "cd example && yarn macos",
     "example:android": "cd example && yarn android",
-    "shipit": "echo no luck this way - try ./node_modules/.bin/np --no-tests"
+    "shipit": "yarn build && yarn tsc:compile && yarn np --no-tests"
   },
   "repository": {
     "type": "git",
