@@ -16,6 +16,8 @@
  */
 
 #import "RNAppleAuthASAuthorizationDelegates.h"
+#import <UIKit/UIKit.h>
+#import <AuthenticationServices/AuthenticationServices.h>
 
 
 @implementation RNAppleAuthASAuthorizationDelegates
@@ -34,7 +36,21 @@
 #if TARGET_OS_OSX
     return [[NSApplication sharedApplication] keyWindow];
 #else
-    return [[UIApplication sharedApplication] keyWindow];
+    #if TARGET_OS_VISION
+        // visionOS
+        UIWindow *window = nil;
+        NSSet<UIScene *> *connectedScenes = [UIApplication sharedApplication].connectedScenes;
+        for (UIScene *scene in connectedScenes) {
+            if (scene.activationState == UISceneActivationStateForegroundActive && [scene isKindOfClass:[UIWindowScene class]]) {
+                UIWindowScene *windowScene = (UIWindowScene *)scene;
+                window = windowScene.windows.firstObject;
+                break;
+            }
+        }
+        return window;
+    #else
+        return [[UIApplication sharedApplication] keyWindow];
+    #endif
 #endif
 }
 
