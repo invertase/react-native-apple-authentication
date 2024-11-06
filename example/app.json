@@ -1,10 +1,12 @@
 {
   "name": "RNAppleAuthExample",
   "displayName": "RNAppleAuthExample",
+  "singleApp": "example-app",
   "components": [
     {
       "appKey": "RNAppleAuthExample",
-      "displayName": "RNAppleAuthExample"
+      "displayName": "RNAppleAuthExample",
+      "slug": "example-app"
     }
   ],
   "ios": {
