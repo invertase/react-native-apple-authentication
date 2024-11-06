@@ -7,6 +7,10 @@
       "displayName": "RNAppleAuthExample"
     }
   ],
+  "ios": {
+    "bundleIdentifier": "com.example.RNAppleAuthExample",
+    "codeSignEntitlements": "ios/example.entitlements"
+  },
   "resources": {
     "android": [
       "dist/res",
