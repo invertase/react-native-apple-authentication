@@ -389,11 +389,12 @@ PODS:
     - React-jsi (= 0.72.6)
     - React-logger (= 0.72.6)
     - React-perflogger (= 0.72.6)
-  - ReactNativeHost (0.2.8):
+  - ReactNativeHost (0.5.0):
+    - RCT-Folly (= 2021.07.22.00)
     - React-Core
     - React-cxxreact
     - ReactCommon/turbomodule/core
-  - ReactTestApp-DevSupport (2.5.32):
+  - ReactTestApp-DevSupport (3.10.21):
     - React-Core
     - React-jsi
   - ReactTestApp-Resources (1.0.0-dev)
@@ -581,13 +582,13 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 13b0c5e9354ccfc3dc9a391231e55debeb688523
   React-utils: fa59c9a3375fb6f4aeb66714fd3f7f76b43a9f16
   ReactCommon: 5f73972d2abd8a85e44f27317bf77418a74d3340
-  ReactNativeHost: 5caf8c9381f26c453fabbe8c3b87f6a013a3c459
-  ReactTestApp-DevSupport: b1c7adc1c49c50d3bc1cbe7f23191170bdac0319
-  ReactTestApp-Resources: 1f512f66574607bcfa614e9c0d30e7a990fecf30
+  ReactNativeHost: ac4371ca93833a22cc730732238442681c02a141
+  ReactTestApp-DevSupport: 74ff23aba1f35caa74d1dd5346c2835e0af31770
+  ReactTestApp-Resources: 857244f3a23f2b3157b364fa06cf3e8866deff9c
   RNAppleAuthentication: e00c76acb03351f5544373c78fa7f359bef6d5d3
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: b76f1acfda8212aa16b7e26bcce3983230c82603
 
-PODFILE CHECKSUM: c21351602b9567aa349523a630f124c197a4014c
+PODFILE CHECKSUM: eac487c5065c65f146f8518c0cf8dc0e44170a75
 
 COCOAPODS: 1.16.2
