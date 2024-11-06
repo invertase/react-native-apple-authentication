@@ -18,21 +18,28 @@
 
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { decode } from 'base-64';
+import { jwtDecode } from 'jwt-decode';
 import { appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
+
+// polyfill for "atob" so that jwt.decode will work
+global.atob = decode;
 
 /**
  * You'd technically persist this somewhere for later use.
  */
-let user = null;
+let userId = 'unknown';
+let userName = 'unknown';
+let userEmail = 'unknown';
 
 /**
  * Fetches the credential state for the current user, if any, and updates state on completion.
  */
 async function fetchAndUpdateCredentialState(updateCredentialStateForUser) {
-  if (user === null) {
-    updateCredentialStateForUser('N/A');
+  if (userId === 'unknown') {
+    updateCredentialStateForUser('User not signed in.');
   } else {
-    const credentialState = await appleAuth.getCredentialStateForUser(user);
+    const credentialState = await appleAuth.getCredentialStateForUser(userId);
     if (credentialState === appleAuth.State.AUTHORIZED) {
       updateCredentialStateForUser('AUTHORIZED');
     } else {
@@ -59,12 +66,25 @@ async function onAppleButtonPress(updateCredentialStateForUser) {
     const {
       user: newUser,
       email,
-      nonce,
+      fullName,
       identityToken,
+      nonce,
       realUserStatus /* etc */,
     } = appleAuthRequestResponse;
 
-    user = newUser;
+    userId = newUser;
+    email ? (userEmail = email) : (userEmail = 'unknown');
+    fullName && fullName.givenName && fullName.familyName
+      ? (userName = `${fullName.givenName} ${fullName.familyName}`)
+      : (userName = 'unknown');
+
+    // The email and fullName are only provided on the first sign in to an app.
+    // But, we can get the email from the JWT every time if we decode it.
+    const decoded = jwtDecode(identityToken);
+    console.log('decoded token: ', decoded);
+    userEmail === 'unknown' && decoded.email
+      ? (userEmail = decoded.email)
+      : (userEmail = 'unknown');
 
     fetchAndUpdateCredentialState(updateCredentialStateForUser).catch(error =>
       updateCredentialStateForUser(`Error: ${error.code}`),
@@ -81,7 +101,7 @@ async function onAppleButtonPress(updateCredentialStateForUser) {
       console.log("I'm a real person!");
     }
 
-    console.warn(`Apple Authentication Completed, ${user}, ${email}`);
+    console.warn(`Apple Authentication Completed, ${userId}, ${email}`);
   } catch (error) {
     if (error.code === appleAuth.Error.CANCELED) {
       console.warn('User canceled Apple Sign in.');
@@ -124,6 +144,14 @@ export default function RootComponent() {
     <View style={[styles.container, styles.horizontal]}>
       <Text style={styles.header}>Credential State</Text>
       <Text>{credentialStateForUser}</Text>
+
+      <Text
+        style={styles.header}
+        onPress={() => onUpdateCredentialStateButtonPress(updateCredentialStateForUser)}
+      >
+        User Information
+      </Text>
+      <Text>{`id: ${userId} / email: ${userEmail} / name: ${userName}`}</Text>
 
       <Text style={styles.header}>Buttons</Text>
       <Text>Continue Styles</Text>
