@@ -1,7 +1,5 @@
 require_relative '../node_modules/react-native-test-app/test_app'
 
-use_flipper! false unless ENV['USE_FLIPPER'] == '1'
-
 workspace 'RNAppleAuthExample.xcworkspace'
 
 # Take advantage of post-install hook to enable ccache
