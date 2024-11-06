@@ -48,6 +48,13 @@ async function fetchAndUpdateCredentialState(updateCredentialStateForUser) {
   }
 }
 
+async function onUpdateCredentialStateButtonPress(updateCredentialStateForUser) {
+  console.warn('Beginning Credential Update');
+  fetchAndUpdateCredentialState(updateCredentialStateForUser).catch(error =>
+    updateCredentialStateForUser(`Error: ${error.code}`),
+  );
+}
+
 /**
  * Starts the Sign In flow.
  */
@@ -142,7 +149,12 @@ export default function RootComponent() {
 
   return (
     <View style={[styles.container, styles.horizontal]}>
-      <Text style={styles.header}>Credential State</Text>
+      <Text
+        style={styles.header}
+        onPress={() => onUpdateCredentialStateButtonPress(updateCredentialStateForUser)}
+      >
+        Credential State
+      </Text>
       <Text>{credentialStateForUser}</Text>
 
       <Text
