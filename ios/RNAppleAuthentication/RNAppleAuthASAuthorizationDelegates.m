@@ -27,7 +27,7 @@
 
 @implementation RNAppleAuthASAuthorizationDelegates
 
-- (instancetype)initWithCompletion:(void (^)(NSError *error, NSDictionary *authorizationCredential))completion andNonce:(NSString *)nonce {
+- (instancetype)initWithCompletion:(nonnull void (^)(NSError *error, NSDictionary *authorizationCredential))completion andNonce:(NSString *)nonce {
   if (self = [super init]) {
     _completion = completion;
     _nonce = nonce;
@@ -54,6 +54,9 @@
         }
         return window;
     #else
+        // I believe the vision OS one above is actually the best way to handle the deprecation:
+        // Apple Auth not supported until iOS13 anyway, so the solution above should be using avaliable APIs (13+)
+        // iPadOS optimal solution also relies on using activation state vs just using last connected Scene
         return [[UIApplication sharedApplication] keyWindow];
     #endif
 #endif
@@ -70,7 +73,7 @@
 
 - (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithError:(NSError *)error {
   NSLog(@"RNAppleAuth -> didCompleteWithError");
-  NSLog(error.localizedDescription);
+  NSLog(@"%@", error.localizedDescription);
   _completion(error, nil);
   _completion = nil;
 }
