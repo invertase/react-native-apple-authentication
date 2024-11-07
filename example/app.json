@@ -13,6 +13,14 @@
     "bundleIdentifier": "com.example.RNAppleAuthExample",
     "codeSignEntitlements": "ios/example.entitlements"
   },
+  "macos": {
+    "bundleIdentifier": "com.example.RNAppleAuthExample",
+    "codeSignEntitlements": "ios/example.entitlements"
+  },
+  "visionos": {
+    "bundleIdentifier": "com.example.RNAppleAuthExample",
+    "codeSignEntitlements": "ios/example.entitlements"
+  },
   "resources": {
     "android": [
       "dist/res",
