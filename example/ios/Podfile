@@ -18,8 +18,9 @@ end
 
 options = {
   post_install: -> (installer) { post_install_hook(installer) },
-#   # :fabric_enabled => false,
-  :hermes_enabled => false,
+  :fabric_enabled => true,
+  :bridgeless_enabled => true,
+  :hermes_enabled => true,
 }
 
 use_test_app! options
