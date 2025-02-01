@@ -60,6 +60,13 @@ For the purpose of demonstration, suppose we created a fresh React Native projec
 
 ![complete key registration](images/complete-registration.png)
 
+### Firebase Setup
+
+If you will use `@react-native-firebase/auth` for Social Login with Apple for Apple devices, you must add the Apple app's bundle id in the `Service ID` field in the Firebase Console
+
+Example: Add `org.reactjs.native.example.testAppleButton` in the `Service ID` field
+
+![Firebase Social Login Setup](images/firebase-social-login-setup.png)
 
 ### If you're also enabling Android support, a few extra steps are necessary.
 
