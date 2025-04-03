@@ -150,7 +150,7 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
             .clientId(clientId)
             .redirectUri(redirectUri)
             .responseType(SignInWithAppleConfiguration.ResponseType.ALL)
-            .scope(SignInWithAppleConfiguration.Scope.ALL)
+            .scope(scope)
             .state(state)
             .rawNonce(rawNonce)
             .nonce(nonce)
