@@ -59,6 +59,25 @@ To enable the Sign In with Apple capability in your app, set the ios.usesAppleSi
 
 You may also need to run `npx expo prebuild`.
 
+If using EAS build:
+
+Install the `expo-apple-authentication` package
+
+```bash
+npx expo install expo-apple-authentication
+```
+
+And add it to your `app.json`
+
+```javascript
+{
+  "expo": {
+    "plugins": ["expo-apple-authentication"]
+  }
+}
+```
+This ensures the correct iOS entitlement is added when building with EAS.
+
 ## Usage
 
 Below are simple steps to help you get up and running. The implementation differs between iOS an Android, so if you're having trouble, be sure to look through the docs. Please skip and head to the full code examples noted below if you prefer to see a more complete implementation:
