@@ -15,7 +15,7 @@ import com.RNAppleAuthentication.SignInWithAppleResult
 import com.RNAppleAuthentication.SignInWithAppleService
 
 @SuppressLint("SetJavaScriptEnabled")
-internal class SignInWebViewDialogFragment: DialogFragment() {
+internal class SignInWebViewDialogFragment : DialogFragment() {
   companion object {
     private const val AUTHENTICATION_ATTEMPT_KEY = "authenticationAttempt"
     private const val WEB_VIEW_KEY = "webView"
