@@ -47,13 +47,14 @@ You will not have to manually link this module as it supports React Native auto-
 
 ### Expo usage
 
-To enable the Sign In with Apple capability in your app, set the ios.usesAppleSignIn property to true in your project's app config:
+To enable the Sign In with Apple capability in your app, Apple requires
+you to add an entitlement. You may configure this in your `app.json`
 
 ```json
 {
-  "expo": {
-    "ios": {
-      "usesAppleSignIn": true
+  "ios": {
+    "entitlements": {
+      "com.apple.developer.applesignin": ["Default"]
     }
   }
 }
