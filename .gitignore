@@ -544,3 +544,5 @@ Pods/*
 **/version.js
 .tmp
 
+
+example/.yarn

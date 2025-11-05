@@ -35,22 +35,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "yarn-cache-dir-path=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
         name: Yarn Cache
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.yarn-cache-dir-path }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/package.json') }}-v1
+          path: |
+            .yarn/
+            example/.yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('package.json', 'example/package.json') }}
 
       - uses: actions/cache@v3
         name: Gradle Cache
         with:
           path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}-v1
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
 
       - name: Yarn Install
         uses: nick-fields/retry@v2
@@ -58,7 +57,7 @@ jobs:
           timeout_minutes: 10
           retry_wait_seconds: 60
           max_attempts: 3
-          command: yarn --no-audit --prefer-offline && yarn --no-audit --prefer-offline example:prepare
+          command: yarn && yarn example:prepare
 
       - name: Configure JDK
         uses: actions/setup-java@v3
@@ -95,22 +94,22 @@ jobs:
         with:
           xcode-version: latest-stable
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "yarn-cache-dir-path=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
       - uses: actions/cache@v3
         name: Yarn Cache
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.yarn-cache-dir-path }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/package.json') }}-v1
+          path: |
+            .yarn
+            example/.yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('package.json', 'example/package.json') }}
 
       - uses: actions/cache@v3
         name: Cache Pods
         with:
-          path: example/ios/Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}-v1
+          path: |
+            example/ios/Pods
+            example/macos/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('example/ios/Podfile.lock', 'example/macos/Podfile.lock') }}
 
       - name: Update brew build tools
         uses: nick-fields/retry@v2
@@ -134,9 +133,8 @@ jobs:
           timeout_minutes: 10
           retry_wait_seconds: 60
           max_attempts: 3
-          command: yarn --no-audit --prefer-offline && yarn --no-audit --prefer-offline example:prepare
+          command: yarn && yarn example:prepare
 
       - name: Build iOS App
         run: |
           yarn example:build:ios
-        shell: bash
