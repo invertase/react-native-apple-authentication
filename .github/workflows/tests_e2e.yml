@@ -28,15 +28,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 70
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 50
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 'lts/*'
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Yarn Cache
         id: yarn-cache
         with:
@@ -45,14 +45,16 @@ jobs:
             example/.yarn
           key: ${{ runner.os }}-yarn-${{ hashFiles('package.json', 'example/package.json') }}
 
-      - uses: actions/cache@v3
-        name: Gradle Cache
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
         with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          # Only write to the cache for builds on the 'main' branches, stops branches evicting main cache
+          # Builds on other branches will only read from main branch cache writes
+          # Comment this and the with: above out for performance testing on a branch
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
 
       - name: Yarn Install
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 10
           retry_wait_seconds: 60
@@ -60,13 +62,13 @@ jobs:
           command: yarn && yarn example:prepare
 
       - name: Configure JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '17'
 
       - name: Build Android App
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 15
           retry_wait_seconds: 60
@@ -82,19 +84,19 @@ jobs:
     # TODO matrix across APIs, at least 10 and 13 (lowest to highest)
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 50
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 'lts/*'
 
       - uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: latest-stable
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Yarn Cache
         id: yarn-cache
         with:
@@ -103,7 +105,7 @@ jobs:
             example/.yarn
           key: ${{ runner.os }}-yarn-${{ hashFiles('package.json', 'example/package.json') }}
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Cache Pods
         with:
           path: |
@@ -111,24 +113,37 @@ jobs:
             example/macos/Pods
           key: ${{ runner.os }}-pods-${{ hashFiles('example/ios/Podfile.lock', 'example/macos/Podfile.lock') }}
 
+      # Detox is compiled during yarn install, using Xcode, set up cache first
+      - uses: hendrikmuhs/ccache-action@v1
+        name: Xcode Compile Cache
+        with:
+          key: ${{ runner.os }}-v2 # makes a unique key w/related restore key internally
+          create-symlink: true
+          max-size: 750M
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3
+
+      - name: Update Ruby build tools
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 2
+          retry_wait_seconds: 60
+          max_attempts: 3
+          command: gem update cocoapods xcodeproj
+
       - name: Update brew build tools
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 10
           retry_wait_seconds: 60
           max_attempts: 3
           command: brew install xcbeautify
 
-      - name: Update Ruby build tools
-        uses: nick-fields/retry@v2
-        with:
-          timeout_minutes: 10
-          retry_wait_seconds: 60
-          max_attempts: 3
-          command: gem update cocoapods xcodeproj
-
       - name: Yarn and Pod Install
-        uses: nick-fields/retry@v2
+        uses: nick-fields/retry@v3
         with:
           timeout_minutes: 10
           retry_wait_seconds: 60
