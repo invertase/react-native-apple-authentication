@@ -21,8 +21,7 @@
     "example:start": "cd example && yarn start",
     "example:ios": "cd example && yarn ios",
     "example:macos": "cd example && yarn macos",
-    "example:android": "cd example && yarn android",
-    "shipit": "yarn build && yarn tsc:compile && yarn np --no-tests"
+    "example:android": "cd example && yarn android"
   },
   "repository": {
     "type": "git",
@@ -46,15 +45,17 @@
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.39.1",
     "@react-native/eslint-config": "^0.82.1",
+    "@release-it/conventional-changelog": "^10.0.1",
     "@types/react": "19.2.2",
     "eslint": "^9.39.1",
     "eslint-plugin-prettier": "^5.5.4",
     "genversion": "^3.2.0",
     "globals": "^16.5.0",
-    "np": "^10.2.0",
     "prettier": "^3.6.2",
     "react-native": "^0.82.1",
+    "release-it": "^19.0.6",
     "rimraf": "^6.1.0",
+    "tslib": "^2.8.1",
     "typedoc": "^0.28.14",
     "typedoc-plugin-markdown": "^4.9.0",
     "typescript": "^5.9.3"
