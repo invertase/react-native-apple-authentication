@@ -110,8 +110,9 @@ jobs:
         with:
           path: |
             example/ios/Pods
-            example/macos/Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('example/ios/Podfile.lock', 'example/macos/Podfile.lock') }}
+            example-other/macos/Pods
+            example-other/visionos/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('example/ios/Podfile.lock', 'example-other/macos/Podfile.lock', 'example-other/visionos/Podfile.lock') }}
 
       # Detox is compiled during yarn install, using Xcode, set up cache first
       - uses: hendrikmuhs/ccache-action@v1
@@ -148,8 +149,10 @@ jobs:
           timeout_minutes: 10
           retry_wait_seconds: 60
           max_attempts: 3
-          command: yarn && yarn example:prepare
+          command: yarn && yarn example:prepare && yarn example:other:prepare
 
       - name: Build iOS App
         run: |
           yarn example:build:ios
+          yarn example:other:build:macos
+          yarn example:other:build:visionos
