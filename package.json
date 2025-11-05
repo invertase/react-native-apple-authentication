@@ -12,7 +12,7 @@
     "build": "genversion --semi lib/version.js --verbose",
     "build:all": "yarn build:clean && yarn build && yarn example:build:android && yarn example:build:ios",
     "build:clean": "rimraf ios/build android/build example/android/app/build example/ios/build example/macos/build",
-    "build:docs": "typedoc --excludeExternals --out typedocs --plugin typedoc-plugin-markdown --hideBreadcrumbs --entryPoints lib/index.d.ts",
+    "build:docs": "typedoc --excludeExternals --readme none --cleanOutputDir --out typedocs --plugin typedoc-plugin-markdown --hideBreadcrumbs lib/index.d.ts",
     "example:prepare": "cd example && yarn && cd ios && (pod install || true) && cd ../macos && (pod install || true)",
     "example:build:android": "cd example/android && ./gradlew assembleDebug",
     "example:build:ios": "cd example && (xcodebuild -workspace ios/RNAppleAuthExample.xcworkspace -scheme RNAppleAuthExample -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=YES | xcbeautify || true)",
@@ -42,16 +42,16 @@
     "apple authentication"
   ],
   "devDependencies": {
-    "@react-native/eslint-config": "^0.76.0",
-    "@types/react": "18.2.34",
-    "genversion": "^3.1.1",
-    "np": "^10.0.7",
-    "prettier": "^3.0.3",
-    "react-native": "^0.76.0",
-    "rimraf": "^6.0.1",
-    "typedoc": "^0.22.15",
-    "typedoc-plugin-markdown": "^3.12.1",
-    "typescript": "^5.0.4"
+    "@react-native/eslint-config": "^0.82.1",
+    "@types/react": "19.2.2",
+    "genversion": "^3.2.0",
+    "np": "^10.2.0",
+    "prettier": "^3.6.2",
+    "react-native": "^0.82.1",
+    "rimraf": "^6.1.0",
+    "typedoc": "^0.28.14",
+    "typedoc-plugin-markdown": "^4.9.0",
+    "typescript": "^5.9.3"
   },
   "publishConfig": {
     "access": "public"

@@ -75,7 +75,7 @@ Below are simple steps to help you get up and running. The implementation differ
 
 #### 1. Initial set-up
 
-Import the `appleAuth` ([API documentation](docs/interfaces/_lib_index_d_.md#66)) module and the `AppleButton` ([API documentation](docs/interfaces/_lib_index_d_.applebuttonprops.md)) exported member element from the `@invertase/react-native-apple-authentication` library. Setup an event handler (`onPress`) to kick start the authentication request.
+Import the `appleAuth` ([API documentation](typedocs/variables/appleAuth.md)) module and the `AppleButton` ([API documentation](typedocs/variables/AppleButton.md)) exported member element from the `@invertase/react-native-apple-authentication` library. Setup an event handler (`onPress`) to kick start the authentication request.
 
 ```js
 // App.js
