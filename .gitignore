@@ -545,4 +545,6 @@ Pods/*
 .tmp
 
 
+.yarn/cache
+.yarn/install-state.gz
 example/.yarn
