@@ -11,6 +11,7 @@
 - [responseType](AndroidConfig.md#responsetype)
 - [scope](AndroidConfig.md#scope)
 - [state](AndroidConfig.md#state)
+- [fullScreen](AndroidConfig.md#fullScreen)
 
 ## Properties
 
@@ -24,7 +25,7 @@ The developer’s client identifier, as provided by WWDR.
 
 [index.d.ts:513](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L513)
 
-___
+---
 
 ### nonce
 
@@ -37,7 +38,7 @@ This value will be SHA256 hashed by the library before being sent to Apple.
 
 [index.d.ts:532](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L532)
 
-___
+---
 
 ### nonceEnabled
 
@@ -53,7 +54,7 @@ Defaults to true.
 
 [index.d.ts:541](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L541)
 
-___
+---
 
 ### redirectUri
 
@@ -66,7 +67,7 @@ IP address or localhost.
 
 [index.d.ts:517](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L517)
 
-___
+---
 
 ### responseType
 
@@ -78,7 +79,7 @@ The type of response requested.
 
 [index.d.ts:520](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L520)
 
-___
+---
 
 ### scope
 
@@ -90,7 +91,7 @@ The amount of user information requested from Apple.
 
 [index.d.ts:523](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L523)
 
-___
+---
 
 ### state
 
@@ -101,3 +102,19 @@ The current state of the request.
 #### Defined in
 
 [index.d.ts:526](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L526)
+
+### fullScreen
+
+• `Optional` **fullScreen**: `boolean`
+
+Full screen mode
+
+When true, the dialog fits within the app window only.
+
+When false, it covers the entire screen including the status bar.
+
+Defaults to true
+
+#### Defined in
+
+N/A (coming soon)

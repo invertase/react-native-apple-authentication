@@ -101,6 +101,9 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
           : true;
         String rawNonce = "";
         String nonce = "";
+        Boolean fullScreen = configObject.hasKey("fullScreen")
+          ? configObject.getBoolean("fullScreen")
+          : true;
 
         if (configObject.hasKey("clientId")) {
             clientId = configObject.getString("clientId");
@@ -154,6 +157,7 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
             .state(state)
             .rawNonce(rawNonce)
             .nonce(nonce)
+            .fullScreen(fullScreen)
             .build();
     }
 

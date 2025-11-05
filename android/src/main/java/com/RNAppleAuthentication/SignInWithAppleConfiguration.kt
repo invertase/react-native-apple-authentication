@@ -17,6 +17,7 @@ data class SignInWithAppleConfiguration private constructor(
     private lateinit var state: String
     private lateinit var rawNonce: String
     private lateinit var nonce: String
+    private lateinit var fullScreen: Boolean
 
     fun clientId(clientId: String) = apply {
       this.clientId = clientId
@@ -46,7 +47,11 @@ data class SignInWithAppleConfiguration private constructor(
       this.nonce = nonce
     }
 
-    fun build() = SignInWithAppleConfiguration(clientId, redirectUri, scope, responseType, state, rawNonce, nonce)
+    fun fullScreen(fullScreen: Boolean) = apply {
+      this.fullScreen = fullScreen
+    }
+
+    fun build() = SignInWithAppleConfiguration(clientId, redirectUri, scope, responseType, state, rawNonce, nonce, fullScreen)
   }
 
   enum class ResponseType {

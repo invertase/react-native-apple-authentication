@@ -18,7 +18,6 @@
 import React from 'react';
 import { GestureResponderEvent, StyleProp, ViewStyle, TextStyle } from 'react-native';
 
-
 /** AppleButton, cross-platform */
 
 /**
@@ -124,7 +123,6 @@ export const AppleButton: {
   Type: typeof AppleButtonType;
   Style: typeof AppleButtonStyle;
 } & React.FC<AppleButtonProps>;
-
 
 /** iOS */
 
@@ -232,7 +230,6 @@ export declare enum AppleCredentialState {
    */
   TRANSFERRED = 3,
 }
-
 
 /**
  * Apple Authentication Request options to be used with `performRequest(requestOptions)`.
@@ -409,7 +406,6 @@ export interface AppleRequestResponse {
   authorizationCode: string | null;
 }
 
-
 export const appleAuth: {
   /**
    * A boolean value of whether Apple Authentication is supported on this device & platform version.
@@ -485,7 +481,6 @@ export const appleAuth: {
 };
 export default appleAuth;
 
-
 /** Android */
 
 export type AndroidError = {
@@ -499,18 +494,18 @@ export type AndroidError = {
    * User cancelled (closed the browser window) the sign in request.
    */
   SIGNIN_CANCELLED: string;
-}
+};
 
 export declare enum AndroidResponseType {
-  ALL = "ALL",
-  CODE = "CODE",
-  ID_TOKEN = "ID_TOKEN",
+  ALL = 'ALL',
+  CODE = 'CODE',
+  ID_TOKEN = 'ID_TOKEN',
 }
 
 export declare enum AndroidScope {
-  ALL = "ALL",
-  EMAIL = "EMAIL",
-  NAME = "NAME",
+  ALL = 'ALL',
+  EMAIL = 'EMAIL',
+  NAME = 'NAME',
 }
 
 export interface AndroidConfig {
@@ -544,6 +539,17 @@ export interface AndroidConfig {
    * Defaults to true.
    */
   nonceEnabled?: boolean;
+
+  /**
+   * Full screen mode
+   *
+   * When true, the dialog fits within the app window only.
+   *
+   * When false, it covers the entire screen including the status bar.
+   *
+   * Defaults to true
+   */
+  fullScreen: boolean;
 }
 
 export interface AndroidSigninResponse {
@@ -559,7 +565,7 @@ export interface AndroidSigninResponse {
    * User object describing the authorized user. This value may be omitted by Apple.
    */
   user?: {
-    name?: { firstName?: string; lastName?: string; };
+    name?: { firstName?: string; lastName?: string };
     email?: string;
   };
 

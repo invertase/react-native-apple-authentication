@@ -15,13 +15,13 @@ import com.RNAppleAuthentication.SignInWithAppleResult
 import com.RNAppleAuthentication.SignInWithAppleService
 
 @SuppressLint("SetJavaScriptEnabled")
-internal class SignInWebViewDialogFragment : DialogFragment() {
+internal class SignInWebViewDialogFragment: DialogFragment() {
   companion object {
     private const val AUTHENTICATION_ATTEMPT_KEY = "authenticationAttempt"
     private const val WEB_VIEW_KEY = "webView"
 
-    fun newInstance(authenticationAttempt: SignInWithAppleService.AuthenticationAttempt): SignInWebViewDialogFragment {
-      val fragment = SignInWebViewDialogFragment()
+    fun newInstance(authenticationAttempt: SignInWithAppleService.AuthenticationAttempt, fullScreen: Boolean = true): SignInWebViewDialogFragment {
+      val fragment = SignInWebViewDialogFragment(fullScreen)
       fragment.arguments = Bundle().apply {
         putParcelable(AUTHENTICATION_ATTEMPT_KEY, authenticationAttempt)
       }
@@ -40,7 +40,12 @@ internal class SignInWebViewDialogFragment : DialogFragment() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     authenticationAttempt = arguments?.getParcelable(AUTHENTICATION_ATTEMPT_KEY)!!
-    setStyle(STYLE_NORMAL, R.style.sign_in_with_apple_button_DialogTheme)
+    setStyle(STYLE_NORMAL, R.style.sign_in_with_apple_button_DialogTheme);
+    
+    // If fullScreen mode is disabled, use floating dialog theme
+    if (!fullScreen) {
+      setStyle(STYLE_NO_TITLE, R.style.sign_in_with_apple_button_DialogTheme_Floating);
+    }
   }
 
   override fun onCreateView(
