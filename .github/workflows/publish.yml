@@ -1,0 +1,30 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # For git operations
+      id-token: write # < REQUIRED FOR OIDC
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: git config
+        run: |
+          git config --global user.name 'Invertase Publisher'
+          git config --global user.email 'oss@invertase.io'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "lts/*"
+          registry-url: "https://registry.npmjs.org"
+      - name: publish package
+        run: |
+          yarn
+          yarn release-it --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.MIKE_HARDY_RNAA_RELEASE_GITHUB_TOKEN }}

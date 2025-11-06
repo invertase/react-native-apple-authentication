@@ -1,48 +1,39 @@
+[**@invertase/react-native-apple-authentication**](../README.md)
+
+***
+
 # Interface: AndroidConfig
 
-## Table of contents
-
-### Properties
-
-- [clientId](AndroidConfig.md#clientid)
-- [nonce](AndroidConfig.md#nonce)
-- [nonceEnabled](AndroidConfig.md#nonceenabled)
-- [redirectUri](AndroidConfig.md#redirecturi)
-- [responseType](AndroidConfig.md#responsetype)
-- [scope](AndroidConfig.md#scope)
-- [state](AndroidConfig.md#state)
-- [fullScreen](AndroidConfig.md#fullScreen)
+Defined in: [index.d.ts:516](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L516)
 
 ## Properties
 
 ### clientId
 
-• **clientId**: `string`
+> **clientId**: `string`
+
+Defined in: [index.d.ts:518](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L518)
 
 The developer’s client identifier, as provided by WWDR.
 
-#### Defined in
+***
 
-[index.d.ts:513](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L513)
+### nonce?
 
-___
+> `optional` **nonce**: `string`
 
-### nonce
-
-• `Optional` **nonce**: `string`
+Defined in: [index.d.ts:537](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L537)
 
 A String value used to associate a client session with an ID token and mitigate replay attacks.
 This value will be SHA256 hashed by the library before being sent to Apple.
 
-#### Defined in
+***
 
-[index.d.ts:532](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L532)
+### nonceEnabled?
 
-___
+> `optional` **nonceEnabled**: `boolean`
 
-### nonceEnabled
-
-• `Optional` **nonceEnabled**: `boolean`
+Defined in: [index.d.ts:546](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L546)
 
 Disable automatic nonce behaviour by setting this to false.
 
@@ -50,71 +41,43 @@ Useful for authentication providers that don't yet support nonces.
 
 Defaults to true.
 
-#### Defined in
-
-[index.d.ts:541](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L541)
-
-___
+***
 
 ### redirectUri
 
-• **redirectUri**: `string`
+> **redirectUri**: `string`
+
+Defined in: [index.d.ts:522](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L522)
 
 The URI to which the authorization redirects. It must include a domain name, and can’t be an
 IP address or localhost.
 
-#### Defined in
+***
 
-[index.d.ts:517](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L517)
+### responseType?
 
-___
+> `optional` **responseType**: [`AndroidResponseType`](../enumerations/AndroidResponseType.md)
 
-### responseType
-
-• `Optional` **responseType**: [`AndroidResponseType`](../enums/AndroidResponseType.md)
+Defined in: [index.d.ts:525](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L525)
 
 The type of response requested.
 
-#### Defined in
+***
 
-[index.d.ts:520](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L520)
+### scope?
 
-___
+> `optional` **scope**: [`AndroidScope`](../enumerations/AndroidScope.md)
 
-### scope
-
-• `Optional` **scope**: [`AndroidScope`](../enums/AndroidScope.md)
+Defined in: [index.d.ts:528](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L528)
 
 The amount of user information requested from Apple.
 
-#### Defined in
+***
 
-[index.d.ts:523](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L523)
+### state?
 
-___
+> `optional` **state**: `string`
 
-### state
-
-• `Optional` **state**: `string`
+Defined in: [index.d.ts:531](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L531)
 
 The current state of the request.
-
-#### Defined in
-
-[index.d.ts:526](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L526)
-
-### fullScreen
-
-• `Optional` **fullScreen**: `boolean`
-
-Full screen mode
-
-When true, the dialog fits within the app window only.
-
-When false, it covers the entire screen including the status bar.
-
-Defaults to true
-
-#### Defined in
-
-N/A (coming soon)

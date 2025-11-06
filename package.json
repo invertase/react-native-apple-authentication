@@ -1,27 +1,31 @@
 {
   "name": "@invertase/react-native-apple-authentication",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "author": "Invertase <oss@invertase.io> (http://invertase.io)",
   "description": "A complete Apple Authentication services API for React Native iOS apps.",
   "homepage": "https://github.com/invertase/react-native-apple-authentication",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
+    "postinstallDev": "yarn build && yarn tsc:compile",
     "tsc:compile": "tsc --noEmit",
-    "build": "genversion --semi lib/version.js",
+    "lint": "eslint lib/",
+    "build": "genversion --semi lib/version.js --verbose",
     "build:all": "yarn build:clean && yarn build && yarn example:build:android && yarn example:build:ios",
-    "build:clean": "rimraf ios/build android/build example/android/app/build example/ios/build example/macos/build",
-    "build:docs": "typedoc --excludeExternals --out typedocs --plugin typedoc-plugin-markdown --hideBreadcrumbs --entryPoints lib/index.d.ts",
-    "prepare": "yarn build && yarn tsc:compile",
-    "example:prepare": "cd example && yarn && cd ios && (pod install || true) && cd ../macos && (pod install || true)",
+    "build:clean": "rimraf ios/build android/build example/android/app/build example/ios/build example-old/macos/build example-old/visionos/build",
+    "build:docs": "typedoc --excludeExternals --readme none --cleanOutputDir --out typedocs --plugin typedoc-plugin-markdown --hideBreadcrumbs lib/index.d.ts",
+    "example:prepare": "cd example && yarn && cd ios && (pod install || true)",
+    "example:other:prepare": "cd example-other && yarn && cd macos && (pod install || true) && cd ../visionos && (pod install || true)",
     "example:build:android": "cd example/android && ./gradlew assembleDebug",
     "example:build:ios": "cd example && (xcodebuild -workspace ios/RNAppleAuthExample.xcworkspace -scheme RNAppleAuthExample -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=YES | xcbeautify || true)",
-    "example:build:macos": "cd example && (xcodebuild -workspace macos/RNAppleAuthExample.xcworkspace -scheme RNAppleAuthExample -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=YES | xcbeautify || true)",
+    "example:other:build:macos": "cd example-other && (xcodebuild -workspace macos/RNAppleAuthExample.xcworkspace -configuration Debug -scheme RNAppleAuthExample | xcbeautify || true)",
+    "example:other:build:visionos": "cd example-other && (xcodebuild -workspace visionos/RNAppleAuthExample.xcworkspace -scheme RNAppleAuthExample -configuration Debug | xcbeautify || true)",
     "example:start": "cd example && yarn start",
+    "example:other:start": "cd example && yarn start",
     "example:ios": "cd example && yarn ios",
-    "example:macos": "cd example && yarn macos",
     "example:android": "cd example && yarn android",
-    "shipit": "yarn build && yarn tsc:compile && yarn np --no-tests"
+    "example:other:macos": "cd example-other && yarn macos",
+    "example:other:visionos": "cd example-other && yarn visionos"
   },
   "repository": {
     "type": "git",
@@ -42,21 +46,30 @@
     "apple authentication"
   ],
   "devDependencies": {
-    "@react-native/eslint-config": "^0.76.0",
-    "@types/react": "18.2.34",
-    "genversion": "^3.1.1",
-    "np": "^10.0.7",
-    "prettier": "^3.0.3",
-    "react-native": "^0.76.0",
-    "rimraf": "^6.0.1",
-    "typedoc": "^0.22.15",
-    "typedoc-plugin-markdown": "^3.12.1",
-    "typescript": "^5.0.4"
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.39.1",
+    "@react-native/eslint-config": "^0.82.1",
+    "@release-it/conventional-changelog": "^10.0.1",
+    "@types/react": "19.2.2",
+    "eslint": "^9.39.1",
+    "eslint-plugin-prettier": "^5.5.4",
+    "genversion": "^3.2.0",
+    "globals": "^16.5.0",
+    "prettier": "^3.6.2",
+    "react-native": "^0.82.1",
+    "react-native-test-app": "^5.0.1",
+    "release-it": "^19.0.6",
+    "rimraf": "^6.1.0",
+    "tslib": "^2.8.1",
+    "typedoc": "^0.28.14",
+    "typedoc-plugin-markdown": "^4.9.0",
+    "typescript": "^5.9.3"
   },
   "publishConfig": {
     "access": "public"
   },
   "engines": {
     "node": ">=14"
-  }
+  },
+  "packageManager": "yarn@4.10.3+sha512.c38cafb5c7bb273f3926d04e55e1d8c9dfa7d9c3ea1f36a4868fa028b9e5f72298f0b7f401ad5eb921749eb012eb1c3bb74bf7503df3ee43fd600d14a018266f"
 }

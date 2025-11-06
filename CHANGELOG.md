@@ -1,3 +1,11 @@
+# Changelog
+
+## [2.4.2](https://github.com/invertase/react-native-apple-authentication/compare/v2.4.1...v2.4.2) (2025-11-05)
+
+### Bug Fixes
+
+* use release-it and OIDC Trusted Publish for releases ([44d41ff](https://github.com/invertase/react-native-apple-authentication/commit/44d41fff8a8451e905cf64dd6bdfafbec1bedc1b))
+
 <!-- markdownlint-disable MD024 MD034 MD033 -->
 
 # Release Notes

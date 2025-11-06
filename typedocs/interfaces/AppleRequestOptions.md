@@ -1,23 +1,20 @@
+[**@invertase/react-native-apple-authentication**](../README.md)
+
+***
+
 # Interface: AppleRequestOptions
+
+Defined in: [index.d.ts:240](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L240)
 
 Apple Authentication Request options to be used with `performRequest(requestOptions)`.
 
-## Table of contents
-
-### Properties
-
-- [nonce](AppleRequestOptions.md#nonce)
-- [nonceEnabled](AppleRequestOptions.md#nonceenabled)
-- [requestedOperation](AppleRequestOptions.md#requestedoperation)
-- [requestedScopes](AppleRequestOptions.md#requestedscopes)
-- [state](AppleRequestOptions.md#state)
-- [user](AppleRequestOptions.md#user)
-
 ## Properties
 
-### nonce
+### nonce?
 
-• `Optional` **nonce**: `string`
+> `optional` **nonce**: `string`
+
+Defined in: [index.d.ts:273](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L273)
 
 Nonce to be passed to the identity provider. If value not provided, one will automatically
 be created for you and available as part of @{AppleRequestResponse}.
@@ -28,15 +25,13 @@ ASAuthorization response.
 The nonce size may depend on the actual technology used and an error might be returned by
 the request execution.
 
-#### Defined in
+***
 
-[index.d.ts:268](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L268)
+### nonceEnabled?
 
-___
+> `optional` **nonceEnabled**: `boolean`
 
-### nonceEnabled
-
-• `Optional` **nonceEnabled**: `boolean`
+Defined in: [index.d.ts:282](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L282)
 
 Disable automatic nonce behaviour by setting this to false.
 
@@ -44,63 +39,53 @@ Useful for authentication providers that don't yet support nonces.
 
 Defaults to true.
 
-#### Defined in
+***
 
-[index.d.ts:277](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L277)
+### requestedOperation?
 
-___
+> `optional` **requestedOperation**: [`AppleRequestOperation`](../enumerations/AppleRequestOperation.md)
 
-### requestedOperation
-
-• `Optional` **requestedOperation**: [`AppleRequestOperation`](../enums/AppleRequestOperation.md)
+Defined in: [index.d.ts:253](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L253)
 
 Operation which should be executed.
 
-**`url`** https://developer.apple.com/documentation/authenticationservices/asauthorizationoperationimplicit?language=objc
+#### Url
 
-#### Defined in
+https://developer.apple.com/documentation/authenticationservices/asauthorizationoperationimplicit?language=objc
 
-[index.d.ts:248](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L248)
+***
 
-___
+### requestedScopes?
 
-### requestedScopes
+> `optional` **requestedScopes**: [`AppleRequestScope`](../enumerations/AppleRequestScope.md)[]
 
-• `Optional` **requestedScopes**: [`AppleRequestScope`](../enums/AppleRequestScope.md)[]
+Defined in: [index.d.ts:246](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L246)
 
 The contact information to be requested from the user.
 
 Only scopes for which this app was authorized for will be returned.
 
-#### Defined in
+***
 
-[index.d.ts:241](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L241)
+### state?
 
-___
+> `optional` **state**: `string`
 
-### state
-
-• `Optional` **state**: `string`
+Defined in: [index.d.ts:289](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L289)
 
 State to be passed to the identity provider.
 
 This value will be returned as a part of successful AppleRequestResponse response.
 
-#### Defined in
+***
 
-[index.d.ts:284](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L284)
+### user?
 
-___
+> `optional` **user**: `string`
 
-### user
-
-• `Optional` **user**: `string`
+Defined in: [index.d.ts:261](https://github.com/invertase/react-native-apple-authentication/blob/3c27d80dde31265aa6877202b45eedba49452e96/lib/index.d.ts#L261)
 
 If you have been previously vended a 'user' value through a Apple Authorization response,
 you may set it here to provide additional context to the identity provider.
 
 Inherited from `ASAuthorizationAppleIDRequest`
-
-#### Defined in
-
-[index.d.ts:256](https://github.com/invertase/react-native-apple-authentication/blob/86e8b17/lib/index.d.ts#L256)
