@@ -554,7 +554,7 @@ export interface AndroidConfig {
    *
    * Defaults to true
    */
-  fullScreen: boolean;
+  fullScreen?: boolean;
 }
 
 export interface AndroidSigninResponse {
