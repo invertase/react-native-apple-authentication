@@ -26,9 +26,9 @@ Defined in: [index.d.ts:557](https://github.com/NJ-2020/react-native-apple-authe
 
 Full screen mode
 
-When true, the dialog fits within the app window only.
+When true, it covers the entire screen including the status bar.
 
-When false, it covers the entire screen including the status bar.
+When false, the dialog fits within the app window only.
 
 Defaults to true
 
