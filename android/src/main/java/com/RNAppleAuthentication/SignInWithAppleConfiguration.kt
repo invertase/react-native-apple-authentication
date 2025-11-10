@@ -8,7 +8,7 @@ data class SignInWithAppleConfiguration private constructor(
   val state: String,
   val rawNonce: String,
   val nonce: String,
-  val fullScreen: Boolean = false
+  val fullScreen: Boolean = true
 ) {
   class Builder {
     private lateinit var clientId: String
@@ -18,7 +18,7 @@ data class SignInWithAppleConfiguration private constructor(
     private lateinit var state: String
     private lateinit var rawNonce: String
     private lateinit var nonce: String
-    private var fullScreen: Boolean = false
+    private var fullScreen: Boolean = true
 
     fun clientId(clientId: String) = apply {
       this.clientId = clientId
