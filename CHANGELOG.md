@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.0](https://github.com/invertase/react-native-apple-authentication/compare/v2.4.2...v2.5.0) (2025-11-10)
+
+### Features
+
+* **android:** optional fullScreen prop - if false sign-in fits inside system bars ([#378](https://github.com/invertase/react-native-apple-authentication/issues/378)) ([dc2b9f8](https://github.com/invertase/react-native-apple-authentication/commit/dc2b9f8594d9a9368d0bf9d80db5ba4a06f62318))
+
 ## [2.4.2](https://github.com/invertase/react-native-apple-authentication/compare/v2.4.1...v2.4.2) (2025-11-05)
 
 ### Bug Fixes
