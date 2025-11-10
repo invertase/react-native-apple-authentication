@@ -18,6 +18,22 @@ The developer’s client identifier, as provided by WWDR.
 
 ***
 
+### fullScreen?
+
+> `optional` **fullScreen**: `boolean`
+
+Defined in: [index.d.ts:557](https://github.com/NJ-2020/react-native-apple-authentication/blob/b0991056e27c66a368684bc0fba99637aa01122a/lib/index.d.ts#L557)
+
+Full screen mode
+
+When true, it covers the entire screen including the status bar.
+
+When false, the dialog fits within the app window only.
+
+Defaults to true
+
+***
+
 ### nonce?
 
 > `optional` **nonce**: `string`

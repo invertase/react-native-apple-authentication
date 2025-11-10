@@ -77,7 +77,7 @@ class SignInWithAppleService(
   }
 
   fun show() {
-    val fragment = SignInWebViewDialogFragment.newInstance(AuthenticationAttempt.create(configuration))
+    val fragment = SignInWebViewDialogFragment.newInstance(AuthenticationAttempt.create(configuration), configuration.fullScreen)
     fragment.configure(callback)
     fragment.show(fragmentManager, fragmentTag)
   }

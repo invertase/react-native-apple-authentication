@@ -544,6 +544,17 @@ export interface AndroidConfig {
    * Defaults to true.
    */
   nonceEnabled?: boolean;
+
+  /**
+   * Full screen mode
+   *
+   * When true, it covers the entire screen including the status bar.
+   *
+   * When false, the dialog fits within the app window only.
+   *
+   * Defaults to true
+   */
+  fullScreen?: boolean;
 }
 
 export interface AndroidSigninResponse {
