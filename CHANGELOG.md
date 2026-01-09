@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.1](https://github.com/invertase/react-native-apple-authentication/compare/v2.5.0...v2.5.1) (2026-01-09)
+
+### Bug Fixes
+
+* do not include yarn-related files in released bundle ([#379](https://github.com/invertase/react-native-apple-authentication/issues/379)) ([206252a](https://github.com/invertase/react-native-apple-authentication/commit/206252a6ec05e62193739c11bb849a7575925e32))
+
 ## [2.5.0](https://github.com/invertase/react-native-apple-authentication/compare/v2.4.2...v2.5.0) (2025-11-10)
 
 ### Features
