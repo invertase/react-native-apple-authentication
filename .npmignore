@@ -53,6 +53,10 @@ android/gradlew.bat
 android/gradle/
 
 .idea
+yarn/
+.yarn
+.yarnrc.yml
+.release-it.json
 coverage
 yarn.lock
 e2e/
@@ -61,10 +65,12 @@ e2e/
 .nyc_output
 android/.settings
 *.coverage.json
+*.tgz
 .circleci
 .eslintignore
 type-test.ts
 example
+example-other
 docs
 .editorconfig
 .eslintrc
