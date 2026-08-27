@@ -67,15 +67,21 @@
 - (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithAuthorization:(ASAuthorization *)authorization {
   NSLog(@"RNAppleAuth -> didCompleteWithAuthorization");
   ASAuthorizationAppleIDCredential *appleIdCredential = authorization.credential;
-  _completion(nil, [self buildDictionaryFromAppleIdCredential:appleIdCredential]);
+  void (^completion)(NSError *, NSDictionary *) = _completion;
   _completion = nil;
+  if (completion) {
+    completion(nil, [self buildDictionaryFromAppleIdCredential:appleIdCredential]);
+  }
 }
 
 - (void)authorizationController:(ASAuthorizationController *)controller didCompleteWithError:(NSError *)error {
   NSLog(@"RNAppleAuth -> didCompleteWithError");
   NSLog(@"%@", error.localizedDescription);
-  _completion(error, nil);
+  void (^completion)(NSError *, NSDictionary *) = _completion;
   _completion = nil;
+  if (completion) {
+    completion(error, nil);
+  }
 }
 
 #pragma mark - ASAuthorizationController Methods
