@@ -33,7 +33,9 @@
 }
 
 - (void)onAppleIDButtonPress {
-  _onPress(nil);
+  if (_onPress) {
+    _onPress(nil);
+  }
 }
 
 @end
