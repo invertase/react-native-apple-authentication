@@ -31,22 +31,20 @@
   NSString *characterSet = @"0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._";
 
   while (remainingLength > 0) {
-    NSMutableArray *randoms = [NSMutableArray arrayWithCapacity:16];
-
-    for (NSInteger i = 0; i < 16; i++) {
-      uint8_t random = 0;
-      int errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random);
-      NSAssert(errorCode == errSecSuccess, @"Unable to generate nonce: OSStatus %i", errorCode);
-      [randoms addObject:@(random)];
+    uint8_t randoms[16];
+    int errorCode = SecRandomCopyBytes(kSecRandomDefault, sizeof(randoms), randoms);
+    if (errorCode != errSecSuccess) {
+      [NSException raise:NSInternalInconsistencyException
+                  format:@"Unable to generate nonce: OSStatus %i", errorCode];
     }
 
-    for (NSNumber *random in randoms) {
+    for (NSUInteger i = 0; i < sizeof(randoms); i++) {
       if (remainingLength == 0) {
         break;
       }
 
-      if (random.unsignedIntValue < characterSet.length) {
-        unichar character = [characterSet characterAtIndex:random.unsignedIntValue];
+      if (randoms[i] < characterSet.length) {
+        unichar character = [characterSet characterAtIndex:randoms[i]];
         [result appendFormat:@"%C", character];
         remainingLength--;
       }
@@ -57,9 +55,9 @@
 }
 
 + (NSString *)stringBySha256HashingString:(NSString *)input {
-  const char *string = [input UTF8String];
+  NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding];
   unsigned char result[CC_SHA256_DIGEST_LENGTH];
-  CC_SHA256(string, (CC_LONG) strlen(string), result);
+  CC_SHA256(data.bytes, (CC_LONG) data.length, result);
 
   NSMutableString *hashed = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
   for (NSInteger i = 0; i < CC_SHA256_DIGEST_LENGTH; i++) {
