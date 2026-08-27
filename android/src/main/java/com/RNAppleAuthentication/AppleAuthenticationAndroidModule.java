@@ -152,7 +152,9 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
         this.configuration = new SignInWithAppleConfiguration.Builder()
             .clientId(clientId)
             .redirectUri(redirectUri)
-            .responseType(SignInWithAppleConfiguration.ResponseType.ALL)
+            // Apple requires code; preserve the legacy ID_TOKEN behavior.
+            .responseType(responseType == SignInWithAppleConfiguration.ResponseType.ID_TOKEN
+                ? SignInWithAppleConfiguration.ResponseType.ALL : responseType)
             .scope(scope)
             .state(state)
             .rawNonce(rawNonce)
@@ -163,7 +165,8 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
 
     @ReactMethod
     public void signIn(final Promise promise) {
-        if (this.configuration == null) {
+        final SignInWithAppleConfiguration requestConfiguration = this.configuration;
+        if (requestConfiguration == null) {
             promise.reject(E_NOT_CONFIGURED_ERROR);
             return;
         }
@@ -182,7 +185,7 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
                 response.putString("id_token", id_token);
                 response.putString("state", state);
 
-                String rawNonce = configuration.getRawNonce();
+                String rawNonce = requestConfiguration.getRawNonce();
                 if (!rawNonce.isEmpty()) {
                   response.putString("nonce", rawNonce);
                 }
@@ -229,7 +232,7 @@ public class AppleAuthenticationAndroidModule extends ReactContextBaseJavaModule
         SignInWithAppleService service = new SignInWithAppleService(
                 fragmentManager,
                 fragmentTag,
-                configuration,
+                requestConfiguration,
                 callback
         );
 

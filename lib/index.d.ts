@@ -504,6 +504,7 @@ export type AndroidError = {
 export declare enum AndroidResponseType {
   ALL = "ALL",
   CODE = "CODE",
+  /** @deprecated Apple requires a code response. Kept as an alias for ALL. */
   ID_TOKEN = "ID_TOKEN",
 }
 
@@ -521,7 +522,7 @@ export interface AndroidConfig {
    * IP address or localhost. */
   redirectUri: string;
 
-  /** The type of response requested.  */
+  /** The type of response requested. ID_TOKEN is a legacy alias for ALL. */
   responseType?: AndroidResponseType;
 
   /** The amount of user information requested from Apple. */
@@ -632,7 +633,8 @@ export interface AppleAuthAndroid {
   Scope: typeof AndroidScope;
 
   /**
-   * The type of response requested. Valid values are `code` and `id_token`. You can request one or both.
+   * The type of response requested: CODE or ALL (code and id_token).
+   * The legacy ID_TOKEN value behaves as ALL because Apple requires code.
    */
   ResponseType: typeof AndroidResponseType;
 }
