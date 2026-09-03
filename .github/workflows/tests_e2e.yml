@@ -28,15 +28,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 70
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           fetch-depth: 50
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 'lts/*'
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         name: Yarn Cache
         id: yarn-cache
         with:
@@ -46,7 +46,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('package.json', 'example/package.json') }}
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@d9c87d481d55275bb5441eef3fe0e46805f9ef70 # v3
         with:
           # Only write to the cache for builds on the 'main' branches, stops branches evicting main cache
           # Builds on other branches will only read from main branch cache writes
@@ -54,7 +54,7 @@ jobs:
           cache-read-only: ${{ github.ref != 'refs/heads/main' }}
 
       - name: Yarn Install
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3
         with:
           timeout_minutes: 10
           retry_wait_seconds: 60
@@ -62,13 +62,13 @@ jobs:
           command: yarn && yarn example:prepare
 
       - name: Configure JDK
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         with:
           distribution: 'temurin'
           java-version: '17'
 
       - name: Build Android App
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3
         with:
           timeout_minutes: 15
           retry_wait_seconds: 60
@@ -84,19 +84,19 @@ jobs:
     # TODO matrix across APIs, at least 10 and 13 (lowest to highest)
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           fetch-depth: 50
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 'lts/*'
 
-      - uses: maxim-lobanov/setup-xcode@v1
+      - uses: maxim-lobanov/setup-xcode@ed7a3b1fda3918c0306d1b724322adc0b8cc0a90 # v1
         with:
           xcode-version: latest-stable
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         name: Yarn Cache
         id: yarn-cache
         with:
@@ -105,7 +105,7 @@ jobs:
             example/.yarn
           key: ${{ runner.os }}-yarn-${{ hashFiles('package.json', 'example/package.json') }}
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         name: Cache Pods
         with:
           path: |
@@ -115,7 +115,7 @@ jobs:
           key: ${{ runner.os }}-pods-${{ hashFiles('example/ios/Podfile.lock', 'example-other/macos/Podfile.lock', 'example-other/visionos/Podfile.lock') }}
 
       # Detox is compiled during yarn install, using Xcode, set up cache first
-      - uses: hendrikmuhs/ccache-action@v1
+      - uses: hendrikmuhs/ccache-action@5ebbd400eff9e74630f759d94ddd7b6c26299639 # v1
         name: Xcode Compile Cache
         with:
           key: ${{ runner.os }}-v2 # makes a unique key w/related restore key internally
@@ -123,12 +123,12 @@ jobs:
           max-size: 750M
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1
         with:
           ruby-version: 3
 
       - name: Update Ruby build tools
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3
         with:
           timeout_minutes: 2
           retry_wait_seconds: 60
@@ -136,7 +136,7 @@ jobs:
           command: gem update cocoapods xcodeproj
 
       - name: Update brew build tools
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3
         with:
           timeout_minutes: 10
           retry_wait_seconds: 60
@@ -144,7 +144,7 @@ jobs:
           command: brew install xcbeautify
 
       - name: Yarn and Pod Install
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3
         with:
           timeout_minutes: 10
           retry_wait_seconds: 60
